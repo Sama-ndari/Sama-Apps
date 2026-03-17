@@ -111,9 +111,11 @@ a { color: inherit; }
   flex-shrink: 0;
 }
 
-.header__logo i {
-  font-size: 1.4rem;
-  color: var(--accent);
+.header__logo-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
 .header__search {
