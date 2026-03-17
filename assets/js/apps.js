@@ -1,3 +1,7 @@
+function appAsset(id, file) {
+  return "assets/apps/" + id + "/" + file;
+}
+
 const APPS = [
   {
     id: "esama",
@@ -9,19 +13,19 @@ const APPS = [
     price: "paid",
     version: "1.0.0",
     languages: ["English", "Fran\u00e7ais", "Kiswahili"],
-    icon: "assets/img/esama/esama-icon.png",
+    icon: appAsset("esama", "icon.png"),
     screenshots: [
-      "assets/img/esama/esama-splash.png",
-      "assets/img/esama/esama-store-types.png",
-      "assets/img/esama/esama-pos.png",
-      "assets/img/esama/esama-cart.png",
-      "assets/img/esama/esama-inventory.png",
-      "assets/img/esama/esama-reports.png",
-      "assets/img/esama/esama-crm.png",
-      "assets/img/esama/esama-notifications.png",
-      "assets/img/esama/esama-rental-dashboard.png",
-      "assets/img/esama/esama-rental.png",
-      "assets/img/esama/esama-restaurant.png"
+      appAsset("esama", "screenshots/1.png"),
+      appAsset("esama", "screenshots/2.png"),
+      appAsset("esama", "screenshots/3.png"),
+      appAsset("esama", "screenshots/4.png"),
+      appAsset("esama", "screenshots/5.png"),
+      appAsset("esama", "screenshots/6.png"),
+      appAsset("esama", "screenshots/7.png"),
+      appAsset("esama", "screenshots/8.png"),
+      appAsset("esama", "screenshots/9.png"),
+      appAsset("esama", "screenshots/10.png"),
+      appAsset("esama", "screenshots/11.png")
     ],
     videoUrl: "https://player.vimeo.com/video/1162754098",
     videoTitle: "Demo: How to add products",
@@ -71,19 +75,19 @@ const APPS = [
     price: "paid",
     version: "1.0.0",
     languages: ["English", "Fran\u00e7ais"],
-    icon: "assets/img/velora/velora-icon.png",
+    icon: appAsset("velora", "icon.png"),
     screenshots: [
-      "assets/img/velora/velora1.png",
-      "assets/img/velora/velora2.png",
-      "assets/img/velora/velora3.png",
-      "assets/img/velora/velora4.png",
-      "assets/img/velora/velora5.png",
-      "assets/img/velora/velora6.png",
-      "assets/img/velora/velora7.png",
-      "assets/img/velora/velora8.png",
-      "assets/img/velora/velora9.png",
-      "assets/img/velora/velora10.png",
-      "assets/img/velora/velora11.png"
+      appAsset("velora", "screenshots/1.png"),
+      appAsset("velora", "screenshots/2.png"),
+      appAsset("velora", "screenshots/3.png"),
+      appAsset("velora", "screenshots/4.png"),
+      appAsset("velora", "screenshots/5.png"),
+      appAsset("velora", "screenshots/6.png"),
+      appAsset("velora", "screenshots/7.png"),
+      appAsset("velora", "screenshots/8.png"),
+      appAsset("velora", "screenshots/9.png"),
+      appAsset("velora", "screenshots/10.png"),
+      appAsset("velora", "screenshots/11.png")
     ],
     downloadUrl: "https://drive.google.com/uc?export=download&id=1zt4N9ZE8QJntwgVg5m4yga5LgKfoQ_E-",
     shortDesc: "A personal productivity app with habit tracking, goals, smart alarms, expense management, and AI features.",
@@ -126,7 +130,7 @@ const APPS = [
     status: "dev",
     version: "1.0.0",
     languages: ["English"],
-    icon: "assets/img/notifspy/notifspy-icon.png",
+    icon: appAsset("notifspy", "icon.png"),
     screenshots: [],
     downloadUrl: null,
     shortDesc: "Captures every notification on your phone silently and lets you recover deleted or dismissed messages.",
