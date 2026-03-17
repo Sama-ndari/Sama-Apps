@@ -482,6 +482,23 @@ a { color: inherit; }
   box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
 }
 
+.btn--share {
+  background: var(--bg-surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn--share:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.btn--share.copied {
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-soft);
+}
+
 .btn--ghost {
   background: transparent;
   color: var(--text-muted);

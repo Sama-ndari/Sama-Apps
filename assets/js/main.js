@@ -203,13 +203,16 @@ function renderDetailPage() {
     return;
   }
 
-  document.title = app.name + " \u2014 Sama Apps";
+  document.title = app.name + " | Sama Apps";
 
   /* Hero */
   var isDev = app.status === "dev";
   var downloadBtn = app.downloadUrl
     ? '<a href="' + app.downloadUrl + '" target="_blank" class="btn btn--primary"><i class="bi bi-download"></i> ' + t("download_apk") + '</a>'
     : "";
+  var baseUrl = window.location.origin + window.location.pathname.replace("app.html", "");
+  var shareUrl = baseUrl + app.id + ".html";
+  var shareBtn = '<button class="btn btn--share" id="copyLinkBtn" data-url="' + shareUrl + '"><i class="bi bi-link-45deg"></i> ' + t("copy_link") + '</button>';
   var devBadge = isDev ? '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>' : '';
   var heroIconHtml = isDev
     ? '<div class="app-hero__icon-wrap app-hero__icon-wrap--dev"><img class="app-hero__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-hero__lock"></i></div>'
@@ -227,8 +230,35 @@ function renderDetailPage() {
           '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
           devBadge +
         '</div>' +
-        '<div class="app-hero__actions">' + downloadBtn + '</div>' +
+        '<div class="app-hero__actions">' + downloadBtn + shareBtn + '</div>' +
       '</div>';
+  }
+
+  /* Copy link button */
+  var copyBtn = document.getElementById("copyLinkBtn");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var url = copyBtn.dataset.url;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          copyBtn.innerHTML = '<i class="bi bi-check-lg"></i> ' + t("copied");
+          setTimeout(function () {
+            copyBtn.innerHTML = '<i class="bi bi-link-45deg"></i> ' + t("copy_link");
+          }, 2000);
+        });
+      } else {
+        var el = document.createElement("textarea");
+        el.value = url;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+        copyBtn.innerHTML = '<i class="bi bi-check-lg"></i> ' + t("copied");
+        setTimeout(function () {
+          copyBtn.innerHTML = '<i class="bi bi-link-45deg"></i> ' + t("copy_link");
+        }, 2000);
+      }
+    });
   }
 
   /* Trial banner */

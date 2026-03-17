@@ -31,7 +31,9 @@ const I18N = {
     coming_soon: "Coming Soon",
     video_demo: "Demo Video",
     free_trial: "Free Trial",
-    video_fullscreen: "Fullscreen"
+    video_fullscreen: "Fullscreen",
+    copy_link: "Copy Link",
+    copied: "Copied!"
   },
   fr: {
     hero_title: 'Des apps de qualit\u00e9,<br />par des <span class="hero__accent">devs ind\u00e9pendants</span>.',
@@ -65,7 +67,9 @@ const I18N = {
     coming_soon: "Bient\u00f4t disponible",
     video_demo: "Vid\u00e9o de d\u00e9mo",
     free_trial: "Essai gratuit",
-    video_fullscreen: "Plein \u00e9cran"
+    video_fullscreen: "Plein \u00e9cran",
+    copy_link: "Copier le lien",
+    copied: "Copi\u00e9 !"
   }
 };
 
