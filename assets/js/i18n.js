@@ -28,7 +28,10 @@ const I18N = {
     app_not_found_desc: "The app you're looking for doesn't exist.",
     back_to_store: "Back to store",
     in_development: "In Development",
-    coming_soon: "Coming Soon"
+    coming_soon: "Coming Soon",
+    video_demo: "Demo Video",
+    free_trial: "Free Trial",
+    video_fullscreen: "Fullscreen"
   },
   fr: {
     hero_title: 'Des apps de qualit\u00e9,<br />par des <span class="hero__accent">devs ind\u00e9pendants</span>.',
@@ -59,7 +62,10 @@ const I18N = {
     app_not_found_desc: "L'application que vous cherchez n'existe pas.",
     back_to_store: "Retour au store",
     in_development: "En d\u00e9veloppement",
-    coming_soon: "Bient\u00f4t disponible"
+    coming_soon: "Bient\u00f4t disponible",
+    video_demo: "Vid\u00e9o de d\u00e9mo",
+    free_trial: "Essai gratuit",
+    video_fullscreen: "Plein \u00e9cran"
   }
 };
 

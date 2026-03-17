@@ -221,7 +221,7 @@ function renderDetailPage() {
       heroIconHtml +
       '<div class="app-hero__info">' +
         '<h1 class="app-hero__name">' + app.name + '</h1>' +
-        '<p class="app-hero__tagline">' + tApp(app, "tagline") + ' \u00b7 ' + app.developer + '</p>' +
+        '<p class="app-hero__tagline">' + tApp(app, "tagline") + '</p>' +
         '<div class="app-hero__badges">' +
           '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
           '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
@@ -229,6 +229,32 @@ function renderDetailPage() {
         '</div>' +
         '<div class="app-hero__actions">' + downloadBtn + '</div>' +
       '</div>';
+  }
+
+  /* Trial banner */
+  var trialBanner = document.getElementById("trialBanner");
+  if (trialBanner && (app.trialBadge || app.trialBadge_fr)) {
+    var trialText = (getLang() === "fr" && app.trialBadge_fr) ? app.trialBadge_fr : (app.trialBadge || "");
+    if (trialText) {
+      trialBanner.hidden = false;
+      trialBanner.innerHTML = '<span class="trial-icon">🎁</span><span class="trial-text">' + trialText + '</span>';
+    }
+  }
+
+  /* Video */
+  var videoSection = document.getElementById("videoSection");
+  var videoTitleEl = document.getElementById("videoTitle");
+  var videoFrame = document.getElementById("videoFrame");
+  var videoFullscreen = document.getElementById("videoFullscreen");
+  var videoFullscreenLabel = document.getElementById("videoFullscreenLabel");
+  if (videoSection && app.videoUrl) {
+    videoSection.hidden = false;
+    var vTitle = (getLang() === "fr" && app.videoTitle_fr) ? app.videoTitle_fr : (app.videoTitle || t("video_demo"));
+    if (videoTitleEl) videoTitleEl.textContent = t("video_demo") + ": " + vTitle;
+    if (videoFrame) videoFrame.src = app.videoUrl + "?title=0&byline=0&portrait=0&color=4CAF50&playsinline=1";
+    var vimeoId = app.videoUrl.replace("https://player.vimeo.com/video/", "").split("?")[0];
+    if (videoFullscreen) videoFullscreen.href = "https://vimeo.com/" + vimeoId;
+    if (videoFullscreenLabel) videoFullscreenLabel.textContent = t("video_fullscreen");
   }
 
   /* Screenshots */
