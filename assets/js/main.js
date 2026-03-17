@@ -1,0 +1,335 @@
+document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+  initLangToggle();
+
+  if (document.getElementById("appDetail")) {
+    renderDetailPage();
+  } else {
+    renderHomePage();
+  }
+});
+
+function initTheme() {
+  const saved = getTheme();
+  document.documentElement.setAttribute("data-theme", saved);
+  updateThemeIcon(saved);
+
+  document.getElementById("themeToggle").addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    setTheme(next);
+    updateThemeIcon(next);
+  });
+}
+
+function updateThemeIcon(theme) {
+  const btn = document.getElementById("themeToggle");
+  if (!btn) return;
+  btn.innerHTML = theme === "dark"
+    ? '<i class="bi bi-sun-fill"></i>'
+    : '<i class="bi bi-moon-fill"></i>';
+}
+
+function initLangToggle() {
+  const btn = document.getElementById("langToggle");
+  if (!btn) return;
+  btn.textContent = getLang().toUpperCase();
+
+  btn.addEventListener("click", () => {
+    const next = getLang() === "en" ? "fr" : "en";
+    setLang(next);
+    btn.textContent = next.toUpperCase();
+    document.documentElement.lang = next;
+
+    if (document.getElementById("appDetail")) {
+      renderDetailPage();
+    } else {
+      renderHomePage();
+    }
+  });
+}
+
+function applyCommonI18n() {
+  const footerRights = document.getElementById("footerRights");
+  const footerBuilt = document.getElementById("footerBuilt");
+  if (footerRights) footerRights.textContent = "\u00a9 " + new Date().getFullYear() + " Sama Apps. " + t("footer_rights");
+  if (footerBuilt) footerBuilt.textContent = t("footer_built");
+}
+
+function priceLabel(app) {
+  return app.price === "free" ? t("free") : t("paid");
+}
+
+function priceBadgeClass(app) {
+  return app.price === "free" ? "badge--free" : "badge--paid";
+}
+
+function categoryLabel(cat) {
+  var map = { Business: "business", Productivity: "productivity", Utility: "utility" };
+  return t(map[cat] || cat.toLowerCase());
+}
+
+/* ===== HOME PAGE ===== */
+function renderHomePage() {
+  applyCommonI18n();
+
+  var heroTitle = document.getElementById("heroTitle");
+  var heroSubtitle = document.getElementById("heroSubtitle");
+  var searchInput = document.getElementById("searchInput");
+  var searchInputMobile = document.getElementById("searchInputMobile");
+  var filtersEl = document.getElementById("filters");
+  var grid = document.getElementById("appGrid");
+  var emptyState = document.getElementById("emptyState");
+
+  if (heroTitle) heroTitle.innerHTML = t("hero_title");
+  if (heroSubtitle) heroSubtitle.textContent = t("hero_subtitle");
+  if (searchInput) searchInput.placeholder = t("search_placeholder");
+  if (searchInputMobile) searchInputMobile.placeholder = t("search_placeholder");
+  if (emptyState) emptyState.textContent = t("no_apps");
+
+  var categories = ["all", "Business", "Productivity", "Utility"];
+  var catLabels = {
+    all: t("all"),
+    Business: t("business"),
+    Productivity: t("productivity"),
+    Utility: t("utility")
+  };
+
+  if (filtersEl) {
+    filtersEl.innerHTML = categories.map(function (c, i) {
+      var cls = i === 0 ? "filter-btn active" : "filter-btn";
+      return '<button class="' + cls + '" data-filter="' + c + '">' + catLabels[c] + "</button>";
+    }).join("");
+  }
+
+  var activeFilter = "all";
+
+  function getSearchQuery() {
+    if (searchInput && searchInput.value.trim()) return searchInput.value.toLowerCase().trim();
+    if (searchInputMobile && searchInputMobile.value.trim()) return searchInputMobile.value.toLowerCase().trim();
+    return "";
+  }
+
+  function renderCards() {
+    var query = getSearchQuery();
+    var filtered = APPS.filter(function (app) {
+      var matchFilter = activeFilter === "all" || app.category === activeFilter;
+      var name = app.name.toLowerCase();
+      var tagline = tApp(app, "tagline").toLowerCase();
+      var desc = tApp(app, "shortDesc").toLowerCase();
+      var matchQuery = !query || name.indexOf(query) !== -1 || tagline.indexOf(query) !== -1 || desc.indexOf(query) !== -1;
+      return matchFilter && matchQuery;
+    });
+
+    if (grid) {
+      grid.innerHTML = filtered.map(function (app) {
+        var isDev = app.status === "dev";
+        var devBadge = isDev ? '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>' : '';
+        var iconHtml = isDev
+          ? '<div class="app-card__icon-wrap app-card__icon-wrap--dev"><img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-card__lock"></i></div>'
+          : '<img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" />';
+        return '<a href="app.html?id=' + app.id + '" class="app-card">' +
+          iconHtml +
+          '<div class="app-card__body">' +
+            '<h3 class="app-card__name">' + app.name + '</h3>' +
+            '<p class="app-card__tagline">' + tApp(app, "tagline") + '</p>' +
+            '<p class="app-card__desc">' + tApp(app, "shortDesc") + '</p>' +
+            '<div class="app-card__meta">' +
+              '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
+              '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
+              devBadge +
+            '</div>' +
+          '</div>' +
+        '</a>';
+      }).join("");
+    }
+
+    if (emptyState) emptyState.hidden = filtered.length > 0;
+  }
+
+  if (filtersEl) {
+    filtersEl.addEventListener("click", function (e) {
+      var btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      filtersEl.querySelectorAll(".filter-btn").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeFilter = btn.dataset.filter;
+      renderCards();
+    });
+  }
+
+  var timer;
+  function onSearchInput() {
+    clearTimeout(timer);
+    timer = setTimeout(renderCards, 200);
+  }
+
+  if (searchInput) searchInput.addEventListener("input", onSearchInput);
+  if (searchInputMobile) searchInputMobile.addEventListener("input", onSearchInput);
+
+  renderCards();
+}
+
+/* ===== DETAIL PAGE ===== */
+function renderDetailPage() {
+  applyCommonI18n();
+
+  var backLink = document.getElementById("backLink");
+  if (backLink) {
+    var span = backLink.querySelector("span");
+    if (span) span.textContent = t("back");
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var appId = params.get("id");
+  var app = null;
+
+  for (var i = 0; i < APPS.length; i++) {
+    if (APPS[i].id === appId) { app = APPS[i]; break; }
+  }
+
+  var detail = document.getElementById("appDetail");
+
+  if (!app) {
+    if (detail) {
+      detail.innerHTML =
+        '<div class="container" style="text-align:center;padding:80px 0;">' +
+          '<h2>' + t("app_not_found") + '</h2>' +
+          '<p style="color:var(--text-muted);margin:12px 0 24px;">' + t("app_not_found_desc") + '</p>' +
+          '<a href="index.html" class="btn btn--primary"><i class="bi bi-arrow-left"></i> ' + t("back_to_store") + '</a>' +
+        '</div>';
+    }
+    return;
+  }
+
+  document.title = app.name + " \u2014 Sama Apps";
+
+  /* Hero */
+  var isDev = app.status === "dev";
+  var downloadBtn = app.downloadUrl
+    ? '<a href="' + app.downloadUrl + '" target="_blank" class="btn btn--primary"><i class="bi bi-download"></i> ' + t("download_apk") + '</a>'
+    : "";
+  var devBadge = isDev ? '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>' : '';
+  var heroIconHtml = isDev
+    ? '<div class="app-hero__icon-wrap app-hero__icon-wrap--dev"><img class="app-hero__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-hero__lock"></i></div>'
+    : '<img class="app-hero__icon" src="' + app.icon + '" alt="' + app.name + '" />';
+
+  var heroEl = document.getElementById("appHero");
+  if (heroEl) {
+    heroEl.innerHTML =
+      heroIconHtml +
+      '<div class="app-hero__info">' +
+        '<h1 class="app-hero__name">' + app.name + '</h1>' +
+        '<p class="app-hero__tagline">' + tApp(app, "tagline") + ' \u00b7 ' + app.developer + '</p>' +
+        '<div class="app-hero__badges">' +
+          '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
+          '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
+          devBadge +
+        '</div>' +
+        '<div class="app-hero__actions">' + downloadBtn + '</div>' +
+      '</div>';
+  }
+
+  /* Screenshots */
+  if (app.screenshots && app.screenshots.length > 0) {
+    var ssSection = document.getElementById("screenshotsSection");
+    var ssTitle = document.getElementById("screenshotsTitle");
+    var ssTrack = document.getElementById("screenshotsTrack");
+    if (ssSection && ssTrack) {
+      if (ssTitle) ssTitle.textContent = t("screenshots");
+      ssSection.hidden = false;
+      ssTrack.innerHTML = app.screenshots.map(function (src, idx) {
+        return '<div class="screenshot-item" data-index="' + idx + '"><img src="' + src + '" alt="' + app.name + ' ' + (idx + 1) + '" loading="lazy" /></div>';
+      }).join("");
+    }
+  }
+
+  /* Description */
+  var aboutTitle = document.getElementById("aboutTitle");
+  var appDesc = document.getElementById("appDescription");
+  if (aboutTitle) aboutTitle.textContent = t("about");
+  if (appDesc) appDesc.textContent = tApp(app, "description");
+
+  /* Features */
+  var featTitle = document.getElementById("featuresTitle");
+  var featList = document.getElementById("featuresList");
+  if (featTitle) featTitle.textContent = t("features");
+  if (featList) {
+    var features = tApp(app, "features");
+    featList.innerHTML = features.map(function (f) {
+      return '<li><span>' + f + '</span></li>';
+    }).join("");
+  }
+
+  /* Sidebar info */
+  var sidebarInfo = document.getElementById("sidebarInfo");
+  if (sidebarInfo) {
+    sidebarInfo.innerHTML =
+      '<h4>' + t("information") + '</h4>' +
+      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("developer") + '</span><span class="sidebar-row__value">' + app.developer + '</span></div>' +
+      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("version") + '</span><span class="sidebar-row__value">' + app.version + '</span></div>' +
+      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("category") + '</span><span class="sidebar-row__value">' + categoryLabel(app.category) + '</span></div>' +
+      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("price") + '</span><span class="sidebar-row__value">' + priceLabel(app) + '</span></div>' +
+      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("languages") + '</span><span class="sidebar-row__value">' + app.languages.join(", ") + '</span></div>';
+  }
+
+  /* Tiers */
+  if (app.tiers && app.tiers.length > 0) {
+    var tiersEl = document.getElementById("sidebarTiers");
+    if (tiersEl) {
+      tiersEl.hidden = false;
+      var lang = getLang();
+      tiersEl.innerHTML = '<h4>' + t("subscription_tiers") + '</h4>' +
+        app.tiers.map(function (tier) {
+          var desc = (lang === "fr" && tier.desc_fr) ? tier.desc_fr : tier.desc;
+          return '<div class="tier-item"><div class="tier-item__name">' + tier.name + '</div><div class="tier-item__desc">' + desc + '</div></div>';
+        }).join("");
+    }
+  }
+
+  /* Lightbox */
+  if (app.screenshots && app.screenshots.length > 0) {
+    var lightbox = document.getElementById("lightbox");
+    var lbImg = document.getElementById("lightboxImg");
+    var currentIdx = 0;
+
+    function openLb(i) {
+      currentIdx = i;
+      lbImg.src = app.screenshots[currentIdx];
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLb() {
+      lightbox.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    function navLb(dir) {
+      currentIdx = (currentIdx + dir + app.screenshots.length) % app.screenshots.length;
+      lbImg.src = app.screenshots[currentIdx];
+    }
+
+    document.querySelectorAll(".screenshot-item").forEach(function (el) {
+      el.addEventListener("click", function () {
+        openLb(parseInt(el.dataset.index, 10));
+      });
+    });
+
+    document.getElementById("lightboxClose").addEventListener("click", closeLb);
+    document.getElementById("lightboxPrev").addEventListener("click", function () { navLb(-1); });
+    document.getElementById("lightboxNext").addEventListener("click", function () { navLb(1); });
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLb();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (lightbox.hidden) return;
+      if (e.key === "Escape") closeLb();
+      if (e.key === "ArrowLeft") navLb(-1);
+      if (e.key === "ArrowRight") navLb(1);
+    });
+  }
+}

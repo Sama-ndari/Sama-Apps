@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sama Apps — Mobile App Marketplace</title>
+  <meta name="description" content="Discover and download quality Android apps built by independent developers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+        <span>Sama Apps</span>
+      </a>
+      <div class="header__search">
+        <i class="bi bi-search"></i>
+        <input type="text" id="searchInput" autocomplete="off" />
+      </div>
+      <nav class="header__nav">
+        <button class="header__toggle" id="langToggle" title="Language">EN</button>
+        <button class="header__toggle" id="themeToggle" title="Theme">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+        <a href="https://sama-ndari.github.io/Portfolio/" target="_blank" class="header__link" aria-label="Portfolio">
+          <i class="bi bi-globe2"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title" id="heroTitle"></h1>
+        <p class="hero__subtitle" id="heroSubtitle"></p>
+        <div class="hero__search-mobile">
+          <i class="bi bi-search"></i>
+          <input type="text" id="searchInputMobile" autocomplete="off" />
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="catalog__filters" id="filters"></div>
+        <div class="catalog__grid" id="appGrid"></div>
+        <p class="catalog__empty" id="emptyState" hidden></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p id="footerRights"></p>
+      <p class="footer__credit"><span id="footerBuilt"></span> <a href="https://github.com/Sama-ndari" target="_blank">Samandari</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/apps.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
