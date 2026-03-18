@@ -3,7 +3,7 @@ function appAsset(id, file) {
 }
 
 const GIST_SOURCES = [
-  { id: "esama", gistId: "0250417d63c891faf03a52909d6010e4", file: "e_sama_admin_sync.json" },
+  { id: "esama", gistId: "0250417d63c891faf03a52909d6010e4", file: "e_sama-admin_sync.json" },
   { id: "velora", gistId: "b806e5a54d4cf1a24b23ce2bfc4c5116", file: "velora_admin_sync.json" }
 ];
 
