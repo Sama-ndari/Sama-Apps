@@ -70,9 +70,62 @@ function categoryLabel(cat) {
   return t(map[cat] || cat.toLowerCase());
 }
 
+/* ===== USER STATS ===== */
+var _userCounts = {};
+var _userCountsLoaded = false;
+
+function fetchUserStats(callback) {
+  if (typeof GIST_SOURCES === "undefined") return;
+
+  if (_userCountsLoaded) {
+    if (callback) callback(_userCounts);
+    return;
+  }
+
+  var promises = GIST_SOURCES.map(function (src) {
+    var url = "https://api.github.com/gists/" + src.gistId;
+    return fetch(url)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (gist) {
+        if (!gist || !gist.files || !gist.files[src.file]) return { id: src.id, count: 0 };
+        try {
+          var data = JSON.parse(gist.files[src.file].content);
+          return { id: src.id, count: Array.isArray(data) ? data.length : 0 };
+        } catch (_) { return { id: src.id, count: 0 }; }
+      })
+      .catch(function () { return { id: src.id, count: 0 }; });
+  });
+
+  Promise.all(promises).then(function (results) {
+    results.forEach(function (r) { _userCounts[r.id] = r.count; });
+    _userCountsLoaded = true;
+    if (callback) callback(_userCounts);
+  });
+}
+
+function renderStatsBanner(counts) {
+  var banner = document.getElementById("statsBanner");
+  var bannerText = document.getElementById("statsBannerText");
+  if (!banner || !bannerText) return;
+
+  var total = 0;
+  for (var k in counts) total += counts[k];
+  if (total > 0) {
+    bannerText.textContent = t("trusted_by").replace("{count}", total);
+    banner.hidden = false;
+  }
+}
+
+function userBadgeHtml(appId) {
+  var count = _userCounts[appId];
+  if (!count || count <= 0) return "";
+  return '<span class="app-card__users"><i class="bi bi-people-fill"></i> ' + count + ' ' + t("users") + '</span>';
+}
+
 /* ===== HOME PAGE ===== */
 function renderHomePage() {
   applyCommonI18n();
+  renderStatsBanner(_userCounts);
 
   var heroTitle = document.getElementById("heroTitle");
   var heroSubtitle = document.getElementById("heroSubtitle");
@@ -130,6 +183,7 @@ function renderHomePage() {
           ? '<div class="app-card__icon-wrap app-card__icon-wrap--dev"><img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-card__lock"></i></div>'
           : '<img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" />';
         return '<a href="app.html?id=' + app.id + '" class="app-card">' +
+          userBadgeHtml(app.id) +
           iconHtml +
           '<div class="app-card__body">' +
             '<h3 class="app-card__name">' + app.name + '</h3>' +
@@ -169,6 +223,13 @@ function renderHomePage() {
   if (searchInputMobile) searchInputMobile.addEventListener("input", onSearchInput);
 
   renderCards();
+
+  if (!_userCountsLoaded) {
+    fetchUserStats(function (counts) {
+      renderStatsBanner(counts);
+      renderCards();
+    });
+  }
 }
 
 /* ===== DETAIL PAGE ===== */
@@ -327,8 +388,29 @@ function renderDetailPage() {
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("version") + '</span><span class="sidebar-row__value">' + app.version + '</span></div>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("category") + '</span><span class="sidebar-row__value">' + categoryLabel(app.category) + '</span></div>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("price") + '</span><span class="sidebar-row__value">' + priceLabel(app) + '</span></div>' +
-      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("languages") + '</span><span class="sidebar-row__value">' + app.languages.join(", ") + '</span></div>';
+      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("languages") + '</span><span class="sidebar-row__value">' + app.languages.join(", ") + '</span></div>' +
+      '<div class="sidebar-row" id="sidebarUsers" hidden><span class="sidebar-row__label">' + t("active_users") + '</span><span class="sidebar-row__value" id="sidebarUsersCount"></span></div>';
   }
+
+  /* Fetch user count for this app */
+  fetchUserStats(function (counts) {
+    var count = counts[app.id];
+    if (count && count > 0) {
+      var row = document.getElementById("sidebarUsers");
+      var val = document.getElementById("sidebarUsersCount");
+      if (row && val) {
+        val.innerHTML = '<span class="user-count-value"><i class="bi bi-people-fill"></i> ' + count + '</span>';
+        row.hidden = false;
+      }
+      var badges = document.querySelector(".app-hero__badges");
+      if (badges && !badges.querySelector(".badge--users")) {
+        var badge = document.createElement("span");
+        badge.className = "badge badge--users";
+        badge.innerHTML = '<i class="bi bi-people-fill"></i> ' + t("used_by").replace("{count}", count);
+        badges.appendChild(badge);
+      }
+    }
+  });
 
   /* Tiers */
   if (app.tiers && app.tiers.length > 0) {

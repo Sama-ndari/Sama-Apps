@@ -33,7 +33,11 @@ const I18N = {
     free_trial: "Free Trial",
     video_fullscreen: "Fullscreen",
     copy_link: "Copy Link",
-    copied: "Copied!"
+    copied: "Copied!",
+    trusted_by: "Trusted by {count} users across our apps",
+    users: "users",
+    used_by: "{count} active users",
+    active_users: "Active Users"
   },
   fr: {
     hero_title: 'Des apps de qualit\u00e9,<br />par des <span class="hero__accent">devs ind\u00e9pendants</span>.',
@@ -69,7 +73,11 @@ const I18N = {
     free_trial: "Essai gratuit",
     video_fullscreen: "Plein \u00e9cran",
     copy_link: "Copier le lien",
-    copied: "Copi\u00e9 !"
+    copied: "Copi\u00e9 !",
+    trusted_by: "Utilis\u00e9 par {count} utilisateurs sur nos apps",
+    users: "utilisateurs",
+    used_by: "{count} utilisateurs actifs",
+    active_users: "Utilisateurs actifs"
   }
 };
 
