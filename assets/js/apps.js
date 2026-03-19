@@ -92,7 +92,8 @@ const APPS = [
       appAsset("velora", "screenshots/8.png"),
       appAsset("velora", "screenshots/9.png"),
       appAsset("velora", "screenshots/10.png"),
-      appAsset("velora", "screenshots/11.png")
+      appAsset("velora", "screenshots/11.png"),
+      appAsset("velora", "screenshots/12.png")
     ],
     downloadUrl: "https://drive.google.com/uc?export=download&id=1zt4N9ZE8QJntwgVg5m4yga5LgKfoQ_E-",
     shortDesc: "A personal productivity app with habit tracking, goals, smart alarms, expense management, and AI features.",
