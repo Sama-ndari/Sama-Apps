@@ -92,6 +92,12 @@
     var params = new URLSearchParams(window.location.search);
     var appId = params.get("id");
     var page = params.get("page") || "privacy";
+    var forceLang = params.get("lang");
+    if (forceLang && I18N[forceLang]) {
+      setLang(forceLang);
+      var toggle = document.getElementById("langToggle");
+      if (toggle) toggle.textContent = forceLang.toUpperCase();
+    }
     var app = null;
 
     for (var i = 0; i < APPS.length; i++) {
@@ -142,7 +148,7 @@
     h += '<h1>' + t("privacy_policy") + '</h1>';
     h += '<p class="legal-intro">' + t("legal_intro_privacy").replace("{app}", app.name).replace("{dev}", legal.developer) + '</p>';
 
-    var dataLocal = (lang === "fr" && legal.dataLocal_fr) ? legal.dataLocal_fr : legal.dataLocal;
+    var dataLocal = legal["dataLocal_" + lang] || legal.dataLocal;
     h += '<div class="legal-section"><h2>' + t("legal_data_local_title") + '</h2>';
     h += '<p>' + t("legal_data_local_desc") + '</p><ul>';
     for (var i = 0; i < dataLocal.length; i++) {
@@ -150,7 +156,7 @@
     }
     h += '</ul></div>';
 
-    var dataCloud = (lang === "fr" && legal.dataCloud_fr) ? legal.dataCloud_fr : legal.dataCloud;
+    var dataCloud = legal["dataCloud_" + lang] || legal.dataCloud;
     h += '<div class="legal-section"><h2>' + t("legal_data_cloud_title") + '</h2>';
     h += '<p>' + t("legal_data_cloud_desc") + '</p><ul>';
     for (var j = 0; j < dataCloud.length; j++) {
@@ -162,10 +168,19 @@
     h += '<p>' + t("legal_third_party_desc") + '</p>';
     for (var k = 0; k < legal.thirdParty.length; k++) {
       var tp = legal.thirdParty[k];
-      var purpose = (lang === "fr" && tp.purpose_fr) ? tp.purpose_fr : tp.purpose;
+      var purpose = tp["purpose_" + lang] || tp.purpose;
       h += '<div class="third-party-item"><span><span class="tp-name">' + tp.name + '</span> — <span class="tp-purpose">' + purpose + '</span></span></div>';
     }
     h += '</div>';
+
+    if (legal.privacyExtra) {
+      for (var x = 0; x < legal.privacyExtra.length; x++) {
+        var ex = legal.privacyExtra[x];
+        var exTitle = ex["title_" + lang] || ex.title;
+        var exDesc = ex["desc_" + lang] || ex.desc;
+        h += '<div class="legal-section"><h2>' + exTitle + '</h2><p>' + exDesc + '</p></div>';
+      }
+    }
 
     if (legal.noAnalytics) {
       h += '<div class="legal-highlight"><i class="bi bi-shield-check"></i> ' + t("legal_no_analytics") + '</div>';
@@ -214,6 +229,15 @@
         }
       }
       h += '<div class="legal-section"><h2>' + t(s.title) + '</h2><p>' + desc + '</p></div>';
+    }
+
+    if (legal.termsExtra) {
+      for (var x = 0; x < legal.termsExtra.length; x++) {
+        var ex = legal.termsExtra[x];
+        var exTitle = ex["title_" + lang] || ex.title;
+        var exDesc = ex["desc_" + lang] || ex.desc;
+        h += '<div class="legal-section"><h2>' + exTitle + '</h2><p>' + exDesc + '</p></div>';
+      }
     }
 
     h += '<div class="legal-section"><h2>' + t("legal_contact_title") + '</h2>';

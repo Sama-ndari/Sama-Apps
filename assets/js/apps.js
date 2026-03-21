@@ -85,20 +85,49 @@ const APPS = [
         "Rapports de d\u00e9penses et b\u00e9n\u00e9fices",
         "Pr\u00e9f\u00e9rences et param\u00e8tres de l\u2019application"
       ],
+      dataLocal_sw: [
+        "Mauzo, manunuzi na rekodi za hesabu",
+        "Taarifa za wateja na wasambazaji",
+        "Ripoti za gharama na faida",
+        "Mapendeleo na mipangilio ya programu"
+      ],
       dataCloud: [
         "Backup data synced to Google Drive (with explicit user consent)"
       ],
       dataCloud_fr: [
         "Donn\u00e9es de sauvegarde synchronis\u00e9es sur Google Drive (avec consentement explicite)"
       ],
+      dataCloud_sw: [
+        "Data ya hifadhi iliyolingana na Google Drive (kwa idhini ya mtumiaji)"
+      ],
       thirdParty: [
-        { name: "Google Drive API", purpose: "Cloud backup", purpose_fr: "Sauvegarde cloud" },
-        { name: "Google Sign-In", purpose: "Authentication for cloud backup", purpose_fr: "Authentification pour la sauvegarde cloud" },
-        { name: "Google Gemini AI", purpose: "AI-powered features (optional)", purpose_fr: "Fonctionnalit\u00e9s IA (optionnel)" }
+        { name: "Google Drive API", purpose: "Cloud backup", purpose_fr: "Sauvegarde cloud", purpose_sw: "Hifadhi ya wingu" },
+        { name: "Google Sign-In", purpose: "Authentication for cloud backup", purpose_fr: "Authentification pour la sauvegarde cloud", purpose_sw: "Uthibitishaji wa hifadhi ya wingu" },
+        { name: "Google Gemini AI", purpose: "AI-powered features (optional)", purpose_fr: "Fonctionnalit\u00e9s IA (optionnel)", purpose_sw: "Vipengele vya AI (hiari)" }
       ],
       noAnalytics: true,
       noAds: true,
-      country: "Burundi"
+      country: "Burundi",
+      privacyExtra: [
+        { title: "Device Identification", title_fr: "Identification de l\u2019appareil", title_sw: "Utambulisho wa Kifaa",
+          desc: "We collect your device ID solely for license verification purposes. This ID is not linked to any personal information.",
+          desc_fr: "Nous collectons l\u2019identifiant de votre appareil uniquement \u00e0 des fins de v\u00e9rification de licence. Cet identifiant n\u2019est li\u00e9 \u00e0 aucune information personnelle.",
+          desc_sw: "Tunakusanya kitambulisho cha kifaa chako kwa madhumuni ya uthibitishaji wa leseni pekee. Kitambulisho hiki hakiunganishwi na taarifa yoyote ya kibinafsi." },
+        { title: "Remote Configuration", title_fr: "Configuration \u00e0 distance", title_sw: "Usanidi wa Mbali",
+          desc: "We use a remote configuration service to manage app updates, communicate important messages, and enforce license compliance.",
+          desc_fr: "Nous utilisons un service de configuration \u00e0 distance pour g\u00e9rer les mises \u00e0 jour, communiquer des messages importants et assurer la conformit\u00e9 des licences.",
+          desc_sw: "Tunatumia huduma ya usanidi wa mbali kusimamia masasisho ya programu, kuwasiliana ujumbe muhimu, na kuhakikisha utiifu wa leseni." }
+      ],
+      termsExtra: [
+        { title: "Payments", title_fr: "Paiements", title_sw: "Malipo",
+          desc: "All payments are non-refundable once a license key has been generated and delivered.",
+          desc_fr: "Tous les paiements sont non remboursables une fois qu\u2019une cl\u00e9 de licence a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9e et livr\u00e9e.",
+          desc_sw: "Malipo yote hayarudishwi mara ufunguo wa leseni ukishatolewa na kupokelewa." },
+        { title: "Cloud Backup", title_fr: "Sauvegarde cloud", title_sw: "Hifadhi ya Wingu",
+          desc: "Cloud backup stores your data on Google Drive using your Google account. You are responsible for the security of your Google account. E-Sama is not liable for data loss or unauthorized access to your Google Drive.",
+          desc_fr: "La sauvegarde cloud stocke vos donn\u00e9es sur Google Drive via votre compte Google. Vous \u00eates responsable de la s\u00e9curit\u00e9 de votre compte Google. E-Sama n\u2019est pas responsable de la perte de donn\u00e9es ou de l\u2019acc\u00e8s non autoris\u00e9 \u00e0 votre Google Drive.",
+          desc_sw: "Hifadhi ya wingu inahifadhi data yako kwenye Google Drive kupitia akaunti yako ya Google. Unawajibika kwa usalama wa akaunti yako ya Google. E-Sama haiwajibiki kwa upotezaji wa data au ufikiaji usioruhusiwa." }
+      ]
     }
   },
   {
@@ -184,7 +213,23 @@ const APPS = [
       ],
       noAnalytics: true,
       noAds: true,
-      country: "Burundi"
+      country: "Burundi",
+      privacyExtra: [
+        { title: "Email Features", title_fr: "Fonctionnalit\u00e9s e-mail",
+          desc: "If you configure email reports, emails are sent using your provided SMTP credentials. Your email address and credentials are only stored locally on your device.",
+          desc_fr: "Si vous configurez les rapports par e-mail, les e-mails sont envoy\u00e9s avec vos identifiants SMTP. Votre adresse e-mail et vos identifiants sont uniquement stock\u00e9s localement sur votre appareil." },
+        { title: "AI Features", title_fr: "Fonctionnalit\u00e9s IA",
+          desc: "When using AI features (Life Coach, Creative Muse, etc.), your data may be sent to a third-party AI API for processing. This data is not stored or used for training by the provider.",
+          desc_fr: "Lors de l\u2019utilisation des fonctionnalit\u00e9s IA (Coach de vie, Muse cr\u00e9ative, etc.), vos donn\u00e9es peuvent \u00eatre envoy\u00e9es \u00e0 une API IA tierce pour traitement. Ces donn\u00e9es ne sont ni stock\u00e9es ni utilis\u00e9es pour l\u2019entra\u00eenement par le fournisseur." }
+      ],
+      termsExtra: [
+        { title: "AI Disclaimer", title_fr: "Avertissement IA",
+          desc: "The AI features (Life Coach, therapist mode, creative challenges) are NOT a substitute for professional medical or psychological advice. They are designed for personal reflection and productivity purposes only.",
+          desc_fr: "Les fonctionnalit\u00e9s IA (Coach de vie, mode th\u00e9rapeute, d\u00e9fis cr\u00e9atifs) ne sont PAS un substitut \u00e0 un avis m\u00e9dical ou psychologique professionnel. Elles sont con\u00e7ues uniquement \u00e0 des fins de r\u00e9flexion personnelle et de productivit\u00e9." },
+        { title: "Cloud Backup", title_fr: "Sauvegarde cloud",
+          desc: "Cloud backup stores your data on Google Drive using your Google account. You are responsible for the security of your Google account. Velora is not liable for data loss or unauthorized access to your Google Drive.",
+          desc_fr: "La sauvegarde cloud stocke vos donn\u00e9es sur Google Drive via votre compte Google. Vous \u00eates responsable de la s\u00e9curit\u00e9 de votre compte Google. Velora n\u2019est pas responsable de la perte de donn\u00e9es ou de l\u2019acc\u00e8s non autoris\u00e9 \u00e0 votre Google Drive." }
+      ]
     }
   },
   {

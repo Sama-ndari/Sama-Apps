@@ -433,7 +433,8 @@ function renderDetailPage() {
       legalEl.hidden = false;
       legalEl.innerHTML =
         '<a href="apps/' + app.id + '/privacy.html" class="legal-link"><i class="bi bi-shield-lock"></i> ' + t("privacy_policy") + '</a>' +
-        '<a href="apps/' + app.id + '/terms.html" class="legal-link"><i class="bi bi-file-earmark-text"></i> ' + t("terms_of_service") + '</a>';
+        '<a href="apps/' + app.id + '/terms.html" class="legal-link"><i class="bi bi-file-earmark-text"></i> ' + t("terms_of_service") + '</a>' +
+        '<a href="apps/' + app.id + '/guide.html" class="legal-link"><i class="bi bi-book"></i> ' + t("user_guide") + '</a>';
     }
   }
 

@@ -73,7 +73,8 @@ const I18N = {
     legal_terms_changes_desc: "We may update these Terms from time to time. Continued use of the App constitutes acceptance of the updated Terms.",
     legal_terms_law_title: "Governing Law",
     legal_terms_law_desc: "These Terms are governed by the laws of {country}.",
-    legal_back_to_app: "Back to App"
+    legal_back_to_app: "Back to App",
+    user_guide: "User Guide"
   },
   fr: {
     hero_title: 'Des apps de qualit\u00e9,<br />par des <span class="hero__accent">devs ind\u00e9pendants</span>.',
@@ -149,7 +150,47 @@ const I18N = {
     legal_terms_changes_desc: "Nous pouvons mettre \u00e0 jour ces Conditions de temps en temps. L\u2019utilisation continue de l\u2019Application constitue l\u2019acceptation des Conditions mises \u00e0 jour.",
     legal_terms_law_title: "Loi applicable",
     legal_terms_law_desc: "Ces Conditions sont r\u00e9gies par les lois du {country}.",
-    legal_back_to_app: "Retour \u00e0 l\u2019app"
+    legal_back_to_app: "Retour \u00e0 l\u2019app",
+    user_guide: "Guide d\u2019utilisation"
+  },
+  sw: {
+    privacy_policy: "Sera ya Faragha",
+    terms_of_service: "Masharti ya Huduma",
+    legal_effective: "Tarehe ya kuanza: {date}",
+    legal_intro_privacy: "{app} (\u201cProgramu\u201d) imetengenezwa na {dev}. Sera hii ya Faragha inaeleza jinsi tunavyokusanya, kutumia na kulinda taarifa zako.",
+    legal_data_local_title: "Data Iliyohifadhiwa kwenye Kifaa Chako",
+    legal_data_local_desc: "Data yako yote imehifadhiwa kwenye kifaa chako. Hatuna ufikiaji wake.",
+    legal_data_cloud_title: "Huduma za Wingu (Hiari)",
+    legal_data_cloud_desc: "Ukiwezesha hifadhi ya wingu, data ifuatayo inaweza kutumwa kwenye Google Drive:",
+    legal_third_party_title: "Huduma za Wahusika Wengine",
+    legal_third_party_desc: "Programu inaweza kutumia huduma zifuatazo za wahusika wengine:",
+    legal_no_analytics: "Hatutumii zana yoyote ya uchambuzi au ufuatiliaji.",
+    legal_no_ads: "Programu haionyeshi matangazo.",
+    legal_security_title: "Usalama wa Data",
+    legal_security_desc: "Data yako imehifadhiwa kwa usimbaji fiche kwenye kifaa chako. Hifadhi za wingu zinatumwa kwa usalama kupitia HTTPS kwenda Google Drive.",
+    legal_children_title: "Faragha ya Watoto",
+    legal_children_desc: "Programu haijalenga watoto chini ya miaka 13. Hatukusanyi taarifa za kibinafsi za watoto kwa makusudi.",
+    legal_changes_title: "Mabadiliko ya Sera Hii",
+    legal_changes_desc: "Tunaweza kusasisha Sera hii ya Faragha mara kwa mara. Mabadiliko yatachapishwa kwenye ukurasa huu na tarehe mpya ya kuanza.",
+    legal_contact_title: "Wasiliana Nasi",
+    legal_contact_desc: "Ukiwa na maswali kuhusu Sera hii ya Faragha, wasiliana nasi kupitia:",
+    legal_terms_intro: "Kwa kutumia {app} (\u201cProgramu\u201d), unakubali Masharti haya ya Huduma. Usipokubaliana, tafadhali usitumie Programu.",
+    legal_terms_license_title: "Leseni",
+    legal_terms_license_desc: "{dev} anakupa leseni ndogo, isiyo ya kipekee na isiyohamishika ya kutumia Programu kwa matumizi binafsi au ya kibiashara.",
+    legal_terms_use_title: "Matumizi Yanayokubalika",
+    legal_terms_use_desc: "Unakubali kutofanya uhandisi wa nyuma, kubomoa au kusambaza Programu bila idhini.",
+    legal_terms_data_title: "Data Yako",
+    legal_terms_data_desc: "Unabaki mmiliki wa data yote unayoingiza kwenye Programu. Hatufikii wala kushiriki data yako.",
+    legal_terms_disclaimer_title: "Kanusho",
+    legal_terms_disclaimer_desc: "Programu inatolewa \u201ckama ilivyo\u201d bila dhamana ya aina yoyote. Hatuwajibiki kwa upotezaji wowote wa data au uharibifu unaotokana na matumizi ya Programu.",
+    legal_terms_termination_title: "Kusitishwa",
+    legal_terms_termination_desc: "Tunajihifadhi haki ya kusitisha au kusimamisha ufikiaji wa Programu wakati wowote, bila taarifa ya awali, kwa sababu yoyote.",
+    legal_terms_changes_title: "Mabadiliko ya Masharti Haya",
+    legal_terms_changes_desc: "Tunaweza kusasisha Masharti haya mara kwa mara. Kuendelea kutumia Programu kunamaanisha kukubali Masharti yaliyosasishwa.",
+    legal_terms_law_title: "Sheria Inayotawala",
+    legal_terms_law_desc: "Masharti haya yanatawaliwa na sheria za {country}.",
+    legal_back_to_app: "Rudi kwenye Programu",
+    user_guide: "Mwongozo wa Mtumiaji"
   }
 };
 
@@ -190,8 +231,7 @@ function t(key) {
 
 function tApp(app, field) {
   const lang = getLang();
-  if (lang === "fr" && app[field + "_fr"]) {
-    return app[field + "_fr"];
-  }
+  var localized = app[field + "_" + lang];
+  if (localized) return localized;
   return app[field];
 }

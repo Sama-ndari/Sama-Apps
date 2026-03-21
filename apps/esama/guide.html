@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide - E-Sama</title>
+  <meta name="description" content="Complete user guide for E-Sama - Trilingual Business Management & POS app." />
+  <link rel="icon" href="../../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../assets/css/base.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/legal.css" />
+  <style>
+    .guide{max-width:860px;margin:0 auto;padding:40px 20px 80px}
+    .guide h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+    .guide-meta{color:var(--text-muted);font-size:.9rem;margin-bottom:32px;display:flex;align-items:center;gap:10px}
+    .guide-meta img{width:32px;height:32px;border-radius:8px}
+    .guide-chapter{margin-bottom:48px;border-top:1px solid var(--border);padding-top:28px}
+    .guide-chapter:first-of-type{border-top:none;padding-top:0}
+    .guide-chapter h2{font-size:1.35rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px;color:var(--text)}
+    .guide-chapter h2 .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--accent);color:#fff;font-size:.85rem;font-weight:700;flex-shrink:0}
+    .guide-section{margin-bottom:28px;padding-left:16px;border-left:3px solid var(--border)}
+    .guide-section h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+    .guide-section h4{font-size:.92rem;font-weight:600;margin:12px 0 6px;color:var(--accent)}
+    .guide-section p,.guide-section li{color:var(--text-muted);font-size:.9rem;line-height:1.7}
+    .guide-section ul{margin:8px 0 12px 18px;list-style:disc}
+    .guide-section ol{margin:8px 0 12px 18px}
+    .guide-path{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;font-size:.82rem;font-weight:600;color:var(--accent);margin:6px 0}
+    .guide-path i{font-size:.7rem;color:var(--text-dim)}
+    .guide-tip{padding:12px 16px;background:var(--green-soft);border:1px solid var(--green);border-radius:8px;color:var(--green);font-size:.85rem;font-weight:500;margin:12px 0;display:flex;align-items:flex-start;gap:8px}
+    .guide-tip i{margin-top:2px}
+    .guide-warn{padding:12px 16px;background:rgba(255,180,0,.08);border:1px solid rgba(255,180,0,.3);border-radius:8px;color:#e6a800;font-size:.85rem;font-weight:500;margin:12px 0;display:flex;align-items:flex-start;gap:8px}
+    .guide-warn i{margin-top:2px}
+    .guide-screenshots{display:flex;gap:10px;overflow-x:auto;padding:12px 0;scroll-snap-type:x mandatory}
+    .guide-screenshots img{height:280px;border-radius:10px;border:1px solid var(--border);scroll-snap-align:start;flex-shrink:0}
+    .guide-download{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+    .guide-download a{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all var(--transition)}
+    .guide-download .dl-btn{background:var(--accent);color:#fff}
+    .guide-download .dl-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+    .lang-tabs{display:flex;gap:8px;margin-bottom:28px}
+    .lang-tab{padding:8px 20px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--text-muted);font-family:inherit;font-size:.85rem;font-weight:500;cursor:pointer;transition:all var(--transition);text-decoration:none}
+    .lang-tab:hover{border-color:var(--accent);color:var(--text)}
+    .lang-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+    .toc{margin:20px 0 32px;padding:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px}
+    .toc h3{font-size:1rem;font-weight:700;margin-bottom:12px}
+    .toc ol{margin:0 0 0 20px}
+    .toc li{margin:4px 0}
+    .toc a{color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:500}
+    .toc a:hover{text-decoration:underline}
+    @media(max-width:480px){.guide{padding:24px 14px 60px}.guide h1{font-size:1.3rem}.guide-screenshots img{height:220px}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../../index.html" class="header__logo">
+        <img src="../../assets/img/logo.png" alt="Sama Apps" class="header__logo-img" />
+        <span>Sama Apps</span>
+      </a>
+      <nav class="header__nav">
+        <button class="header__toggle" id="themeToggle" title="Theme"><i class="bi bi-moon-fill"></i></button>
+        <a href="../../app.html?id=esama" class="header__link header__link--back">
+          <i class="bi bi-arrow-left"></i> <span id="backLabel">Back</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="guide" id="guideContent"><!-- rendered by JS --></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 Sama Apps.</p>
+      <p class="footer__credit">Built by <a href="https://github.com/Sama-ndari" target="_blank">Samandari</a></p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/i18n.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script>
+  /* ──────────────────────────────────────────────────── */
+  /*  E-Sama Comprehensive User Guide – EN / FR / SW     */
+  /* ──────────────────────────────────────────────────── */
+  var G = { en:{}, fr:{}, sw:{} };
+
+  /* ── English ─────────────────────────────────────── */
+  G.en.title = "E-Sama - Complete User Guide";
+  G.en.subtitle = "Everything you need to know to install, configure, and master E-Sama for any type of business.";
+  G.en.download_pdf = "Download PDF";
+  G.en.toc_title = "Table of Contents";
+  G.en.chapters = [
+  {
+    id:"install", title:"Installation & First Launch",
+    sections:[
+      { title:"How to Download & Install", html:'<ol><li>Download the APK file from the link provided by your agent or from <a href="../../app.html?id=esama" style="color:var(--accent)">the Sama Apps store</a>.</li><li>If prompted, allow installation from unknown sources in your phone settings (<b>Settings → Security → Unknown Sources</b>).</li><li>Tap the downloaded file and press <b>Install</b>.</li><li>Open the app. You will see the splash screen with the E-Sama logo.</li></ol><div class="guide-tip"><i class="bi bi-info-circle"></i> The app works 100% offline. No internet is required after installation, except for cloud backup and license activation.</div>' },
+      { title:"License Activation", html:'<p>On first launch, you need to activate your license:</p><ol><li>The app shows the <b>License</b> screen with two tabs: <b>Activate</b> and <b>Buy</b>.</li><li>If you already have a code, go to the <b>Activate</b> tab, enter your activation code, and press <b>Activate</b>.</li><li>If you need to buy, go to the <b>Buy</b> tab: choose your <b>pack</b> (Standard / Business / Premium), the <b>duration</b> (1, 3, 6, or 12 months), enter your <b>name</b>, choose your <b>payment method</b> (Lumicash, Airtel Money, etc.), and press <b>Order via WhatsApp</b>.</li><li>Your <b>Device ID</b> is shown at the bottom - this is unique to your phone and is needed for activation.</li></ol><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> Do NOT change your phone date/time manually. The app detects clock tampering and may block access.</div>' },
+      { title:"Onboarding - Setting Up Your First Store", html:'<p>After activation, the onboarding wizard guides you through 3 steps:</p><h4>Step 1 - Cloud Restore (Optional)</h4><p>If you had a previous backup on Google Drive, you can sign in with Google and restore it here. Otherwise, press <b>Skip</b>.</p><h4>Step 2 - Business Type</h4><p>Choose your business type:</p><ul><li><b>Sales (Vente)</b> - Boutique, Alimentation, Pharmacy, Depot, etc.</li><li><b>Restaurant</b> - Bar, Cabaret, Restaurant, Snack</li><li><b>Rental (Location)</b> - Equipment, Events, Sounds (imvutano)</li></ul><h4>Step 3 - Store Details</h4><p>Enter your <b>store name</b> and select your <b>currency</b> (FBu, USD, EUR, etc.). Press <b>Start</b> to begin using the app.</p>' }
+    ]
+  },
+  {
+    id:"navigation", title:"Main Navigation",
+    sections:[
+      { title:"Home Screen Layout", html:'<p>The home screen has a <b>bottom navigation bar</b> with 5 tabs. The tabs change depending on your business type:</p><h4>Sales Mode (Boutique, Pharmacy, Depot...)</h4><ol><li><b>Inventaire</b> - Products & stock</li><li><b>Ventes</b> - Point of Sale (POS)</li><li><b>Dépenses</b> - Expenses</li><li><b>Clients</b> - Customer management</li><li><b>Rapports</b> - Reports</li></ol><h4>Restaurant Mode</h4><ol><li><b>Tableau de bord</b> - Dashboard</li><li><b>Ingrédients</b> - Ingredients (inventory)</li><li><b>Ventes</b> - POS for dishes</li><li><b>Dépenses</b> - Expenses</li><li><b>Clients</b> - Customers</li><li><b>Rapports</b> - Reports</li></ol><h4>Rental Mode</h4><ol><li><b>Catalogue</b> - Items for rent</li><li><b>Locations</b> - Active rentals</li><li><b>Dépenses</b> - Expenses</li><li><b>Clients</b> - Customers</li><li><b>Rapports</b> - Reports</li></ol><p>The <b>top bar</b> shows your store name. Tap the <b>logo</b> to open the <b>Dashboard</b>. Tap the <b>gear icon</b> to open <b>Settings</b>.</p>' }
+    ]
+  },
+  {
+    id:"dashboard", title:"Dashboard",
+    sections:[
+      { title:"Overview", html:'<p>The dashboard is your business command center, providing a snapshot of performance at a glance.</p><div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tap store logo (top left)</div><p>Select the period at the top: <b>Today</b>, <b>This Week</b>, <b>This Month</b>, or <b>This Year</b>.</p><h4>Primary Metrics</h4><ul><li><b>Total Revenue</b>: the total sales amount for the period, with the number of sales and returns displayed below.</li><li><b>Total Profit</b>: revenue minus all costs, with the gross margin percentage.</li></ul><h4>Secondary Metrics</h4><ul><li><b>Gross Profit</b>: profit before operating expenses.</li><li><b>Total Expenses</b>: all recorded expenses for the period.</li><li><b>Stock Value</b>: total value of your inventory at purchase price.</li><li><b>Client Debt</b>: total outstanding amount owed by clients on credit.</li></ul>' },
+      { title:"Charts & Analysis", html:'<p>The dashboard includes three interactive charts:</p><ul><li><b>Sales Evolution</b>: a line chart tracking revenue and profit trends over the selected period.</li><li><b>Expenses by Category</b>: a pie chart showing where your money goes (rent, transport, supplies, salaries, etc.).</li><li><b>Sales by Payment Method</b>: a pie chart showing the proportion of cash, mobile money, and credit payments.</li></ul><h4>Top Products</h4><p>A ranked list of your <b>top 5 best-selling products</b> by sales volume for the period.</p>' },
+      { title:"Break-even Analysis", html:'<p>The break-even section shows how close you are to covering your costs:</p><ul><li>A <b>progress bar</b> toward the break-even point.</li><li><b>Fixed expenses</b> for the period.</li><li><b>Average margin</b> percentage across all products.</li><li><b>Sales needed</b>: the number of additional sales required to break even.</li></ul>' },
+      { title:"Stock Rotation & Alerts", html:'<h4>Stock Rotation</h4><ul><li><b>Best-sellers</b>: your top 5 products ranked by sales volume.</li><li><b>Dormant products</b>: items with no sales in the last 30+ days, helping you identify dead stock.</li></ul><h4>Alerts</h4><p>Quick-glance alerts at the bottom of the dashboard:</p><ul><li>Products that are <b>out of stock</b>.</li><li>Products with <b>low stock</b> below the alert threshold.</li><li>Clients with <b>outstanding debt</b>.</li></ul>' },
+      { title:"Daily Closure (Cloture de Caisse)", html:'<div class="guide-path">Dashboard <i class="bi bi-chevron-right"></i> Tap <i class="bi bi-cash-stack"></i> icon (top right)</div><p>End your business day with a proper cash register closure:</p><h4>Sales Summary</h4><ul><li>Total sales, broken down by <b>cash</b>, <b>mobile money</b>, and <b>credit</b>.</li><li>Number of sales completed.</li><li>Returns (if any): total returns, cash refunds, and debt reductions.</li><li>Net sales and gross profit for the day.</li></ul><h4>Expenses & Debt Payments</h4><ul><li>Total expenses recorded for the day.</li><li>Debt payments received, broken down by <b>cash</b> and <b>mobile money</b>.</li></ul><h4>Cash Register Reconciliation</h4><p>The expected cash formula:</p><p><b>Expected = Opening Cash + Cash Sales + Cash Debt Payments - Cash Expenses - Cross-day Cash Refunds</b></p><ol><li>Enter your <b>opening cash</b> (amount you started the day with).</li><li>Enter your <b>closing cash</b> (actual cash counted at end of day).</li><li>The app calculates the <b>expected cash</b> and displays a <b>surplus</b> (you have more than expected) or <b>shortage</b> (you have less than expected).</li></ol><div class="guide-tip"><i class="bi bi-info-circle"></i> Cross-day returns (cash refunds on sales from previous days) reduce the expected cash. This ensures reconciliation stays accurate even when customers return items from earlier purchases.</div><h4>Notes & Sharing</h4><p>Add optional closing notes. Tap <b>Share</b> to send the closure report as <b>text</b> (WhatsApp) or export as <b>PDF</b> (Business/Premium license).</p>' }
+    ]
+  },
+  {
+    id:"inventory", title:"Inventory (Inventaire)",
+    sections:[
+      { title:"Viewing Products", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Inventaire"</div><p>The inventory screen lists all your products. Use the <b>search bar</b> to find products by name. Tap the <b>category chips</b> at the top to filter.</p><h4>View Modes</h4><ul><li><b>Grouped</b> - Products with variants are grouped together</li><li><b>Detailed</b> - Each variant appears as a separate item</li></ul><p>Toggle between modes using the icon in the top-right.</p>' },
+      { title:"Adding a Product", html:'<div class="guide-path">Inventaire <i class="bi bi-chevron-right"></i> Tap <b>+</b> button (bottom right)</div><ol><li>Enter the <b>product name</b>.</li><li>Optionally scan or enter a <b>barcode</b>.</li><li>Select or create a <b>category</b>.</li><li>Set prices:<ul><li><b>Purchase price</b> (prix d\'achat) - what you pay</li><li><b>Retail price</b> (prix de vente détail)</li><li><b>Wholesale price</b> (prix de gros) - optional</li></ul></li><li>Enter <b>stock quantity</b>.</li><li>Set <b>low stock alert threshold</b>.</li><li>Choose <b>unit</b> (piece, kg, liter, etc.).</li><li>Set <b>items per unit</b> if applicable (e.g., 12 bottles per crate). This lets you sell either by the individual piece or by the whole unit in the POS.</li><li>Optionally add <b>variants</b> (size, color, etc.).</li><li>Tap <b>Save</b>.</li></ol>' },
+      { title:"Editing & Deleting Products", html:'<p>Tap any product to see its <b>details</b>. From there:</p><ul><li>Tap <b>Edit</b> (pencil icon) to modify any field.</li><li>Tap the <b>menu (\u22ee)</b> to <b>Archive</b> the product (recoverable from Trash).</li></ul><p>The detail screen shows:</p><ul><li><b>Stock card</b>: current quantity, status (in stock / low / out of stock), alert threshold, and total stock value at purchase price.</li><li><b>Prices card</b>: purchase, selling, and wholesale prices with the calculated profit margin percentage.</li><li><b>Stock losses card</b>: all recorded losses with type, quantity, and cost.</li><li><b>Details card</b>: unit, creation date, and last update date.</li></ul><h4>Stock Adjustments</h4><p>At the bottom of the detail screen, two buttons let you quickly adjust stock without making a sale:</p><ul><li><b>Stock In</b>: add stock when you receive new inventory from a supplier.</li><li><b>Stock Out</b>: remove stock manually (e.g., personal use, sampling, or corrections).</li></ul>' },
+      { title:"Product Variants & Bulk Edit", html:'<p>Products with <b>variants</b> (e.g. different sizes or colors) are grouped together. Tap a grouped product to see its variants in a bottom sheet.</p><h4>Bulk Edit Variants</h4><p>From the variants sheet, you can bulk edit all variants at once:</p><ul><li>Set a <b>new price</b> for all variants.</li><li><b>Adjust by percentage</b> (e.g. increase all prices by 10%).</li><li><b>Add stock</b> to all variants at once.</li></ul>' },
+      { title:"Barcode Scanner", html:'<div class="guide-path">Inventaire <i class="bi bi-chevron-right"></i> Tap scanner icon (top bar)</div><p>Point your camera at a product barcode. If the product exists, it opens directly. If not, you can create a new product with that barcode pre-filled.</p>' },
+      { title:"Stock Losses", html:'<p>From any <b>Product Detail</b> screen, you can record stock losses. Each loss entry includes:</p><ul><li><b>Loss type</b>: expired, broken, damaged, lost, stolen, warranty return, obsolete, or other.</li><li><b>Quantity</b> lost and <b>unit cost</b>.</li><li><b>Description</b> of what happened.</li><li>Option to <b>count as expense</b>: automatically creates an expense entry for the loss.</li></ul><p>Stock losses are summarized in the Inventory Report under Reports.</p>' }
+    ]
+  },
+  {
+    id:"sales", title:"Sales (Ventes) - Point of Sale",
+    sections:[
+      { title:"Making a Sale", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Ventes"</div><ol><li><b>Find products</b>: Use the search bar, scroll the list, filter by category, or scan a barcode.</li><li><b>Add to cart</b>: Tap a product to add it. For products with <b>variants</b>, a selection sheet appears so you can pick the right variant (size, color, etc.). For products sold by <b>unit</b> (e.g., a crate of bottles), a prompt lets you choose between selling by the individual piece or by the whole unit.</li><li><b>Adjust cart</b>: Tap +/- to change quantities, apply a per-item discount, or swipe to remove an item.</li><li><b>Review cart</b>: See items, quantities, individual discounts, and totals at the bottom (or on a side panel on tablets with 900px+ screens).</li><li>Tap <b>Pay</b> to proceed to checkout.</li></ol>' },
+      { title:"Checkout & Payment", html:'<div class="guide-path">Ventes <i class="bi bi-chevron-right"></i> Pay button</div><p>The checkout screen lets you finalize the sale:</p><ol><li><b>Select a client</b> (optional) - for credit sales or loyalty tracking.</li><li><b>Apply a discount</b> - percentage or fixed amount, on the whole order.</li><li><b>Choose payment method</b>:<ul><li><b>Cash</b> (Espèces)</li><li><b>Mobile Money</b> (Lumicash, Airtel Money, etc.)</li><li><b>Credit</b> (Crédit) - recorded as client debt</li><li><b>Split Payment</b> (Mixte) - part cash, part mobile, part credit</li></ul></li><li>For cash payments, enter the <b>amount received</b> to see the change.</li><li>Add <b>notes</b> if needed.</li><li>Tap <b>Validate Sale</b>.</li></ol><p>After validation, you see the receipt. You can <b>print</b> it (Bluetooth printer), <b>share</b> it, or start a <b>new sale</b>.</p>' },
+      { title:"Parked Carts (Pending Sales)", html:'<div class="guide-path">Ventes <i class="bi bi-chevron-right"></i> Pending icon (top bar)</div><p>If a customer is still deciding or you need to serve someone else, tap <b>Park Cart</b>. The cart is saved and you can resume it later from the pending carts list.</p>' },
+      { title:"Sales History", html:'<div class="guide-path">Ventes <i class="bi bi-chevron-right"></i> History icon (top bar)</div><p>View all past sales. Search by client name, product, or invoice number. Filter by period (Today, This Week, This Month).</p><p>Tap any sale to see full details. From the detail screen, you can:</p><ul><li><b>Return items</b> - select items to return, stock is automatically restored</li><li><b>Print or share</b> the invoice</li></ul>' },
+      { title:"Returns & Refunds", html:'<p>From any <b>Sale Detail</b> screen, tap <b>Return</b>:</p><ul><li><b>Full Return</b>: return the entire sale at once. Available on all license tiers.</li><li><b>Partial Return</b>: choose specific items and quantities to return. Requires the <b>Business</b> or <b>Premium</b> license.</li></ul><p>Returned stock is automatically restored to inventory, and the return is recorded in the sale history with the refund amount and method.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> A sale that already has a partial return cannot be fully returned afterward. Plan your returns accordingly.</div>' }
+    ]
+  },
+  {
+    id:"clients", title:"Clients & Debts",
+    sections:[
+      { title:"Managing Clients", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Clients"</div><p>The clients screen shows a <b>summary banner</b> at the top with total debt amount and the number of clients with debt.</p><h4>Search & Filter</h4><ul><li><b>Search</b> by client name.</li><li><b>Filter</b>: All, With Debt, VIP, Gold, Silver, Bronze.</li></ul><h4>Sorting</h4><p>Sort the list by <b>Name</b>, <b>Debt</b>, <b>Purchases</b>, or <b>Last Visit</b> (ascending or descending).</p><h4>Client Cards</h4><p>Each card shows the client avatar, name, phone number, total purchases and amount spent, debt amount (if any), and loyalty badge.</p>' },
+      { title:"Adding a Client", html:'<div class="guide-path">Clients <i class="bi bi-chevron-right"></i> Tap <b>+</b> (bottom right)</div><p>Enter: <b>Name</b> (required), <b>Phone number</b> (required), Email (optional), Address (optional), <b>Credit limit</b>, and Notes.</p>' },
+      { title:"Client Details", html:'<p>Tap any client to see their full profile:</p><ul><li><b>Balance card</b>: current debt amount and credit limit.</li><li><b>Stats</b>: total purchases, total amount spent, number of visits, and last visit date.</li><li><b>Purchase history</b>: a chronological list of all sales to this client (or rental history in Rental mode).</li><li><b>Payment history</b>: all debt payments made, with dates and payment methods.</li><li><b>Loyalty points</b> and current loyalty level badge.</li></ul><h4>Adding a Payment</h4><p>Tap <b>Add Payment</b> (visible when the client has debt):</p><ul><li>Choose a <b>single method</b>: Cash, Mobile Money, or Bank Transfer.</li><li>Or toggle <b>Split Payment</b> to divide across multiple methods (e.g., part cash, part mobile).</li><li>Enter the <b>amount</b> and an optional <b>reference</b> (e.g., mobile money transaction ID).</li></ul><h4>Archiving a Client</h4><p>Tap the menu to archive. A client can only be archived if they have <b>zero debt</b>. Clear all outstanding balances before archiving.</p>' },
+      { title:"WhatsApp Debt Reminders", html:'<p>From the <b>CRM</b> screen (Relances tab), you can send debt reminders via WhatsApp:</p><ul><li><b>Individual</b>: Tap the WhatsApp icon next to a client\'s name.</li><li><b>Send All</b>: Tap the "Send All" button to send reminders to all clients with debt at once.</li></ul><div class="guide-tip"><i class="bi bi-info-circle"></i> The reminder message is pre-written with the client\'s name and amount. WhatsApp opens with the message ready to send.</div>' }
+    ]
+  },
+  {
+    id:"crm", title:"CRM & Loyalty Program",
+    sections:[
+      { title:"CRM Overview", html:'<div class="guide-path">Clients <i class="bi bi-chevron-right"></i> CRM icon (top bar)</div><p>The CRM (Customer Relationship Management) screen has <b>4 tabs</b>:</p><ol><li><b>VIP</b>: your most valuable clients ranked by total spending.</li><li><b>Regulars</b>: frequent buyers who shop consistently.</li><li><b>Reminders</b> (Relances): clients with unpaid debts. Each entry shows the client name, phone, debt amount, and reminder count. Tap the <b>WhatsApp icon</b> to send an individual reminder, or tap <b>Send All</b> to remind all debtors at once (Business/Premium license).</li><li><b>Loyalty</b> (Fidelite): loyalty program settings and leaderboard.</li></ol>' },
+      { title:"Loyalty Program Setup", html:'<p>In the <b>Loyalty</b> tab:</p><ol><li>Enable the loyalty program.</li><li>Configure <b>points thresholds</b> (500, 1000, 2000, or 5000 currency units per point).</li><li>Set discount tiers and redemption rules.</li></ol><h4>Loyalty Levels</h4><ul><li><b>Bronze</b>: 10+ points.</li><li><b>Silver</b>: 50+ points.</li><li><b>Gold</b>: 200+ points.</li><li><b>VIP</b>: 500+ points.</li></ul><h4>Leaderboard</h4><p>View the <b>top 10 clients</b> ranked by loyalty points. Points are earned automatically on every sale linked to a client.</p><div class="guide-tip"><i class="bi bi-info-circle"></i> Loyalty levels appear as badges on client cards throughout the app, helping you identify your best customers at a glance.</div>' }
+    ]
+  },
+  {
+    id:"expenses", title:"Expenses (Dépenses)",
+    sections:[
+      { title:"Recording Expenses", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Dépenses" <i class="bi bi-chevron-right"></i> Tap <b>+</b></div><ol><li>Select a <b>category</b> (Rent, Transport, Supplies, Salaries, Utilities, Other, etc.).</li><li>Enter the <b>amount</b>.</li><li>Add a <b>description</b>.</li><li>Set the <b>date</b>.</li><li>Optionally mark as <b>recurring</b> with a frequency: <b>Daily</b>, <b>Weekly</b>, <b>Monthly</b>, or <b>Weekdays</b> (Mon-Fri). For weekly recurrence, you can select the specific day(s).</li><li>Tap <b>Save</b>.</li></ol>' },
+      { title:"Filtering & Searching", html:'<p>Use the period filters at the top: <b>Today</b>, <b>This Week</b>, <b>This Month</b>, or <b>Custom dates</b>. Filter by category using the category chips.</p>' },
+      { title:"Archiving Expenses", html:'<p>Swipe an expense to archive it. For bulk operations, <b>long-press</b> any expense to enter multi-select mode, then select multiple items and tap <b>Archive Selected</b>. Use <b>Select All</b> to choose everything at once.</p>' },
+      { title:"Recurring Expenses", html:'<div class="guide-path">Dépenses <i class="bi bi-chevron-right"></i> Recurring icon (top bar)</div><p>View all active recurring expenses. You can <b>stop</b> a recurring expense (no more future entries) or <b>delete</b> it entirely.</p>' }
+    ]
+  },
+  {
+    id:"reports", title:"Reports (Rapports)",
+    sections:[
+      { title:"Overview", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Rapports"</div><p>The Reports screen provides a complete analysis of your business. Select a period at the top: <b>Today</b>, <b>This Week</b>, <b>This Month</b>, <b>This Year</b>, or <b>Custom</b> date range. The available tabs depend on your store type.</p>' },
+      { title:"Sales Report", html:'<p>Available in <b>Sales</b> and <b>Restaurant</b> modes.</p><h4>Key Metrics</h4><ul><li><b>Total Revenue</b>: overall sales income for the period.</li><li><b>Total Profit</b>: revenue minus costs.</li><li><b>Sales Count</b>: number of completed transactions.</li><li><b>Total Cost</b>: cost of goods sold.</li></ul><h4>Returns</h4><p>If any returns occurred during the period, a returns block shows the total return amount and the number of return transactions.</p><h4>Sales by Payment Method</h4><p>A pie chart showing the breakdown of payments by cash, mobile money, and credit.</p><h4>Top Selling Products</h4><p>A ranked list of your best-selling products (or dishes in Restaurant mode) by quantity sold.</p>' },
+      { title:"Expense Report", html:'<p>Available in all store modes.</p><ul><li><b>Total Expenses</b> card showing the overall spending for the period.</li><li><b>Expenses by Category</b>: a pie chart breaking down spending across categories (rent, transport, supplies, salaries, utilities, etc.).</li><li><b>Category Breakdown List</b>: each category with its total amount, so you can see exactly where your money goes.</li></ul>' },
+      { title:"Inventory Report", html:'<p>Available in <b>Sales</b> and <b>Restaurant</b> modes (labeled "Ingredients" in Restaurant mode).</p><ul><li><b>Total Stock Value</b>: the combined value of all inventory at purchase price.</li><li><b>Product Counts</b>: total products, low stock count, and out of stock count.</li><li><b>Stock Losses Summary</b>: total loss amount, number of loss incidents, and the main loss type (expired, broken, damaged, lost, stolen, etc.).</li><li><b>Low Stock Products</b>: a list of products below the alert threshold, showing name, current quantity, and status.</li></ul>' },
+      { title:"Rental Report", html:'<p>Available in <b>Rental</b> mode only.</p><h4>Key Metrics</h4><ul><li><b>Rental Revenue</b>: total income from rentals.</li><li><b>Total Deposits</b>: deposits held for active rentals.</li><li><b>Active Rentals</b> and <b>Overdue Rentals</b> counts.</li><li><b>Late Fees</b> and <b>Damage Fees</b> collected.</li></ul><h4>Charts</h4><ul><li><b>Rentals by Status</b>: a pie chart showing active, overdue, and completed rentals.</li><li><b>Top Rented Items</b>: your most popular rental items by frequency.</li></ul><h4>Rental Inventory</h4><ul><li>Total stock value and item count.</li><li>Available vs rented breakdown.</li><li>Utilization pie chart.</li><li>Stock losses summary.</li><li>Out-of-stock items list.</li></ul>' },
+      { title:"Exporting Reports", html:'<p>Tap the <b>export button</b> (FAB) to share the current report:</p><ul><li><b>PDF export</b>: generates a formatted PDF document with charts and tables (Business/Premium license required).</li><li><b>Excel export</b>: generates an <b>.xlsx spreadsheet</b> with detailed data rows, ideal for further analysis in Excel or Google Sheets (Business/Premium license required).</li><li><b>Text sharing</b>: share a plain-text summary via WhatsApp, email, or any messaging app (available on all license tiers).</li></ul>' },
+      { title:"Automatic Reports", html:'<div class="guide-path">Rapports <i class="bi bi-chevron-right"></i> Auto-reports icon (top bar)</div><p>The app automatically generates <b>weekly</b> and <b>monthly</b> summary reports that you can preview and share.</p><h4>Weekly Report</h4><ul><li>Revenue, sales count, gross profit, total expenses.</li><li>Net profit and average margin.</li><li>Top 3 products of the week.</li></ul><h4>Monthly Report</h4><ul><li>Revenue, sales count, average cart value, net profit.</li><li>Total client debt.</li><li>Client segmentation breakdown: VIP, Regular, Occasional, New.</li><li>Expenses by category (top 5).</li></ul><h4>Sharing Options</h4><ul><li><b>Preview</b>: view the report in a dialog.</li><li><b>Share Text</b>: send via WhatsApp or any messaging app.</li><li><b>Share PDF</b>: export as a PDF document (Business/Premium license required).</li></ul>' }
+    ]
+  },
+  {
+    id:"rental", title:"Rental Mode (Location)",
+    sections:[
+      { title:"Rental Dashboard", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tap store logo (top left)</div><p>The rental dashboard gives you a quick overview of your rental business:</p><h4>Key Metrics</h4><ul><li><b>Today\'s Revenue</b> and today\'s rental count.</li><li><b>Client Debt</b> and number of clients with debt.</li><li><b>Items on Rent</b>: how many items are currently rented out.</li><li><b>Overdue Rentals</b>: count of past-due rentals.</li><li><b>Returns Due Today</b>: items expected back today.</li><li><b>Active Deposits</b>: total deposit amount currently held.</li></ul><h4>Activity Sections</h4><ul><li><b>Active Rentals</b>: up to 5 current rentals with client name, item count, due date, and total.</li><li><b>Overdue</b>: up to 5 overdue rentals with days overdue and a call button to contact the client.</li><li><b>Due Today</b>: items expected back today with a quick "Return" button.</li><li><b>Clients with Debt</b>: up to 5 clients with outstanding balances.</li></ul>' },
+      { title:"Rental Catalogue", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Catalogue"</div><p>Lists all items available for rent. Add items with name, category, rental price (per day/hour/event), quantity, deposit amount, and photos.</p>' },
+      { title:"Creating a Rental", html:'<div class="guide-path">Catalogue <i class="bi bi-chevron-right"></i> <b>New Rental</b> button</div><ol><li>Select the item(s) to rent.</li><li>Choose the <b>client</b>.</li><li>Set <b>start date</b> and <b>return date</b>.</li><li>Choose payment: full upfront, deposit, or credit.</li><li>Confirm the rental.</li></ol>' },
+      { title:"Managing Rentals", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Locations"</div><p>View active, overdue, and completed rentals. Tap a rental to see details, process the return, collect remaining payment, or extend the rental period.</p>' },
+      { title:"Rental Item Details", html:'<p>Tap any item in the catalogue to see:</p><ul><li><b>Availability</b>: total quantity owned, currently rented out, and available count.</li><li><b>Deposit amount</b>: the required deposit per rental.</li><li><b>Replacement value</b>: the full value of the item if it is lost or destroyed.</li><li><b>Rental history</b>: all past and current rentals involving this item.</li><li><b>Revenue generated</b>: total income this item has earned.</li></ul>' }
+    ]
+  },
+  {
+    id:"restaurant", title:"Restaurant Mode",
+    sections:[
+      { title:"Restaurant Dashboard", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tap store logo (top left)</div><p>The restaurant dashboard is tailored for food service businesses. Select the period at the top: <b>Today</b>, <b>This Week</b>, <b>This Month</b>, or <b>This Year</b>.</p><h4>Key Metrics</h4><ul><li><b>Revenue</b>: total sales for the period, with order count.</li><li><b>Profit</b>: revenue minus ingredient costs and expenses.</li><li><b>Recipes on Menu</b>: how many dishes are available vs total recipes created.</li><li><b>Average Food Cost %</b>: the average cost of ingredients relative to selling price. A warning appears if this exceeds 35%.</li><li><b>Low Stock Ingredients</b>: count of ingredients running low.</li><li><b>Client Debt</b>: total amount owed by clients.</li></ul><h4>Global Profit Breakdown</h4><p>A detailed profit card showing: real profit (revenue minus cost of goods sold minus expenses), total revenue, total expenses, and ingredient stock value.</p><h4>Ingredient Alerts</h4><ul><li>List of <b>out-of-stock</b> ingredients that need restocking.</li><li>List of <b>low-stock</b> ingredients with current quantities.</li></ul><h4>Top Recipes</h4><p>Your top 5 recipes ranked by profit margin, showing each recipe\'s name, ingredient cost, margin, and selling price. Tap any recipe to view its full details.</p>' },
+      { title:"Ingredients (Inventory)", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Ingredients"</div><p>In Restaurant mode, the inventory tab is labeled <b>Ingredients</b> and manages your raw ingredients rather than finished products.</p><h4>Features</h4><ul><li><b>Search</b> by ingredient name.</li><li><b>Category filter chips</b> at the top to narrow the list.</li><li><b>Low stock filter</b>: show only ingredients below the alert threshold.</li><li><b>Paginated list</b> (20 items per page) for large inventories.</li></ul><h4>Adding an Ingredient</h4><p>Tap <b>+</b> to add a new ingredient. Enter the name, category, purchase price, unit (kg, liter, piece, etc.), stock quantity, and low stock alert threshold. Ingredients are used as building blocks for your recipes.</p><h4>Stock Tracking</h4><p>Track stock entries and exits, view stock loss records, and monitor cost analysis. When a dish is sold through the POS, the required ingredient quantities are automatically deducted from stock.</p>' },
+      { title:"Menu (Recipes)", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Menu icon (top bar)</div><p>The Menu screen lets you create and manage your dishes (recipes).</p><h4>Recipe List</h4><p>Each recipe shows a category icon, dish name, an availability toggle, ingredient count, cost, margin percentage, and selling price.</p><h4>Filtering</h4><ul><li><b>Search</b> by dish name.</li><li><b>Category chips</b>: filter by Main Course, Appetizer, Dessert, Beverage, Side, Breakfast, or Snack.</li></ul><h4>Creating a Recipe</h4><ol><li>Tap <b>+</b> to add a new recipe.</li><li>Enter the <b>dish name</b> and <b>selling price</b>.</li><li>Select a <b>category</b> (main course, appetizer, dessert, beverage, side, breakfast, snack).</li><li>Add <b>ingredients</b>: select from your inventory and specify the quantity needed per dish.</li><li>The app automatically calculates the <b>cost per dish</b> based on ingredient purchase prices.</li><li>You see the <b>profit margin</b> instantly.</li><li>Tap <b>Save</b>.</li></ol><h4>Availability Toggle</h4><p>Use the switch on each recipe to mark a dish as available or unavailable. Unavailable dishes are hidden from the POS.</p>' },
+      { title:"Selling Dishes (POS)", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Tab "Ventes"</div><p>The restaurant POS displays your menu (recipes) instead of individual products.</p><h4>Taking Orders</h4><ol><li><b>Browse the menu</b>: search by name or filter by category (main course, appetizer, dessert, etc.).</li><li><b>Add dishes</b> to the order by tapping them. Tap again to increase quantity.</li><li>Review the <b>cart</b> with subtotal, any discounts, and the total.</li><li>Tap <b>Pay</b> to proceed to checkout.</li></ol><h4>Cart Features</h4><ul><li>Apply <b>discounts</b> per item or on the entire order.</li><li><b>Park the order</b> with an optional label (e.g. "Table 3") to serve another customer first.</li><li><b>Restore parked orders</b> from the pending list (badge shows the count).</li></ul><h4>Checkout</h4><p>The checkout flow is the same as Sales mode: select a client (optional), apply a global discount, choose payment method (cash, mobile money, credit, or split payment). For credit sales, the client must have a credit limit set.</p><h4>Ingredient Deduction</h4><p>When a sale is completed, the required ingredient quantities for each dish sold are <b>automatically deducted</b> from your ingredient stock. This keeps your inventory accurate without manual adjustments.</p><div class="guide-tip"><i class="bi bi-info-circle"></i> On tablets (900px+ screens), the menu and cart display side by side for faster order taking.</div>' }
+    ]
+  },
+  {
+    id:"alerts", title:"Alerts & Notifications",
+    sections:[
+      { title:"Alert Types", html:'<p>E-Sama monitors your business and generates alerts for important events. Tap the <b>bell icon</b> to view all alerts.</p><h4>Inventory Alerts</h4><ul><li><b>Out of Stock</b>: a product has reached zero quantity.</li><li><b>Low Stock</b>: a product is below the alert threshold you set.</li><li><b>Low Margin</b>: a product\'s profit margin is below a healthy level.</li></ul><h4>Client Alerts</h4><ul><li><b>Client Debt</b>: a client has outstanding unpaid credit.</li><li><b>Debt Reminder</b>: a debt payment is due.</li><li><b>Inactive Client</b>: a client has not made a purchase recently.</li></ul><h4>Expense Alerts</h4><ul><li><b>Recurring Expense</b>: a recurring expense is due for processing.</li></ul><h4>Rental Alerts (Rental mode only)</h4><ul><li><b>Overdue Rental</b>: a rental has passed its return date.</li><li><b>Low Availability</b>: a rental item has limited stock remaining.</li></ul>' },
+      { title:"Managing Alerts", html:'<ul><li>Tap an alert to <b>mark it as read</b> and navigate to the relevant screen.</li><li>Swipe an alert to <b>dismiss</b> it.</li><li>Tap <b>Mark All as Read</b> to clear all unread alerts at once.</li></ul>' }
+    ]
+  },
+  {
+    id:"multistore", title:"Multi-Store Management",
+    sections:[
+      { title:"Managing Multiple Stores", html:'<div class="guide-path">Settings <i class="bi bi-chevron-right"></i> Manage Stores</div><p>E-Sama supports managing multiple stores from a single device:</p><ol><li>Tap <b>Add Store</b> to create a new store.</li><li>Choose the business type and currency.</li><li>Switch between stores by selecting the active store.</li></ol><p>Each store has its own independent data: products, clients, sales, expenses, and reports.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> The number of stores allowed depends on your subscription: Standard = 1, Business = 3, Premium = unlimited.</div>' }
+    ]
+  },
+  {
+    id:"backup", title:"Backup & Restore",
+    sections:[
+      { title:"Cloud Backup (Google Drive)", html:'<div class="guide-path">Settings <i class="bi bi-chevron-right"></i> Backup & Restore <i class="bi bi-chevron-right"></i> Cloud</div><ol><li><b>Sign in</b> with your Google account.</li><li>Accept the terms and privacy policy.</li><li>Choose <b>what to back up</b> (all data or specific categories).</li><li>Tap <b>Backup Now</b>.</li><li>Set <b>auto-backup frequency</b>: Daily, Weekly, or Monthly.</li></ol><p>To restore, sign in on the new device and tap <b>Restore</b>. Your data is downloaded from your personal Google Drive.</p><div class="guide-tip"><i class="bi bi-info-circle"></i> Your data is stored in YOUR Google Drive account. We never have access to it.</div>' },
+      { title:"Local Backup", html:'<div class="guide-path">Settings <i class="bi bi-chevron-right"></i> Backup & Restore <i class="bi bi-chevron-right"></i> Local</div><p>Export your data as a file that you can save on your phone or share. Import from a previously exported file to restore.</p>' }
+    ]
+  },
+  {
+    id:"settings", title:"Settings (Paramètres)",
+    sections:[
+      { title:"All Settings", html:'<div class="guide-path">Home <i class="bi bi-chevron-right"></i> Gear icon (top right)</div><h4>Language</h4><p>Change between <b>French</b>, <b>English</b>, and <b>Kiswahili</b>. The entire app switches instantly.</p><h4>Notifications</h4><p>Configure alerts for: low stock, out of stock, daily sales summary, debt reminders, recurring expense reminders.</p><h4>Security</h4><p>Enable <b>app lock</b> with fingerprint or PIN. Set the <b>lock timeout</b>: Immediate, 1 minute, 5 minutes, or 15 minutes. After the chosen timeout of inactivity, the app requires authentication to reopen.</p><h4>Bluetooth Printer</h4><p>Connect a Bluetooth thermal printer for receipt printing:</p><ol><li>Tap <b>Search</b> to scan for nearby Bluetooth printers.</li><li>Select your printer from the list to pair.</li><li>Tap <b>Test Print</b> to verify the connection with a sample receipt.</li></ol><h4>Trash (Corbeille)</h4><p>View all archived items, organized by type: <b>Products</b>, <b>Clients</b>, <b>Sales</b>, <b>Expenses</b>, <b>Rentals</b>, and <b>Rental Items</b>. For each item you can <b>Restore</b> it back to active use or <b>Delete Permanently</b>.</p><h4>Danger Zone</h4><p><b>Delete All Data</b>: erases all data in the app. Requires typing a confirmation phrase. This action cannot be undone.</p>' }
+    ]
+  },
+  {
+    id:"license-info", title:"License & Subscription",
+    sections:[
+      { title:"Subscription Packs", html:'<h4>Standard</h4><ul><li>1 store</li><li>Basic POS and inventory</li><li>Local backup</li></ul><h4>Business</h4><ul><li>Up to 3 stores</li><li>PDF export</li><li>Cloud backup (Google Drive)</li><li>WhatsApp debt reminders</li><li>Auto reports</li></ul><h4>Premium</h4><ul><li>Unlimited stores</li><li>All analytics and reports</li><li>Priority support</li><li>All Business features</li></ul>' },
+      { title:"Checking Your License", html:'<div class="guide-path">Settings <i class="bi bi-chevron-right"></i> About <i class="bi bi-chevron-right"></i> My License</div><p>View your current pack, expiry date, and days remaining. Enter a new activation code to renew.</p>' }
+    ]
+  }
+  ];
+
+  /* ── French ──────────────────────────────────────── */
+  G.fr.title = "E-Sama - Guide d\u2019utilisation complet";
+  G.fr.subtitle = "Tout ce qu\u2019il faut savoir pour installer, configurer et ma\u00eetriser E-Sama pour tout type de business.";
+  G.fr.download_pdf = "T\u00e9l\u00e9charger le PDF";
+  G.fr.toc_title = "Table des mati\u00e8res";
+  G.fr.chapters = [
+  {
+    id:"install", title:"Installation & Premier lancement",
+    sections:[
+      { title:"Comment t\u00e9l\u00e9charger et installer", html:'<ol><li>T\u00e9l\u00e9chargez le fichier APK depuis le lien fourni par votre agent ou depuis <a href="../../app.html?id=esama" style="color:var(--accent)">le store Sama Apps</a>.</li><li>Si demand\u00e9, autorisez l\u2019installation depuis des sources inconnues dans vos param\u00e8tres (<b>Param\u00e8tres \u2192 S\u00e9curit\u00e9 \u2192 Sources inconnues</b>).</li><li>Appuyez sur le fichier t\u00e9l\u00e9charg\u00e9 et appuyez sur <b>Installer</b>.</li><li>Ouvrez l\u2019application. L\u2019\u00e9cran splash avec le logo E-Sama appara\u00eet.</li></ol><div class="guide-tip"><i class="bi bi-info-circle"></i> L\u2019application fonctionne 100% hors ligne. Aucune connexion internet n\u2019est n\u00e9cessaire apr\u00e8s l\u2019installation, sauf pour la sauvegarde cloud et l\u2019activation de la licence.</div>' },
+      { title:"Activation de la licence", html:'<p>Au premier lancement, vous devez activer votre licence :</p><ol><li>L\u2019\u00e9cran <b>Licence</b> s\u2019affiche avec deux onglets : <b>Activer</b> et <b>Acheter</b>.</li><li>Si vous avez d\u00e9j\u00e0 un code, allez dans l\u2019onglet <b>Activer</b>, entrez votre code d\u2019activation et appuyez sur <b>Activer</b>.</li><li>Pour acheter, allez dans l\u2019onglet <b>Acheter</b> : choisissez votre <b>forfait</b> (Standard / Business / Premium), la <b>dur\u00e9e</b> (1, 3, 6 ou 12 mois), entrez votre <b>nom</b>, choisissez votre <b>mode de paiement</b> (Lumicash, Airtel Money, etc.) et appuyez sur <b>Commander via WhatsApp</b>.</li><li>Votre <b>ID Appareil</b> est affich\u00e9 en bas - cet identifiant est unique \u00e0 votre t\u00e9l\u00e9phone et est n\u00e9cessaire pour l\u2019activation.</li></ol><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> Ne changez PAS la date/heure de votre t\u00e9l\u00e9phone manuellement. L\u2019application d\u00e9tecte la falsification de l\u2019horloge et peut bloquer l\u2019acc\u00e8s.</div>' },
+      { title:"Onboarding - Configuration de votre premi\u00e8re boutique", html:'<p>Apr\u00e8s l\u2019activation, l\u2019assistant de configuration vous guide en 3 \u00e9tapes :</p><h4>\u00c9tape 1 - Restauration cloud (optionnel)</h4><p>Si vous aviez une sauvegarde pr\u00e9c\u00e9dente sur Google Drive, connectez-vous avec Google et restaurez-la ici. Sinon, appuyez sur <b>Passer</b>.</p><h4>\u00c9tape 2 - Type de business</h4><p>Choisissez votre type :</p><ul><li><b>Vente</b> - Boutique, Alimentation, Pharmacie, D\u00e9p\u00f4t, etc.</li><li><b>Restaurant</b> - Bar, Cabaret, Resto, Snack</li><li><b>Location</b> - \u00c9quipements, \u00c9v\u00e9nements, Sons (imvutano)</li></ul><h4>\u00c9tape 3 - D\u00e9tails de la boutique</h4><p>Entrez le <b>nom de votre boutique</b> et s\u00e9lectionnez votre <b>devise</b> (FBu, USD, EUR, etc.). Appuyez sur <b>Commencer</b>.</p>' }
+    ]
+  },
+  {
+    id:"navigation", title:"Navigation principale",
+    sections:[
+      { title:"Structure de l\u2019\u00e9cran d\u2019accueil", html:'<p>L\u2019\u00e9cran d\u2019accueil a une <b>barre de navigation</b> en bas avec 5 onglets. Les onglets changent selon votre type de business :</p><h4>Mode Vente (Boutique, Pharmacie, D\u00e9p\u00f4t...)</h4><ol><li><b>Inventaire</b> - Produits & stock</li><li><b>Ventes</b> - Point de vente (POS)</li><li><b>D\u00e9penses</b></li><li><b>Clients</b></li><li><b>Rapports</b></li></ol><h4>Mode Restaurant</h4><ol><li><b>Tableau de bord</b></li><li><b>Ingr\u00e9dients</b> (inventaire)</li><li><b>Ventes</b> (POS plats)</li><li><b>D\u00e9penses</b></li><li><b>Clients</b></li><li><b>Rapports</b></li></ol><h4>Mode Location</h4><ol><li><b>Catalogue</b> - Articles \u00e0 louer</li><li><b>Locations</b> - Locations actives</li><li><b>D\u00e9penses</b></li><li><b>Clients</b></li><li><b>Rapports</b></li></ol><p>La <b>barre du haut</b> affiche le nom de votre boutique. Appuyez sur le <b>logo</b> pour ouvrir le <b>Tableau de bord</b>. Appuyez sur l\u2019ic\u00f4ne <b>engrenage</b> pour les <b>Param\u00e8tres</b>.</p>' }
+    ]
+  },
+  {
+    id:"dashboard", title:"Tableau de bord",
+    sections:[
+      { title:"Vue d\u2019ensemble", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Appuyer sur le logo boutique</div><p>Le tableau de bord est votre centre de commande. S\u00e9lectionnez la p\u00e9riode en haut : <b>Aujourd\u2019hui</b>, <b>Cette semaine</b>, <b>Ce mois</b> ou <b>Cette ann\u00e9e</b>.</p><h4>M\u00e9triques principales</h4><ul><li><b>Chiffre d\u2019affaires</b> : montant total des ventes, avec le nombre de ventes et de retours.</li><li><b>B\u00e9n\u00e9fice total</b> : CA moins tous les co\u00fbts, avec le pourcentage de marge brute.</li></ul><h4>M\u00e9triques secondaires</h4><ul><li><b>B\u00e9n\u00e9fice brut</b> : profit avant les charges d\u2019exploitation.</li><li><b>Total d\u00e9penses</b> : toutes les d\u00e9penses enregistr\u00e9es.</li><li><b>Valeur du stock</b> : au prix d\u2019achat.</li><li><b>Dettes clients</b> : montant total d\u00fb par les clients \u00e0 cr\u00e9dit.</li></ul>' },
+      { title:"Graphiques & Analyses", html:'<p>Le tableau de bord inclut trois graphiques interactifs :</p><ul><li><b>\u00c9volution des ventes</b> : un graphique en courbe montrant les tendances du CA et du profit.</li><li><b>D\u00e9penses par cat\u00e9gorie</b> : un camembert montrant la r\u00e9partition des d\u00e9penses.</li><li><b>Ventes par mode de paiement</b> : un camembert montrant la proportion esp\u00e8ces, mobile money et cr\u00e9dit.</li></ul><h4>Top produits</h4><p>Liste des <b>5 meilleurs produits</b> par volume de vente.</p>' },
+      { title:"Point mort & Rotation du stock", html:'<h4>Analyse du point mort</h4><ul><li>Barre de progression vers le seuil de rentabilit\u00e9.</li><li>Charges fixes de la p\u00e9riode.</li><li>Marge moyenne.</li><li>Nombre de ventes n\u00e9cessaires pour atteindre le point mort.</li></ul><h4>Rotation du stock</h4><ul><li><b>Meilleurs vendeurs</b> : vos 5 produits les plus vendus.</li><li><b>Produits dormants</b> : articles sans vente depuis plus de 30 jours.</li></ul><h4>Alertes</h4><ul><li>Produits en <b>rupture de stock</b>.</li><li>Produits en <b>stock bas</b>.</li><li>Clients avec des <b>dettes impay\u00e9es</b>.</li></ul>' },
+      { title:"Cl\u00f4ture de caisse", html:'<div class="guide-path">Tableau de bord <i class="bi bi-chevron-right"></i> Ic\u00f4ne <i class="bi bi-cash-stack"></i> (en haut \u00e0 droite)</div><h4>R\u00e9sum\u00e9 des ventes</h4><ul><li>Ventes totales : <b>esp\u00e8ces</b>, <b>mobile money</b>, <b>cr\u00e9dit</b>.</li><li>Nombre de ventes.</li><li>Retours (si applicable) : total, remboursements, r\u00e9ductions de dette.</li><li>Ventes nettes et b\u00e9n\u00e9fice brut.</li></ul><h4>D\u00e9penses et paiements de dette</h4><ul><li>Total des d\u00e9penses du jour.</li><li>Paiements de dette re\u00e7us, ventil\u00e9s par <b>esp\u00e8ces</b> et <b>mobile money</b>.</li></ul><h4>Rapprochement de caisse</h4><p>Formule de la caisse attendue :</p><p><b>Attendue = Caisse ouverture + Ventes esp\u00e8ces + Paiements dette esp\u00e8ces - D\u00e9penses esp\u00e8ces - Remboursements inter-jours</b></p><ol><li>Entrez la <b>caisse d\u2019ouverture</b>.</li><li>Entrez la <b>caisse de fermeture</b> (comptage r\u00e9el).</li><li>L\u2019app calcule la <b>caisse attendue</b> et affiche un <b>exc\u00e9dent</b> (vert) ou <b>manque</b> (rouge).</li></ol><div class="guide-tip"><i class="bi bi-info-circle"></i> Les retours inter-jours (remboursements de ventes des jours pr\u00e9c\u00e9dents) r\u00e9duisent la caisse attendue pour que le rapprochement reste pr\u00e9cis.</div><h4>Notes et partage</h4><p>Ajoutez des notes. Partagez le rapport en <b>texte</b> (WhatsApp) ou en <b>PDF</b> (licence Business/Premium).</p>' }
+    ]
+  },
+  {
+    id:"inventory", title:"Inventaire",
+    sections:[
+      { title:"Consulter les produits", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Inventaire"</div><p>L\u2019\u00e9cran inventaire liste tous vos produits. Utilisez la <b>barre de recherche</b> pour trouver un produit. Filtrez par <b>cat\u00e9gorie</b> avec les puces en haut.</p><h4>Modes d\u2019affichage</h4><ul><li><b>Group\u00e9</b> - Produits avec variantes regroup\u00e9s</li><li><b>D\u00e9taill\u00e9</b> - Chaque variante affich\u00e9e s\u00e9par\u00e9ment</li></ul>' },
+      { title:"Ajouter un produit", html:'<div class="guide-path">Inventaire <i class="bi bi-chevron-right"></i> Bouton <b>+</b> (en bas \u00e0 droite)</div><ol><li>Entrez le <b>nom du produit</b>.</li><li>Scannez ou entrez un <b>code-barres</b> (optionnel).</li><li>S\u00e9lectionnez ou cr\u00e9ez une <b>cat\u00e9gorie</b>.</li><li>D\u00e9finissez les prix :<ul><li><b>Prix d\u2019achat</b></li><li><b>Prix de vente (d\u00e9tail)</b></li><li><b>Prix de gros</b> (optionnel)</li></ul></li><li>Entrez la <b>quantit\u00e9 en stock</b>.</li><li>D\u00e9finissez le <b>seuil d\u2019alerte stock bas</b>.</li><li>Choisissez l\u2019<b>unit\u00e9</b> (pi\u00e8ce, kg, litre, etc.).</li><li>D\u00e9finissez les <b>articles par unit\u00e9</b> si applicable (ex: 12 bouteilles par casier). Cela permet de vendre soit \u00e0 la pi\u00e8ce, soit par unit\u00e9 enti\u00e8re dans le POS.</li><li>Ajoutez des <b>variantes</b> si n\u00e9cessaire (taille, couleur).</li><li>Appuyez sur <b>Enregistrer</b>.</li></ol>' },
+      { title:"Modifier & Supprimer un produit", html:'<p>Appuyez sur un produit pour voir ses <b>d\u00e9tails</b>. Depuis l\u00e0 :</p><ul><li>Appuyez sur <b>Modifier</b> (ic\u00f4ne crayon).</li><li>Appuyez sur le <b>menu (\u22ee)</b> pour <b>Archiver</b> le produit (r\u00e9cup\u00e9rable depuis la Corbeille).</li></ul><p>L\u2019\u00e9cran de d\u00e9tails affiche :</p><ul><li><b>Carte de stock</b> : quantit\u00e9 actuelle, statut (en stock / bas / rupture), seuil d\u2019alerte, et valeur totale du stock au prix d\u2019achat.</li><li><b>Carte de prix</b> : prix d\u2019achat, de vente et de gros avec le pourcentage de marge.</li><li><b>Carte de pertes</b> : toutes les pertes enregistr\u00e9es avec type, quantit\u00e9 et co\u00fbt.</li></ul><h4>Ajustements de stock</h4><p>En bas de l\u2019\u00e9cran, deux boutons permettent d\u2019ajuster le stock rapidement :</p><ul><li><b>Entr\u00e9e de stock</b> : ajoutez du stock \u00e0 la r\u00e9ception de marchandises.</li><li><b>Sortie de stock</b> : retirez du stock manuellement (usage personnel, \u00e9chantillons, corrections).</li></ul>' },
+      { title:"Variantes & Modification en lot", html:'<p>Les produits avec <b>variantes</b> (tailles, couleurs) sont regroup\u00e9s. Appuyez sur un produit group\u00e9 pour voir ses variantes dans un panneau en bas.</p><h4>Modification en lot</h4><p>Depuis le panneau des variantes :</p><ul><li>D\u00e9finir un <b>nouveau prix</b> pour toutes les variantes.</li><li><b>Ajuster par pourcentage</b> (ex: augmenter tous les prix de 10%).</li><li><b>Ajouter du stock</b> \u00e0 toutes les variantes en une fois.</li></ul>' },
+      { title:"Scanner de code-barres", html:'<div class="guide-path">Inventaire <i class="bi bi-chevron-right"></i> Ic\u00f4ne scanner (barre du haut)</div><p>Pointez votre cam\u00e9ra vers un code-barres. Si le produit existe, il s\u2019ouvre directement. Sinon, vous pouvez cr\u00e9er un nouveau produit avec ce code-barres pr\u00e9-rempli.</p>' },
+      { title:"Pertes de stock", html:'<p>Depuis l\u2019\u00e9cran de d\u00e9tails d\u2019un produit, enregistrez les pertes. Chaque perte inclut :</p><ul><li><b>Type de perte</b> : p\u00e9rim\u00e9, cass\u00e9, endommag\u00e9, perdu, vol\u00e9, retour garantie, obsol\u00e8te, ou autre.</li><li><b>Quantit\u00e9</b> perdue et <b>co\u00fbt unitaire</b>.</li><li><b>Description</b> de l\u2019incident.</li><li>Option de <b>compter comme d\u00e9pense</b> : cr\u00e9e automatiquement une entr\u00e9e de d\u00e9pense pour la perte.</li></ul><p>Les pertes de stock sont r\u00e9sum\u00e9es dans le Rapport d\u2019inventaire.</p>' }
+    ]
+  },
+  {
+    id:"sales", title:"Ventes - Point de vente (POS)",
+    sections:[
+      { title:"Faire une vente", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Ventes"</div><ol><li><b>Trouvez les produits</b> : recherche, d\u00e9filement, filtre par cat\u00e9gorie, ou scan code-barres.</li><li><b>Ajoutez au panier</b> : appuyez sur un produit. Pour les produits avec <b>variantes</b>, un panneau de s\u00e9lection appara\u00eet. Pour les produits vendus par <b>unit\u00e9</b> (ex: casier de bouteilles), choisissez de vendre \u00e0 la pi\u00e8ce ou par unit\u00e9 enti\u00e8re.</li><li><b>Ajustez le panier</b> : +/- pour les quantit\u00e9s, remise par article, glissez pour supprimer.</li><li><b>V\u00e9rifiez le panier</b> en bas (ou sur le panneau lat\u00e9ral sur tablettes 900px+).</li><li>Appuyez sur <b>Payer</b>.</li></ol>' },
+      { title:"Validation & Paiement", html:'<div class="guide-path">Ventes <i class="bi bi-chevron-right"></i> Bouton Payer</div><ol><li>S\u00e9lectionnez un <b>client</b> (optionnel).</li><li>Appliquez une <b>remise</b> (% ou montant fixe).</li><li>Choisissez le <b>mode de paiement</b> :<ul><li><b>Esp\u00e8ces</b></li><li><b>Mobile Money</b></li><li><b>Cr\u00e9dit</b> - enregistr\u00e9 comme dette client</li><li><b>Mixte</b> - combinaison de plusieurs modes</li></ul></li><li>Pour les esp\u00e8ces, entrez le <b>montant re\u00e7u</b> pour voir la monnaie.</li><li>Appuyez sur <b>Valider la vente</b>.</li></ol><p>Apr\u00e8s validation : <b>imprimer</b>, <b>partager</b> ou commencer une <b>nouvelle vente</b>.</p>' },
+      { title:"Paniers en attente", html:'<div class="guide-path">Ventes <i class="bi bi-chevron-right"></i> Ic\u00f4ne paniers (barre du haut)</div><p>Mettez un panier en attente si le client h\u00e9site. Reprenez-le plus tard depuis la liste des paniers en attente.</p>' },
+      { title:"Historique des ventes", html:'<div class="guide-path">Ventes <i class="bi bi-chevron-right"></i> Ic\u00f4ne historique (barre du haut)</div><p>Consultez toutes les ventes pass\u00e9es. Recherchez par client, produit ou num\u00e9ro de facture. Filtrez par p\u00e9riode (Aujourd\u2019hui, Cette semaine, Ce mois).</p>' },
+      { title:"Retours et remboursements", html:'<p>Depuis un <b>D\u00e9tail de vente</b>, appuyez sur <b>Retour</b> :</p><ul><li><b>Retour complet</b> : retourner toute la vente. Disponible sur tous les forfaits.</li><li><b>Retour partiel</b> : choisir des articles et quantit\u00e9s sp\u00e9cifiques. N\u00e9cessite la licence <b>Business</b> ou <b>Premium</b>.</li></ul><p>Le stock retourn\u00e9 est automatiquement r\u00e9int\u00e9gr\u00e9 dans l\u2019inventaire.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> Une vente ayant d\u00e9j\u00e0 un retour partiel ne peut plus \u00eatre retourn\u00e9e compl\u00e8tement.</div>' }
+    ]
+  },
+  {
+    id:"clients", title:"Clients & Dettes",
+    sections:[
+      { title:"G\u00e9rer les clients", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Clients"</div><p>Recherchez, triez (Nom, Dette, Achats, Derni\u00e8re visite) et filtrez (Tous, Avec dette, VIP, Or, Argent, Bronze).</p>' },
+      { title:"Ajouter un client", html:'<div class="guide-path">Clients <i class="bi bi-chevron-right"></i> Bouton <b>+</b></div><p>Entrez : <b>Nom</b>, <b>T\u00e9l\u00e9phone</b>, Email, Adresse, <b>Limite de cr\u00e9dit</b>, Notes.</p>' },
+      { title:"D\u00e9tails client", html:'<p>Appuyez sur un client pour voir son profil complet :</p><ul><li><b>Carte de solde</b> : montant de la dette et limite de cr\u00e9dit.</li><li><b>Statistiques</b> : total des achats, montant d\u00e9pens\u00e9, nombre de visites, derni\u00e8re visite.</li><li><b>Historique d\u2019achats</b> : liste chronologique de toutes les ventes.</li><li><b>Historique des paiements</b> : tous les paiements de dette avec dates et m\u00e9thodes.</li><li><b>Points de fid\u00e9lit\u00e9</b> et badge de niveau.</li></ul><h4>Ajouter un paiement</h4><p>Appuyez sur <b>Ajouter un paiement</b> (visible quand le client a une dette) :</p><ul><li>Choisissez une <b>m\u00e9thode unique</b> : Esp\u00e8ces, Mobile Money ou Virement bancaire.</li><li>Ou activez le <b>Paiement partag\u00e9</b> pour diviser sur plusieurs m\u00e9thodes.</li><li>Entrez le <b>montant</b> et une <b>r\u00e9f\u00e9rence</b> optionnelle (ex: ID de transaction).</li></ul><h4>Archiver un client</h4><p>Un client ne peut \u00eatre archiv\u00e9 que s\u2019il a une <b>dette \u00e0 z\u00e9ro</b>.</p>' },
+      { title:"Rappels WhatsApp", html:'<p>Depuis l\u2019\u00e9cran <b>CRM</b> (onglet Relances), envoyez des rappels de dette par WhatsApp individuellement ou \u00e0 tous les clients d\u2019un coup.</p>' }
+    ]
+  },
+  {
+    id:"crm", title:"CRM & Programme de fid\u00e9lit\u00e9",
+    sections:[
+      { title:"Vue d\u2019ensemble du CRM", html:'<div class="guide-path">Clients <i class="bi bi-chevron-right"></i> Ic\u00f4ne CRM (barre du haut)</div><p>4 onglets :</p><ol><li><b>VIP</b> : vos meilleurs clients class\u00e9s par d\u00e9penses totales.</li><li><b>R\u00e9guliers</b> : acheteurs fr\u00e9quents et fid\u00e8les.</li><li><b>Relances</b> : clients avec des dettes impay\u00e9es. Envoyez des rappels par <b>WhatsApp</b> individuellement ou \u00e0 tous d\u2019un coup (licence Business/Premium).</li><li><b>Fid\u00e9lit\u00e9</b> : param\u00e8tres du programme et classement.</li></ol>' },
+      { title:"Programme de fid\u00e9lit\u00e9", html:'<ol><li>Activez le programme.</li><li>Configurez les <b>seuils de points</b> (500, 1000, 2000, ou 5000 unit\u00e9s par point).</li><li>D\u00e9finissez les r\u00e8gles de remise.</li></ol><h4>Niveaux de fid\u00e9lit\u00e9</h4><ul><li><b>Bronze</b> : 10+ points.</li><li><b>Argent</b> : 50+ points.</li><li><b>Or</b> : 200+ points.</li><li><b>VIP</b> : 500+ points.</li></ul><h4>Classement</h4><p>Top 10 clients class\u00e9s par points. Les points sont gagn\u00e9s automatiquement \u00e0 chaque vente li\u00e9e \u00e0 un client.</p>' }
+    ]
+  },
+  {
+    id:"expenses", title:"D\u00e9penses",
+    sections:[
+      { title:"Enregistrer une d\u00e9pense", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "D\u00e9penses" <i class="bi bi-chevron-right"></i> Bouton <b>+</b></div><ol><li>S\u00e9lectionnez une <b>cat\u00e9gorie</b> (Loyer, Transport, Fournitures, Salaires, etc.).</li><li>Entrez le <b>montant</b>.</li><li>Ajoutez une <b>description</b>.</li><li>D\u00e9finissez la <b>date</b>.</li><li>Marquez comme <b>r\u00e9currente</b> avec une fr\u00e9quence : <b>Quotidienne</b>, <b>Hebdomadaire</b>, <b>Mensuelle</b> ou <b>Jours ouvrables</b> (lun-ven).</li><li>Appuyez sur <b>Enregistrer</b>.</li></ol>' },
+      { title:"Filtrage et recherche", html:'<p>Utilisez les filtres de p\u00e9riode : <b>Aujourd\u2019hui</b>, <b>Cette semaine</b>, <b>Ce mois</b> ou <b>Dates personnalis\u00e9es</b>. Filtrez par cat\u00e9gorie avec les puces de cat\u00e9gorie.</p>' },
+      { title:"Archivage des d\u00e9penses", html:'<p>Glissez une d\u00e9pense pour l\u2019archiver. Pour les op\u00e9rations en lot, <b>appui long</b> sur une d\u00e9pense pour entrer en mode multi-s\u00e9lection, puis s\u00e9lectionnez plusieurs \u00e9l\u00e9ments et appuyez sur <b>Archiver la s\u00e9lection</b>. Utilisez <b>Tout s\u00e9lectionner</b> pour choisir tout d\u2019un coup.</p>' },
+      { title:"D\u00e9penses r\u00e9currentes", html:'<div class="guide-path">D\u00e9penses <i class="bi bi-chevron-right"></i> Ic\u00f4ne r\u00e9currences (barre du haut)</div><p>Consultez toutes les d\u00e9penses r\u00e9currentes actives. Pour chaque mod\u00e8le : <b>Arr\u00eater</b> (plus de futures entr\u00e9es) ou <b>Supprimer</b> (avec confirmation pour les instances existantes).</p>' }
+    ]
+  },
+  {
+    id:"reports", title:"Rapports",
+    sections:[
+      { title:"Vue d\u2019ensemble", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Rapports"</div><p>S\u00e9lectionnez la p\u00e9riode : <b>Aujourd\u2019hui</b>, <b>Cette semaine</b>, <b>Ce mois</b>, <b>Cette ann\u00e9e</b> ou <b>Personnalis\u00e9</b>. Les onglets disponibles d\u00e9pendent de votre type de boutique.</p>' },
+      { title:"Rapport des ventes", html:'<ul><li><b>Chiffre d\u2019affaires</b>, <b>B\u00e9n\u00e9fice</b>, <b>Nombre de ventes</b>, <b>Co\u00fbt total</b>.</li><li>Bloc des retours (si applicable) : total et nombre.</li><li><b>Ventes par mode de paiement</b> : camembert (esp\u00e8ces, mobile money, cr\u00e9dit).</li><li><b>Top produits vendus</b> : liste class\u00e9e par quantit\u00e9.</li></ul>' },
+      { title:"Rapport des d\u00e9penses", html:'<ul><li>Carte du <b>total des d\u00e9penses</b>.</li><li><b>D\u00e9penses par cat\u00e9gorie</b> : camembert.</li><li><b>D\u00e9tails par cat\u00e9gorie</b> : liste avec montants.</li></ul>' },
+      { title:"Rapport d\u2019inventaire", html:'<ul><li><b>Valeur totale du stock</b>.</li><li><b>Nombre de produits</b> : total, stock bas, rupture.</li><li><b>Pertes de stock</b> : montant total, nombre d\u2019incidents, type principal.</li><li><b>Liste des produits en stock bas</b>.</li></ul>' },
+      { title:"Rapport de location", html:'<p>Disponible en mode <b>Location</b> uniquement.</p><h4>M\u00e9triques</h4><ul><li><b>Revenus des locations</b>, <b>Cautions totales</b>.</li><li><b>Locations actives</b> et <b>en retard</b>.</li><li><b>Frais de retard</b> et <b>frais de dommages</b> collect\u00e9s.</li></ul><h4>Graphiques</h4><ul><li><b>Locations par statut</b> : camembert (actives, en retard, termin\u00e9es).</li><li><b>Articles les plus lou\u00e9s</b> par fr\u00e9quence.</li></ul>' },
+      { title:"Exportation", html:'<p>Appuyez sur le <b>bouton d\u2019export</b> (FAB) :</p><ul><li><b>PDF</b> : g\u00e9n\u00e8re un document format\u00e9 avec graphiques et tableaux (licence Business/Premium).</li><li><b>Excel</b> : g\u00e9n\u00e8re un fichier <b>.xlsx</b> avec des donn\u00e9es d\u00e9taill\u00e9es, id\u00e9al pour une analyse approfondie dans Excel ou Google Sheets (licence Business/Premium).</li><li><b>Texte</b> : partagez un r\u00e9sum\u00e9 via WhatsApp, email, etc. (disponible sur tous les forfaits).</li></ul>' },
+      { title:"Rapports automatiques", html:'<div class="guide-path">Rapports <i class="bi bi-chevron-right"></i> Ic\u00f4ne auto-rapports</div><h4>Rapport hebdomadaire</h4><ul><li>CA, nombre de ventes, b\u00e9n\u00e9fice brut, d\u00e9penses.</li><li>B\u00e9n\u00e9fice net, marge moyenne.</li><li>Top 3 produits de la semaine.</li></ul><h4>Rapport mensuel</h4><ul><li>CA, nombre de ventes, panier moyen, b\u00e9n\u00e9fice net.</li><li>Dette totale des clients.</li><li>Segmentation : VIP, R\u00e9guliers, Occasionnels, Nouveaux.</li><li>D\u00e9penses par cat\u00e9gorie (top 5).</li></ul><p>Pr\u00e9visualisez, partagez en texte, ou exportez en PDF.</p>' }
+    ]
+  },
+  {
+    id:"rental", title:"Mode Location",
+    sections:[
+      { title:"Tableau de bord Location", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Appuyer sur le logo</div><h4>M\u00e9triques</h4><ul><li><b>CA du jour</b> et nombre de locations.</li><li><b>Dettes clients</b>.</li><li><b>Articles en location</b>.</li><li><b>Locations en retard</b>.</li><li><b>Retours pr\u00e9vus aujourd\u2019hui</b>.</li><li><b>Cautions actives</b>.</li></ul><h4>Sections</h4><ul><li><b>Locations actives</b> : client, articles, date de retour, total.</li><li><b>En retard</b> : jours de retard, bouton d\u2019appel.</li><li><b>Retours du jour</b> : bouton "Retour" rapide.</li><li><b>Clients avec dette</b>.</li></ul>' },
+      { title:"Catalogue", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Catalogue"</div><p>Liste des articles \u00e0 louer. Ajoutez des articles avec nom, cat\u00e9gorie, prix de location, quantit\u00e9, caution et photos.</p>' },
+      { title:"Cr\u00e9er une location", html:'<p>S\u00e9lectionnez les articles, le client, les dates de d\u00e9but/retour, le mode de paiement. Confirmez.</p>' },
+      { title:"G\u00e9rer les locations", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Locations"</div><p>Visualisez les locations actives, en retard et termin\u00e9es. Traitez les retours, collectez les paiements restants, ou prolongez la dur\u00e9e de location.</p>' },
+      { title:"D\u00e9tails d\u2019un article", html:'<p>Appuyez sur un article du catalogue pour voir :</p><ul><li><b>Disponibilit\u00e9</b> : quantit\u00e9 totale, actuellement en location, et disponible.</li><li><b>Caution</b> et <b>valeur de remplacement</b> de l\u2019article.</li><li><b>Historique de location</b> : toutes les locations pass\u00e9es et en cours.</li><li><b>Revenus g\u00e9n\u00e9r\u00e9s</b> par cet article.</li></ul>' }
+    ]
+  },
+  {
+    id:"restaurant", title:"Mode Restaurant",
+    sections:[
+      { title:"Tableau de bord Restaurant", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Appuyer sur le logo (en haut \u00e0 gauche)</div><p>Le tableau de bord restaurant est adapt\u00e9 \u00e0 la restauration.</p><h4>M\u00e9triques cl\u00e9s</h4><ul><li><b>Chiffre d\u2019affaires</b> : ventes de la p\u00e9riode avec nombre de commandes.</li><li><b>B\u00e9n\u00e9fice</b> : CA moins co\u00fbt des ingr\u00e9dients et d\u00e9penses.</li><li><b>Recettes au menu</b> : plats disponibles vs total cr\u00e9\u00e9s.</li><li><b>Co\u00fbt alimentaire moyen %</b> : alerte si d\u00e9passe 35%.</li><li><b>Ingr\u00e9dients en stock bas</b>.</li><li><b>Dettes clients</b>.</li></ul><h4>Profit global</h4><p>Carte d\u00e9taill\u00e9e : profit r\u00e9el (CA - co\u00fbt des marchandises - d\u00e9penses), CA total, d\u00e9penses, valeur du stock d\u2019ingr\u00e9dients.</p><h4>Alertes ingr\u00e9dients</h4><ul><li>Ingr\u00e9dients en <b>rupture de stock</b>.</li><li>Ingr\u00e9dients en <b>stock bas</b> avec quantit\u00e9s actuelles.</li></ul><h4>Top recettes</h4><p>Vos 5 meilleures recettes par marge de profit, avec co\u00fbt, marge et prix de vente.</p>' },
+      { title:"Ingr\u00e9dients (Inventaire)", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Ingr\u00e9dients"</div><p>En mode Restaurant, l\u2019onglet inventaire s\u2019appelle <b>Ingr\u00e9dients</b> et g\u00e8re vos mati\u00e8res premi\u00e8res.</p><ul><li><b>Recherche</b> par nom d\u2019ingr\u00e9dient.</li><li><b>Filtres par cat\u00e9gorie</b>.</li><li><b>Filtre stock bas</b> : afficher uniquement les ingr\u00e9dients sous le seuil d\u2019alerte.</li></ul><p>Ajoutez un ingr\u00e9dient avec nom, cat\u00e9gorie, prix d\u2019achat, unit\u00e9, quantit\u00e9 et seuil d\u2019alerte. Les ingr\u00e9dients servent de base pour vos recettes.</p>' },
+      { title:"Menu (Recettes)", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Ic\u00f4ne Menu (barre du haut)</div><p>L\u2019\u00e9cran Menu permet de cr\u00e9er et g\u00e9rer vos plats.</p><h4>Liste des recettes</h4><p>Chaque recette affiche : ic\u00f4ne de cat\u00e9gorie, nom, bouton de disponibilit\u00e9, nombre d\u2019ingr\u00e9dients, co\u00fbt, marge et prix de vente.</p><h4>Cr\u00e9er une recette</h4><ol><li>Appuyez sur <b>+</b>.</li><li>Entrez le <b>nom du plat</b> et le <b>prix de vente</b>.</li><li>S\u00e9lectionnez une <b>cat\u00e9gorie</b> (plat principal, entr\u00e9e, dessert, boisson, accompagnement, petit-d\u00e9jeuner, snack).</li><li>Ajoutez les <b>ingr\u00e9dients</b> avec les quantit\u00e9s n\u00e9cessaires par plat.</li><li>L\u2019app calcule automatiquement le <b>co\u00fbt par plat</b> et la <b>marge</b>.</li><li>Appuyez sur <b>Enregistrer</b>.</li></ol><p>Utilisez le bouton de disponibilit\u00e9 pour masquer un plat du POS.</p>' },
+      { title:"Vente de plats (POS)", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Onglet "Ventes"</div><p>Le POS restaurant affiche votre menu au lieu des produits individuels.</p><h4>Prise de commandes</h4><ol><li>Parcourez le menu par recherche ou cat\u00e9gorie.</li><li>Appuyez sur un plat pour l\u2019ajouter \u00e0 la commande.</li><li>V\u00e9rifiez le panier avec sous-total, remises et total.</li><li>Appuyez sur <b>Payer</b>.</li></ol><h4>Fonctions du panier</h4><ul><li>Remises par article ou sur toute la commande.</li><li><b>Mettre en attente</b> avec un libell\u00e9 optionnel (ex: "Table 3").</li><li><b>Reprendre</b> les commandes en attente.</li></ul><h4>D\u00e9duction des ingr\u00e9dients</h4><p>\u00c0 chaque vente valid\u00e9e, les quantit\u00e9s d\u2019ingr\u00e9dients n\u00e9cessaires sont <b>d\u00e9duites automatiquement</b> du stock.</p>' }
+    ]
+  },
+  {
+    id:"alerts", title:"Alertes & Notifications",
+    sections:[
+      { title:"Types d\u2019alertes", html:'<p>E-Sama surveille votre activit\u00e9 et g\u00e9n\u00e8re des alertes pour les \u00e9v\u00e9nements importants.</p><h4>Alertes d\u2019inventaire</h4><ul><li><b>Rupture de stock</b> : un produit a atteint z\u00e9ro.</li><li><b>Stock bas</b> : un produit est sous le seuil d\u2019alerte.</li><li><b>Marge faible</b> : la marge d\u2019un produit est trop basse.</li></ul><h4>Alertes clients</h4><ul><li><b>Dette client</b> : un client a un cr\u00e9dit impay\u00e9.</li><li><b>Rappel de dette</b> : une \u00e9ch\u00e9ance de paiement arrive.</li><li><b>Client inactif</b> : pas d\u2019achat r\u00e9cent.</li></ul><h4>Alertes location (mode Location)</h4><ul><li><b>Location en retard</b> : la date de retour est d\u00e9pass\u00e9e.</li><li><b>Disponibilit\u00e9 faible</b> : un article de location est presque \u00e9puis\u00e9.</li></ul>' },
+      { title:"G\u00e9rer les alertes", html:'<ul><li>Appuyez sur une alerte pour la <b>marquer comme lue</b>.</li><li>Glissez pour <b>supprimer</b>.</li><li><b>Tout marquer comme lu</b> en un tap.</li></ul>' }
+    ]
+  },
+  {
+    id:"multistore", title:"Multi-boutiques",
+    sections:[
+      { title:"G\u00e9rer plusieurs boutiques", html:'<div class="guide-path">Param\u00e8tres <i class="bi bi-chevron-right"></i> G\u00e9rer les boutiques</div><p>Ajoutez, modifiez ou supprimez des boutiques. Chaque boutique a ses propres donn\u00e9es ind\u00e9pendantes.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> Standard = 1 boutique, Business = 3, Premium = illimit\u00e9.</div>' }
+    ]
+  },
+  {
+    id:"backup", title:"Sauvegarde & Restauration",
+    sections:[
+      { title:"Sauvegarde cloud (Google Drive)", html:'<div class="guide-path">Param\u00e8tres <i class="bi bi-chevron-right"></i> Sauvegarde <i class="bi bi-chevron-right"></i> Cloud</div><ol><li>Connectez-vous avec votre compte Google.</li><li>Choisissez les donn\u00e9es \u00e0 sauvegarder.</li><li>Appuyez sur <b>Sauvegarder</b>.</li><li>Configurez la <b>fr\u00e9quence automatique</b> : Quotidienne, Hebdomadaire ou Mensuelle.</li></ol>' },
+      { title:"Sauvegarde locale", html:'<p>Exportez vos donn\u00e9es comme fichier. Importez depuis un fichier pr\u00e9c\u00e9demment export\u00e9.</p>' }
+    ]
+  },
+  {
+    id:"settings", title:"Param\u00e8tres",
+    sections:[
+      { title:"Tous les param\u00e8tres", html:'<div class="guide-path">Accueil <i class="bi bi-chevron-right"></i> Ic\u00f4ne engrenage</div><h4>Langue</h4><p>Changez entre <b>Fran\u00e7ais</b>, <b>Anglais</b> et <b>Kiswahili</b>. L\u2019app change instantan\u00e9ment.</p><h4>Notifications</h4><p>Alertes stock bas, rupture, r\u00e9sum\u00e9 quotidien, rappels dettes, d\u00e9penses r\u00e9currentes.</p><h4>S\u00e9curit\u00e9</h4><p>Verrou par empreinte digitale ou PIN. <b>D\u00e9lai de verrouillage</b> : Imm\u00e9diat, 1 minute, 5 minutes ou 15 minutes.</p><h4>Imprimante Bluetooth</h4><p>Connectez une imprimante thermique : <b>Rechercher</b> les imprimantes, s\u00e9lectionner, puis <b>Test d\u2019impression</b> pour v\u00e9rifier.</p><h4>Corbeille</h4><p>\u00c9l\u00e9ments archiv\u00e9s class\u00e9s par type : <b>Produits</b>, <b>Clients</b>, <b>Ventes</b>, <b>D\u00e9penses</b>, <b>Locations</b>, <b>Articles de location</b>. Restaurez ou supprimez d\u00e9finitivement.</p><h4>Zone de danger</h4><p><b>Supprimer toutes les donn\u00e9es</b> : n\u00e9cessite une confirmation. Irr\u00e9versible.</p>' }
+    ]
+  },
+  {
+    id:"license-info", title:"Licence & Abonnement",
+    sections:[
+      { title:"Forfaits", html:'<h4>Standard</h4><ul><li>1 boutique, POS et inventaire de base, sauvegarde locale</li></ul><h4>Business</h4><ul><li>3 boutiques, export PDF, sauvegarde cloud, rappels WhatsApp, rapports auto</li></ul><h4>Premium</h4><ul><li>Boutiques illimit\u00e9es, toutes les analyses, support prioritaire</li></ul>' },
+      { title:"V\u00e9rifier votre licence", html:'<div class="guide-path">Param\u00e8tres <i class="bi bi-chevron-right"></i> \u00c0 propos <i class="bi bi-chevron-right"></i> Ma licence</div><p>Consultez votre forfait, date d\u2019expiration et jours restants. Entrez un nouveau code pour renouveler.</p>' }
+    ]
+  }
+  ];
+
+  /* ── Swahili ─────────────────────────────────────── */
+  G.sw.title = "E-Sama - Mwongozo Kamili wa Mtumiaji";
+  G.sw.subtitle = "Kila kitu unachohitaji kujua kusakinisha, kusanidi, na kutumia E-Sama kwa aina yoyote ya biashara.";
+  G.sw.download_pdf = "Pakua PDF";
+  G.sw.toc_title = "Yaliyomo";
+  G.sw.chapters = [
+  {
+    id:"install", title:"Usakinishaji & Uzinduzi wa Kwanza",
+    sections:[
+      { title:"Jinsi ya Kupakua na Kusakinisha", html:'<ol><li>Pakua faili ya APK kutoka kiungo kilichotolewa na wakala wako au kutoka <a href="../../app.html?id=esama" style="color:var(--accent)">duka la Sama Apps</a>.</li><li>Ikiwa utaulizwa, ruhusu usakinishaji kutoka vyanzo visivyojulikana kwenye mipangilio yako (<b>Mipangilio \u2192 Usalama \u2192 Vyanzo visivyojulikana</b>).</li><li>Bonyeza faili iliyopakuliwa na ubonyeze <b>Sakinisha</b>.</li><li>Fungua programu. Utaona skrini ya splash na nembo ya E-Sama.</li></ol><div class="guide-tip"><i class="bi bi-info-circle"></i> Programu inafanya kazi 100% bila mtandao. Hakuna mtandao unaohitajika baada ya usakinishaji, isipokuwa kwa hifadhi ya wingu na uanzishaji wa leseni.</div>' },
+      { title:"Uanzishaji wa Leseni", html:'<p>Uzinduzi wa kwanza unahitaji kuanzisha leseni yako:</p><ol><li>Skrini ya <b>Leseni</b> inaonyeshwa na tabo mbili: <b>Anzisha</b> na <b>Nunua</b>.</li><li>Ukiwa na msimbo, nenda kwenye tabo <b>Anzisha</b>, ingiza msimbo wako na ubonyeze <b>Anzisha</b>.</li><li>Kununua, nenda tabo <b>Nunua</b>: chagua <b>mpango</b> wako (Standard / Business / Premium), <b>muda</b>, ingiza <b>jina</b> lako, chagua <b>njia ya malipo</b>, na ubonyeze <b>Agiza kupitia WhatsApp</b>.</li></ol>' },
+      { title:"Onboarding - Kuweka Duka Lako la Kwanza", html:'<h4>Hatua 1 - Kurejesha Wingu (Hiari)</h4><p>Ukiwa na hifadhi ya awali kwenye Google Drive, ingia na Google na uirejeshe hapa. Vinginevyo, bonyeza <b>Ruka</b>.</p><h4>Hatua 2 - Aina ya Biashara</h4><ul><li><b>Mauzo</b> - Duka, Maduka ya Dawa, nk.</li><li><b>Mkahawa</b> - Baa, Mkahawa, Snack</li><li><b>Kukodisha</b> - Vifaa, Matukio, Sauti</li></ul><h4>Hatua 3 - Maelezo ya Duka</h4><p>Ingiza <b>jina la duka</b> na uchague <b>sarafu</b> yako. Bonyeza <b>Anza</b>.</p>' }
+    ]
+  },
+  {
+    id:"navigation", title:"Urambazaji Mkuu",
+    sections:[
+      { title:"Muundo wa Skrini ya Nyumbani", html:'<p>Skrini ya nyumbani ina <b>bar ya urambazaji</b> chini yenye tabo 5. Tabo zinabadilika kulingana na aina yako ya biashara.</p><h4>Hali ya Mauzo</h4><ol><li><b>Hesabu</b> - Bidhaa na hisa</li><li><b>Mauzo</b> - POS</li><li><b>Gharama</b></li><li><b>Wateja</b></li><li><b>Ripoti</b></li></ol>' }
+    ]
+  },
+  {
+    id:"dashboard", title:"Dashibodi",
+    sections:[
+      { title:"Muhtasari", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Bonyeza nembo ya duka</div><p>Chagua kipindi: <b>Leo</b>, <b>Wiki hii</b>, <b>Mwezi huu</b>, au <b>Mwaka huu</b>.</p><h4>Vipimo Vikuu</h4><ul><li><b>Mapato</b>: jumla ya mauzo, na idadi ya mauzo na marudisho.</li><li><b>Faida</b>: mapato baada ya gharama, na asilimia ya margin.</li></ul><h4>Vipimo vya Ziada</h4><ul><li><b>Faida Ghafi</b>, <b>Jumla Gharama</b>, <b>Thamani ya Hisa</b>, <b>Deni la Wateja</b>.</li></ul><h4>Chati</h4><ul><li>Mwenendo wa mauzo (grafu ya mstari).</li><li>Gharama kwa jamii (chati ya duara).</li><li>Mauzo kwa njia ya malipo (chati ya duara).</li></ul><h4>Uchambuzi wa Kuvunja Usawa</h4><p>Bar ya maendeleo, gharama za kudumu, margin ya wastani, mauzo yanayohitajika.</p><h4>Mzunguko wa Hisa</h4><ul><li><b>Bidhaa bora</b>: bidhaa 5 bora kwa mauzo.</li><li><b>Bidhaa zilizolala</b>: bila mauzo kwa siku 30+.</li></ul><h4>Tahadhari</h4><ul><li>Bidhaa zilizo <b>nje ya hisa</b>.</li><li>Bidhaa zenye <b>hisa chache</b>.</li><li>Wateja wenye <b>madeni</b>.</li></ul>' },
+      { title:"Kufunga Siku", html:'<div class="guide-path">Dashibodi <i class="bi bi-chevron-right"></i> Ikoni ya fedha (juu kulia)</div><h4>Muhtasari wa Mauzo</h4><ul><li>Jumla ya mauzo: <b>taslimu</b>, <b>mobile money</b>, <b>mkopo</b>.</li><li>Idadi ya mauzo na marudisho (ikihitajika).</li><li>Mauzo halisi na faida ghafi.</li></ul><h4>Gharama na Malipo ya Deni</h4><ul><li>Jumla ya gharama za siku.</li><li>Malipo ya deni yaliyopokelewa: taslimu na mobile money.</li></ul><h4>Upatanisho wa Pesa</h4><p><b>Inayotarajiwa = Pesa ya Kufungua + Mauzo Taslimu + Malipo Deni Taslimu - Gharama Taslimu - Marejesho ya Siku Zilizopita</b></p><ol><li>Ingiza <b>pesa ya kufungua</b>.</li><li>Ingiza <b>pesa ya kufunga</b> (hesabu halisi).</li><li>Programu inahesabu <b>pesa inayotarajiwa</b> na inaonyesha <b>ziada</b> au <b>upungufu</b>.</li></ol><p>Ongeza maelezo na ushiriki ripoti kama <b>maandishi</b> (WhatsApp) au <b>PDF</b> (leseni ya Business/Premium).</p>' }
+    ]
+  },
+  {
+    id:"inventory", title:"Hesabu (Inventaire)",
+    sections:[
+      { title:"Kuongeza Bidhaa", html:'<div class="guide-path">Hesabu <i class="bi bi-chevron-right"></i> Kitufe <b>+</b></div><p>Jina, msimbo wa bar, jamii, bei (ununuzi/rejareja/jumla), kiasi cha hisa, kizingiti cha tahadhari, kitengo, tofauti.</p>' },
+      { title:"Kuhariri na Kufuta", html:'<p>Bonyeza bidhaa kuona maelezo yake kamili:</p><ul><li><b>Kadi ya hisa</b>: kiasi, hali (ipo/chache/imeisha), kizingiti cha tahadhari, na thamani ya hisa.</li><li><b>Kadi ya bei</b>: bei ya ununuzi, rejareja, jumla na asilimia ya margin.</li><li><b>Kadi ya hasara</b>: hasara zote zilizorekodiwa.</li></ul><h4>Marekebisho ya Hisa</h4><p>Chini ya skrini, vitufe viwili vya kurekebisha hisa:</p><ul><li><b>Hisa Ndani</b>: ongeza hisa unapopokea bidhaa mpya.</li><li><b>Hisa Nje</b>: ondoa hisa kwa mikono (matumizi binafsi, sampuli, marekebisho).</li></ul>' },
+      { title:"Tofauti na Kuhariri kwa Wingi", html:'<p>Bidhaa zenye <b>tofauti</b> (ukubwa, rangi) zinawekwa pamoja. Bonyeza bidhaa iliyowekwa pamoja kuona tofauti zake.</p><h4>Kuhariri kwa Wingi</h4><ul><li>Weka <b>bei mpya</b> kwa tofauti zote.</li><li><b>Rekebisha kwa asilimia</b> (mfano: ongeza bei zote kwa 10%).</li><li><b>Ongeza hisa</b> kwa tofauti zote mara moja.</li></ul>' },
+      { title:"Hasara za Hisa", html:'<p>Kutoka skrini ya maelezo ya bidhaa, rekodi hasara. Kila hasara inajumuisha:</p><ul><li><b>Aina ya hasara</b>: imeisha muda, imevunjika, imeharibiwa, imepotea, imeibwa, rudishwa dhamana, iliyopitwa na wakati, au nyingine.</li><li><b>Kiasi</b> kilichopotea na <b>gharama kwa kila kipande</b>.</li><li><b>Maelezo</b> ya tukio.</li><li>Chaguo la <b>kuhesabu kama gharama</b>: huunda ingizo la gharama kiotomatiki.</li></ul>' }
+    ]
+  },
+  {
+    id:"sales", title:"Mauzo - POS",
+    sections:[
+      { title:"Kufanya Mauzo", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Tabo "Mauzo"</div><ol><li><b>Tafuta bidhaa</b>: tafuta, panga, chuja kwa jamii, au skani msimbo wa bar.</li><li><b>Ongeza kwenye kikapu</b>: bonyeza bidhaa. Kwa bidhaa zenye <b>tofauti</b>, paneli ya kuchagua inaonekana. Kwa bidhaa zinazouzwa kwa <b>kitengo</b> (mfano: kreti ya chupa), chagua kuuza kwa kipande au kwa kitengo kizima.</li><li><b>Rekebisha kikapu</b>: +/- kwa kiasi, punguzo kwa kila bidhaa, telezesha ili kuondoa.</li><li>Bonyeza <b>Lipa</b> kwenda ukurasa wa malipo.</li></ol>' },
+      { title:"Malipo na Uthibitisho", html:'<ol><li>Chagua <b>mteja</b> (hiari).</li><li>Weka <b>punguzo</b> (% au kiasi).</li><li>Chagua <b>njia ya malipo</b>:<ul><li><b>Taslimu</b></li><li><b>Mobile Money</b></li><li><b>Mkopo</b> - inarekodiwa kama deni la mteja</li><li><b>Mchanganyiko</b> - mchanganyiko wa njia kadhaa</li></ul></li><li>Kwa taslimu, ingiza <b>kiasi kilichopokelewa</b> kuona chenji.</li><li>Bonyeza <b>Thibitisha Mauzo</b>.</li></ol>' },
+      { title:"Vikapu vya Subiri", html:'<p>Weka kikapu <b>kwenye subiri</b> ikiwa mteja bado anafikiria. Rudisha baadaye kutoka orodha ya vikapu vilivyosubiriwa.</p>' },
+      { title:"Historia ya Mauzo", html:'<p>Angalia mauzo yote ya zamani. Tafuta kwa mteja, bidhaa, au nambari ya ankara. Chuja kwa kipindi (Leo, Wiki hii, Mwezi huu).</p>' },
+      { title:"Kurudisha na Kurejesha Pesa", html:'<p>Kutoka <b>Maelezo ya Mauzo</b>, bonyeza <b>Rudisha</b>:</p><ul><li><b>Kurudisha Kamili</b>: rudisha mauzo yote mara moja. Inapatikana kwa mipango yote.</li><li><b>Kurudisha Sehemu</b>: chagua bidhaa na kiasi maalum. Inahitaji leseni ya <b>Business</b> au <b>Premium</b>.</li></ul><p>Hisa hurejeshwa kiotomatiki kwenye hesabu.</p>' }
+    ]
+  },
+  {
+    id:"clients", title:"Wateja na Madeni",
+    sections:[
+      { title:"Kusimamia Wateja", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Tabo "Wateja"</div><p>Tafuta, panga (Jina, Deni, Manunuzi, Ziara ya Mwisho), chuja (Wote, Wenye Deni, VIP, Dhahabu, Fedha, Shaba).</p><p>Ongeza mteja: <b>Jina</b>, <b>Simu</b>, barua pepe, anwani, <b>kikomo cha mkopo</b>.</p>' },
+      { title:"Maelezo ya Mteja", html:'<p>Bonyeza mteja kuona:</p><ul><li><b>Kadi ya salio</b>: kiasi cha deni na kikomo cha mkopo.</li><li><b>Takwimu</b>: jumla ya manunuzi, kiasi kilichotumika, idadi ya ziara.</li><li><b>Historia ya manunuzi</b> na <b>historia ya malipo</b>.</li><li><b>Pointi za uaminifu</b> na daraja.</li></ul><h4>Kuongeza Malipo</h4><p>Chagua njia moja (Taslimu, Mobile Money, Benki) au gawanya kwa njia nyingi. Ingiza kiasi na rejea ya hiari.</p><h4>Kuhifadhi Mteja</h4><p>Mteja anaweza kuhifadhiwa tu akiwa na <b>deni sifuri</b>.</p>' },
+      { title:"Vikumbusho vya WhatsApp", html:'<p>Kutoka skrini ya <b>CRM</b> (tabo ya Vikumbusho), tuma vikumbusho vya deni kupitia WhatsApp mmoja mmoja au kwa wateja wote mara moja.</p>' }
+    ]
+  },
+  {
+    id:"crm", title:"CRM na Uaminifu",
+    sections:[
+      { title:"Muhtasari wa CRM", html:'<p>Tabo 4:</p><ol><li><b>VIP</b>: wateja bora kwa matumizi.</li><li><b>Kawaida</b>: wanunuzi wa mara kwa mara.</li><li><b>Vikumbusho</b>: wateja wenye madeni. Tuma vikumbusho kwa <b>WhatsApp</b>.</li><li><b>Uaminifu</b>: mipangilio na orodha ya daraja.</li></ol>' },
+      { title:"Programu ya Uaminifu", html:'<h4>Viwango</h4><ul><li><b>Bronze</b>: pointi 10+.</li><li><b>Silver</b>: pointi 50+.</li><li><b>Gold</b>: pointi 200+.</li><li><b>VIP</b>: pointi 500+.</li></ul><p>Orodha ya daraja: wateja 10 bora kwa pointi. Pointi zinapatikana moja kwa moja kwa kila mauzo.</p>' }
+    ]
+  },
+  {
+    id:"expenses", title:"Gharama",
+    sections:[
+      { title:"Kurekodi Gharama", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Tabo "Gharama" <i class="bi bi-chevron-right"></i> <b>+</b></div><ol><li>Chagua <b>jamii</b> (Kodi, Usafiri, Vifaa, Mishahara, nk.).</li><li>Ingiza <b>kiasi</b>.</li><li>Ongeza <b>maelezo</b>.</li><li>Weka <b>tarehe</b>.</li><li>Weka kama <b>ya kurudia</b> (hiari): Kila Siku, Kila Wiki, Kila Mwezi, au Siku za Kazi.</li></ol>' },
+      { title:"Kuchuja na Kutafuta", html:'<p>Tumia vichujio vya kipindi: <b>Leo</b>, <b>Wiki hii</b>, <b>Mwezi huu</b>, au <b>Tarehe maalum</b>. Chuja kwa jamii na vipu vya jamii.</p>' },
+      { title:"Kuhifadhi Gharama", html:'<p>Telezesha gharama ili kuihifadhi. Kwa uhifadhi wa wingi, <b>bonyeza kwa muda mrefu</b> gharama yoyote kuingia hali ya kuchagua vingi, kisha chagua na ubonyeze <b>Hifadhi Zilizochaguliwa</b>.</p>' },
+      { title:"Gharama za Kurudia", html:'<div class="guide-path">Gharama <i class="bi bi-chevron-right"></i> Ikoni ya kurudia (barra ya juu)</div><p>Angalia gharama zote za kurudia zinazoendelea. Kwa kila kiolezo: <b>Simamisha</b> (hakuna maingizo ya baadaye) au <b>Futa</b>.</p>' }
+    ]
+  },
+  {
+    id:"reports", title:"Ripoti",
+    sections:[
+      { title:"Muhtasari", html:'<p>Chagua kipindi: Leo, Wiki hii, Mwezi huu, Mwaka huu, au Maalum. Tabo zinategemea aina ya duka lako.</p>' },
+      { title:"Ripoti ya Mauzo", html:'<ul><li><b>Mapato</b>, <b>Faida</b>, <b>Idadi ya mauzo</b>, <b>Gharama</b>.</li><li>Marudisho (ikihitajika).</li><li>Mauzo kwa njia ya malipo (chati ya duara).</li><li>Bidhaa bora zilizouzwa.</li></ul>' },
+      { title:"Ripoti ya Gharama", html:'<ul><li>Jumla ya gharama.</li><li>Gharama kwa jamii (chati ya duara).</li><li>Orodha ya jamii na kiasi.</li></ul>' },
+      { title:"Ripoti ya Hesabu", html:'<ul><li>Thamani ya jumla ya hisa.</li><li>Idadi ya bidhaa: jumla, hisa chache, nje ya hisa.</li><li>Muhtasari wa hasara za hisa: kiasi cha jumla, idadi ya matukio, aina kuu ya hasara.</li><li>Orodha ya bidhaa zenye hisa chache.</li></ul>' },
+      { title:"Ripoti ya Kukodisha", html:'<p>Inapatikana katika hali ya <b>Kukodisha</b> pekee.</p><ul><li><b>Mapato ya kukodisha</b>, <b>Amana za jumla</b>.</li><li><b>Kukodisha zinazoendelea</b> na <b>zilizochelewa</b>.</li><li><b>Ada za kuchelewa</b> na <b>ada za uharibifu</b>.</li><li>Chati: kukodisha kwa hali, vitu vilivyokodishwa zaidi.</li></ul>' },
+      { title:"Kuhamisha Ripoti", html:'<p>Bonyeza <b>kitufe cha kuhamisha</b> (FAB):</p><ul><li><b>PDF</b>: hati iliyopangwa na chati na majedwali (leseni ya Business/Premium).</li><li><b>Excel</b>: faili ya <b>.xlsx</b> na data za kina kwa uchambuzi zaidi (leseni ya Business/Premium).</li><li><b>Maandishi</b>: shiriki muhtasari kupitia WhatsApp, barua pepe, nk (inapatikana kwa mipango yote).</li></ul>' },
+      { title:"Ripoti za Kiotomatiki", html:'<h4>Kila Wiki</h4><ul><li>Mapato, mauzo, faida ghafi, gharama, faida halisi, margin.</li><li>Bidhaa 3 bora.</li></ul><h4>Kila Mwezi</h4><ul><li>+ kikapu cha wastani, deni la wateja, mgawanyo wa wateja, gharama kwa jamii.</li></ul><p>Kagua, shiriki kama maandishi, au hamisha kama PDF.</p>' }
+    ]
+  },
+  {
+    id:"rental", title:"Hali ya Kukodisha",
+    sections:[
+      { title:"Dashibodi ya Kukodisha", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Bonyeza nembo ya duka</div><h4>Vipimo</h4><ul><li><b>Mapato ya leo</b> na idadi ya kukodisha.</li><li><b>Madeni ya wateja</b>.</li><li><b>Vitu vilivyokodishwa</b> na <b>zilizochelewa</b>.</li><li><b>Marudisho yanayotarajiwa leo</b>.</li><li><b>Amana zinazoendelea</b>.</li></ul><h4>Sehemu</h4><ul><li><b>Kukodisha zinazoendelea</b>: mteja, vitu, tarehe ya kurudisha, jumla.</li><li><b>Zilizochelewa</b>: siku za kuchelewa, kitufe cha kupiga simu.</li><li><b>Marudisho ya leo</b>: kitufe cha "Rudisha" haraka.</li></ul>' },
+      { title:"Katalogi", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Tabo "Katalogi"</div><p>Orodha ya vitu vya kukodisha. Ongeza vitu na jina, jamii, bei ya kukodisha, kiasi, amana, na picha.</p>' },
+      { title:"Kuunda Kukodisha", html:'<ol><li>Chagua vitu vya kukodisha.</li><li>Chagua <b>mteja</b>.</li><li>Weka <b>tarehe ya kuanza</b> na <b>tarehe ya kurudisha</b>.</li><li>Chagua malipo: yote mapema, amana, au mkopo.</li><li>Thibitisha kukodisha.</li></ol>' },
+      { title:"Kusimamia Kukodisha", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Tabo "Kukodisha"</div><p>Angalia kukodisha zinazoendelea, zilizochelewa, na zilizokamilika. Fanya marudisho, kusanya malipo, au ongeza muda.</p>' },
+      { title:"Maelezo ya Kitu", html:'<p>Bonyeza kitu kwenye katalogi kuona:</p><ul><li><b>Upatikanaji</b>: jumla, zinazokodishwa, na zinazopatikana.</li><li><b>Amana</b> na <b>thamani ya kubadilisha</b>.</li><li><b>Historia ya kukodisha</b> na <b>mapato yaliyopatikana</b>.</li></ul>' }
+    ]
+  },
+  {
+    id:"restaurant", title:"Hali ya Mkahawa",
+    sections:[
+      { title:"Dashibodi ya Mkahawa", html:'<p>Dashibodi maalum kwa mkahawa yenye:</p><ul><li><b>Mapato</b> na idadi ya agizo.</li><li><b>Faida</b>: mapato - gharama za viungo - gharama.</li><li><b>Mapishi kwenye menyu</b>: yaliyopo vs jumla.</li><li><b>Gharama ya chakula wastani %</b>: onyo ikizidi 35%.</li><li><b>Viungo vya hisa chache</b>.</li><li><b>Mapishi 5 bora</b> kwa margin ya faida.</li></ul>' },
+      { title:"Viungo (Hesabu)", html:'<p>Tabo ya hesabu inaitwa <b>Viungo</b> na inasimamia malighafi. Ongeza viungo na jina, jamii, bei, kitengo, kiasi, na kizingiti cha tahadhari. Viungo vinatumika katika mapishi.</p>' },
+      { title:"Menyu (Mapishi)", html:'<p>Unda na usimamie sahani zako:</p><ol><li>Bonyeza <b>+</b> kuongeza mapishi mapya.</li><li>Ingiza jina, bei ya kuuza, jamii.</li><li>Ongeza <b>viungo</b> na kiasi kinachohitajika.</li><li>Programu inahesabu <b>gharama kwa sahani</b> na <b>margin</b>.</li></ol>' },
+      { title:"Kuuza Sahani (POS)", html:'<p>POS ya mkahawa inaonyesha menyu yako. Bonyeza sahani kuiongeza kwenye agizo. <b>Hisa za viungo zinapunguzwa moja kwa moja</b> wakati mauzo yanakamilishwa.</p><ul><li>Tafuta kwa jina au jamii.</li><li>Weka agizo <b>kwenye subiri</b> na lebo (mfano: "Meza 3").</li><li>Malipo: taslimu, mobile money, mkopo, au mchanganyiko.</li></ul>' }
+    ]
+  },
+  {
+    id:"alerts", title:"Tahadhari na Arifa",
+    sections:[
+      { title:"Aina za Tahadhari", html:'<ul><li><b>Nje ya hisa</b>: bidhaa imeisha.</li><li><b>Hisa chache</b>: bidhaa chini ya kizingiti.</li><li><b>Deni la mteja</b>: mkopo ambao haujalipwa.</li><li><b>Gharama ya kurudia</b>: gharama ya kurudia inahitaji usindikaji.</li><li><b>Margin ndogo</b>: margin ya bidhaa ni ndogo sana.</li><li><b>Kukodisha kuchelewa</b> (hali ya kukodisha).</li></ul>' },
+      { title:"Kusimamia Tahadhari", html:'<p>Bonyeza kuisoma, telezesha kufuta, au bonyeza "Soma zote" kufuta tahadhari zote.</p>' }
+    ]
+  },
+  {
+    id:"multistore", title:"Maduka Mengi",
+    sections:[
+      { title:"Kusimamia Maduka", html:'<div class="guide-path">Mipangilio <i class="bi bi-chevron-right"></i> Simamia Maduka</div><p>Ongeza, hariri, au futa maduka. Kila duka lina data yake huru.</p>' }
+    ]
+  },
+  {
+    id:"backup", title:"Hifadhi na Kurudisha",
+    sections:[
+      { title:"Hifadhi ya Wingu", html:'<p>Ingia na Google, chagua data, hifadhi. Sanidi mzunguko wa kiotomatiki.</p>' },
+      { title:"Hifadhi ya Ndani", html:'<p>Hamisha data kama faili. Ingiza kutoka faili ya awali.</p>' }
+    ]
+  },
+  {
+    id:"settings", title:"Mipangilio",
+    sections:[
+      { title:"Mipangilio Yote", html:'<div class="guide-path">Nyumbani <i class="bi bi-chevron-right"></i> Ikoni ya gia</div><h4>Lugha</h4><p>Badilisha kati ya <b>Kifaransa</b>, <b>Kiingereza</b> na <b>Kiswahili</b>. Programu inabadilika mara moja.</p><h4>Arifa</h4><p>Sanidi arifa za: hisa chache, kuisha kwa hisa, muhtasari wa kila siku, vikumbusho vya deni, gharama za kurudia.</p><h4>Usalama</h4><p>Washa <b>kufuli ya programu</b> na alama za kidole au PIN. <b>Muda wa kufuli</b>: Mara moja, dakika 1, dakika 5, au dakika 15.</p><h4>Printa ya Bluetooth</h4><p>Unganisha printa ya joto ya Bluetooth: <b>Tafuta</b>, chagua, kisha <b>Jaribio la Kuchapisha</b> ili kuthibitisha.</p><h4>Tupio (Corbeille)</h4><p>Vipengele vilivyohifadhiwa kwa aina: <b>Bidhaa</b>, <b>Wateja</b>, <b>Mauzo</b>, <b>Gharama</b>, <b>Kukodisha</b>, <b>Vitu vya Kukodisha</b>. Rejesha au futa kabisa.</p><h4>Eneo la Hatari</h4><p><b>Futa Data Zote</b>: inahitaji uthibitisho. Haiwezekani kurudishwa.</p>' }
+    ]
+  },
+  {
+    id:"license-info", title:"Leseni na Usajili",
+    sections:[
+      { title:"Mipango", html:'<h4>Standard</h4><ul><li>Duka 1, POS ya msingi, hifadhi ya ndani</li></ul><h4>Business</h4><ul><li>Maduka 3, PDF, hifadhi ya wingu, vikumbusho WhatsApp</li></ul><h4>Premium</h4><ul><li>Maduka yasiyo na kikomo, uchambuzi wote, msaada wa kipaumbele</li></ul>' }
+    ]
+  }
+  ];
+
+  /* ──────────────────────────────────────────────────── */
+  /*  RENDER                                              */
+  /* ──────────────────────────────────────────────────── */
+  document.addEventListener("DOMContentLoaded", function() {
+    var params = new URLSearchParams(window.location.search);
+    var forceLang = params.get("lang");
+    if (forceLang && G[forceLang]) setLang(forceLang);
+    renderGuide();
+    initThemeToggle();
+  });
+
+  function renderGuide() {
+    var lang = getLang();
+    if (!G[lang]) lang = "en";
+    var g = G[lang];
+    var el = document.getElementById("guideContent");
+
+    var h = '<div class="guide-meta"><img src="../../assets/apps/esama/icon.png" alt="E-Sama" /><span>' + g.title + '</span></div>';
+    h += '<h1>' + g.title + '</h1>';
+    h += '<p style="color:var(--text-muted);margin-bottom:20px">' + g.subtitle + '</p>';
+
+    h += '<div class="lang-tabs">';
+    ["en","fr","sw"].forEach(function(l) {
+      var label = l==="en"?"English":l==="fr"?"Fran\u00e7ais":"Kiswahili";
+      h += '<a href="?lang=' + l + '" class="lang-tab' + (lang===l?" active":"") + '">' + label + '</a>';
+    });
+    h += '</div>';
+
+    h += '<div class="guide-download">';
+    h += '<a href="guide-' + lang + '.pdf" download class="dl-btn"><i class="bi bi-file-earmark-pdf"></i> ' + g.download_pdf + ' (' + lang.toUpperCase() + ')</a>';
+    h += '</div>';
+
+    h += '<div class="toc"><h3>' + g.toc_title + '</h3><ol>';
+    for (var t = 0; t < g.chapters.length; t++) {
+      h += '<li><a href="#' + g.chapters[t].id + '">' + g.chapters[t].title + '</a></li>';
+    }
+    h += '</ol></div>';
+
+    for (var i = 0; i < g.chapters.length; i++) {
+      var ch = g.chapters[i];
+      h += '<div class="guide-chapter" id="' + ch.id + '">';
+      h += '<h2><span class="num">' + (i+1) + '</span> ' + ch.title + '</h2>';
+      for (var j = 0; j < ch.sections.length; j++) {
+        var s = ch.sections[j];
+        h += '<div class="guide-section"><h3>' + s.title + '</h3>' + s.html + '</div>';
+      }
+      h += '</div>';
+    }
+    el.innerHTML = h;
+  }
+  </script>
+</body>
+</html>
