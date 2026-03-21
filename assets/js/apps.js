@@ -68,7 +68,38 @@ const APPS = [
       { name: "Standard", desc: "1 store, basic POS and inventory", desc_fr: "1 magasin, POS et inventaire de base" },
       { name: "Business", desc: "3 stores, PDF export, cloud backup, WhatsApp reminders", desc_fr: "3 magasins, export PDF, sauvegarde cloud, rappels WhatsApp" },
       { name: "Premium", desc: "Unlimited stores, all analytics, priority support", desc_fr: "Magasins illimit\u00e9s, toutes les analyses, support prioritaire" }
-    ]
+    ],
+    legal: {
+      developer: "Samandari",
+      email: "cezaremardini10@gmail.com",
+      effectiveDate: "2026-03-20",
+      dataLocal: [
+        "Sales, purchases, and inventory records",
+        "Client and supplier information",
+        "Expense and profit reports",
+        "App preferences and settings"
+      ],
+      dataLocal_fr: [
+        "Ventes, achats et registres d\u2019inventaire",
+        "Informations clients et fournisseurs",
+        "Rapports de d\u00e9penses et b\u00e9n\u00e9fices",
+        "Pr\u00e9f\u00e9rences et param\u00e8tres de l\u2019application"
+      ],
+      dataCloud: [
+        "Backup data synced to Google Drive (with explicit user consent)"
+      ],
+      dataCloud_fr: [
+        "Donn\u00e9es de sauvegarde synchronis\u00e9es sur Google Drive (avec consentement explicite)"
+      ],
+      thirdParty: [
+        { name: "Google Drive API", purpose: "Cloud backup", purpose_fr: "Sauvegarde cloud" },
+        { name: "Google Sign-In", purpose: "Authentication for cloud backup", purpose_fr: "Authentification pour la sauvegarde cloud" },
+        { name: "Google Gemini AI", purpose: "AI-powered features (optional)", purpose_fr: "Fonctionnalit\u00e9s IA (optionnel)" }
+      ],
+      noAnalytics: true,
+      noAds: true,
+      country: "Burundi"
+    }
   },
   {
     id: "velora",
@@ -123,7 +154,38 @@ const APPS = [
     tiers: [
       { name: "Standard", desc: "Full access to habits, goals, alarms, journal, cloud backup", desc_fr: "Acc\u00e8s complet aux habitudes, objectifs, alarmes, journal, sauvegarde cloud" },
       { name: "AI", desc: "Everything in Standard plus AI-powered features and analytics", desc_fr: "Tout le Standard plus les fonctionnalit\u00e9s IA et analyses" }
-    ]
+    ],
+    legal: {
+      developer: "Samandari",
+      email: "cezaremardini10@gmail.com",
+      effectiveDate: "2026-03-20",
+      dataLocal: [
+        "Tasks, habits, goals, and journal entries",
+        "Expenses, budgets, and debt records",
+        "Alarm and notification settings",
+        "App preferences and settings"
+      ],
+      dataLocal_fr: [
+        "T\u00e2ches, habitudes, objectifs et entr\u00e9es de journal",
+        "D\u00e9penses, budgets et registres de dettes",
+        "Param\u00e8tres d\u2019alarmes et de notifications",
+        "Pr\u00e9f\u00e9rences et param\u00e8tres de l\u2019application"
+      ],
+      dataCloud: [
+        "Backup data synced to Google Drive (with explicit user consent)"
+      ],
+      dataCloud_fr: [
+        "Donn\u00e9es de sauvegarde synchronis\u00e9es sur Google Drive (avec consentement explicite)"
+      ],
+      thirdParty: [
+        { name: "Google Drive API", purpose: "Cloud backup", purpose_fr: "Sauvegarde cloud" },
+        { name: "Google Sign-In", purpose: "Authentication for cloud backup", purpose_fr: "Authentification pour la sauvegarde cloud" },
+        { name: "Google Gemini AI", purpose: "AI-powered features (optional)", purpose_fr: "Fonctionnalit\u00e9s IA (optionnel)" }
+      ],
+      noAnalytics: true,
+      noAds: true,
+      country: "Burundi"
+    }
   },
   {
     id: "notifspy",

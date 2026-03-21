@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal — Sama Apps</title>
+  <meta name="description" content="Privacy Policy and Terms of Service" />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/legal.css" />
+  <style>
+    .legal-content { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+    .legal-content h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+    .legal-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    .legal-meta .app-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .legal-meta .app-badge img { width: 28px; height: 28px; border-radius: 6px; }
+    .legal-meta .app-badge span { font-weight: 600; color: var(--text); font-size: 1rem; }
+    .legal-intro { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 28px; }
+    .legal-section { margin-bottom: 28px; }
+    .legal-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .legal-section p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 10px; }
+    .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .legal-section li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .legal-section li::before { content: "\F26A"; font-family: "bootstrap-icons"; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+    .legal-section .third-party-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
+    .legal-section .tp-name { font-weight: 600; color: var(--text); }
+    .legal-section .tp-purpose { color: var(--text-dim); }
+    .legal-highlight { padding: 14px 18px; background: var(--green-soft); border: 1px solid var(--green); border-radius: var(--radius-sm); color: var(--green); font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .legal-highlight i { font-size: 1rem; }
+    .legal-contact { padding: 16px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .legal-contact a { color: var(--accent); text-decoration: none; }
+    .legal-contact a:hover { text-decoration: underline; }
+    .legal-tabs { display: flex; gap: 8px; margin-bottom: 28px; }
+    .legal-tab { padding: 8px 20px; border: 1px solid var(--border); border-radius: 100px; background: transparent; color: var(--text-muted); font-family: inherit; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all var(--transition); text-decoration: none; }
+    .legal-tab:hover { border-color: var(--accent); color: var(--text); }
+    .legal-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    @media (max-width: 480px) {
+      .legal-content { padding: 24px 14px 60px; }
+      .legal-content h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="assets/img/logo.png" alt="Sama Apps" class="header__logo-img" />
+        <span>Sama Apps</span>
+      </a>
+      <nav class="header__nav">
+        <button class="header__toggle" id="langToggle" title="Language">EN</button>
+        <button class="header__toggle" id="themeToggle" title="Theme">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+        <a href="index.html" class="header__link header__link--back" id="backLink">
+          <i class="bi bi-arrow-left"></i> <span id="backLabel"></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="legal-content" id="legalContent"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p id="footerRights"></p>
+      <p class="footer__credit"><span id="footerBuilt"></span> <a href="https://github.com/Sama-ndari" target="_blank">Samandari</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/apps.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderLegalPage();
+    document.getElementById("langToggle").addEventListener("click", function () {
+      renderLegalPage();
+    });
+  });
+
+  function renderLegalPage() {
+    var params = new URLSearchParams(window.location.search);
+    var appId = params.get("id");
+    var page = params.get("page") || "privacy";
+    var app = null;
+
+    for (var i = 0; i < APPS.length; i++) {
+      if (APPS[i].id === appId) { app = APPS[i]; break; }
+    }
+
+    var container = document.getElementById("legalContent");
+    var backLabel = document.getElementById("backLabel");
+    if (backLabel) backLabel.textContent = t("legal_back_to_app");
+
+    var backLink = document.getElementById("backLink");
+    if (backLink && app) backLink.href = "app.html?id=" + app.id;
+
+    if (!app || !app.legal) {
+      container.innerHTML = '<h1>' + t("app_not_found") + '</h1><p>' + t("app_not_found_desc") + '</p><a href="index.html" class="btn btn--primary">' + t("back_to_store") + '</a>';
+      return;
+    }
+
+    var legal = app.legal;
+    var lang = getLang();
+    document.title = (page === "privacy" ? t("privacy_policy") : t("terms_of_service")) + " — " + app.name + " | Sama Apps";
+
+    var privacyUrl = "legal.html?id=" + app.id + "&page=privacy";
+    var termsUrl = "legal.html?id=" + app.id + "&page=terms";
+
+    var html = '';
+    html += '<div class="legal-meta">';
+    html += '<div class="app-badge"><img src="' + app.icon + '" alt="' + app.name + '" /><span>' + app.name + '</span></div><br />';
+    html += '<span>' + t("legal_effective").replace("{date}", legal.effectiveDate) + '</span>';
+    html += '</div>';
+
+    html += '<div class="legal-tabs">';
+    html += '<a href="' + privacyUrl + '" class="legal-tab' + (page === "privacy" ? " active" : "") + '">' + t("privacy_policy") + '</a>';
+    html += '<a href="' + termsUrl + '" class="legal-tab' + (page === "terms" ? " active" : "") + '">' + t("terms_of_service") + '</a>';
+    html += '</div>';
+
+    if (page === "privacy") {
+      html += renderPrivacy(app, legal, lang);
+    } else {
+      html += renderTerms(app, legal, lang);
+    }
+
+    container.innerHTML = html;
+  }
+
+  function renderPrivacy(app, legal, lang) {
+    var h = '';
+    h += '<h1>' + t("privacy_policy") + '</h1>';
+    h += '<p class="legal-intro">' + t("legal_intro_privacy").replace("{app}", app.name).replace("{dev}", legal.developer) + '</p>';
+
+    var dataLocal = (lang === "fr" && legal.dataLocal_fr) ? legal.dataLocal_fr : legal.dataLocal;
+    h += '<div class="legal-section"><h2>' + t("legal_data_local_title") + '</h2>';
+    h += '<p>' + t("legal_data_local_desc") + '</p><ul>';
+    for (var i = 0; i < dataLocal.length; i++) {
+      h += '<li><span>' + dataLocal[i] + '</span></li>';
+    }
+    h += '</ul></div>';
+
+    var dataCloud = (lang === "fr" && legal.dataCloud_fr) ? legal.dataCloud_fr : legal.dataCloud;
+    h += '<div class="legal-section"><h2>' + t("legal_data_cloud_title") + '</h2>';
+    h += '<p>' + t("legal_data_cloud_desc") + '</p><ul>';
+    for (var j = 0; j < dataCloud.length; j++) {
+      h += '<li><span>' + dataCloud[j] + '</span></li>';
+    }
+    h += '</ul></div>';
+
+    h += '<div class="legal-section"><h2>' + t("legal_third_party_title") + '</h2>';
+    h += '<p>' + t("legal_third_party_desc") + '</p>';
+    for (var k = 0; k < legal.thirdParty.length; k++) {
+      var tp = legal.thirdParty[k];
+      var purpose = (lang === "fr" && tp.purpose_fr) ? tp.purpose_fr : tp.purpose;
+      h += '<div class="third-party-item"><span><span class="tp-name">' + tp.name + '</span> — <span class="tp-purpose">' + purpose + '</span></span></div>';
+    }
+    h += '</div>';
+
+    if (legal.noAnalytics) {
+      h += '<div class="legal-highlight"><i class="bi bi-shield-check"></i> ' + t("legal_no_analytics") + '</div>';
+    }
+    if (legal.noAds) {
+      h += '<div class="legal-highlight"><i class="bi bi-shield-check"></i> ' + t("legal_no_ads") + '</div>';
+    }
+
+    h += '<div class="legal-section"><h2>' + t("legal_security_title") + '</h2>';
+    h += '<p>' + t("legal_security_desc") + '</p></div>';
+
+    h += '<div class="legal-section"><h2>' + t("legal_children_title") + '</h2>';
+    h += '<p>' + t("legal_children_desc") + '</p></div>';
+
+    h += '<div class="legal-section"><h2>' + t("legal_changes_title") + '</h2>';
+    h += '<p>' + t("legal_changes_desc") + '</p></div>';
+
+    h += '<div class="legal-section"><h2>' + t("legal_contact_title") + '</h2>';
+    h += '<p>' + t("legal_contact_desc") + '</p>';
+    h += '<div class="legal-contact"><a href="mailto:' + legal.email + '">' + legal.email + '</a></div></div>';
+
+    return h;
+  }
+
+  function renderTerms(app, legal, lang) {
+    var h = '';
+    h += '<h1>' + t("terms_of_service") + '</h1>';
+    h += '<p class="legal-intro">' + t("legal_terms_intro").replace("{app}", app.name) + '</p>';
+
+    var sections = [
+      { title: "legal_terms_license_title", desc: "legal_terms_license_desc", replace: { "{dev}": legal.developer } },
+      { title: "legal_terms_use_title", desc: "legal_terms_use_desc" },
+      { title: "legal_terms_data_title", desc: "legal_terms_data_desc" },
+      { title: "legal_terms_disclaimer_title", desc: "legal_terms_disclaimer_desc" },
+      { title: "legal_terms_termination_title", desc: "legal_terms_termination_desc" },
+      { title: "legal_terms_changes_title", desc: "legal_terms_changes_desc" },
+      { title: "legal_terms_law_title", desc: "legal_terms_law_desc", replace: { "{country}": legal.country } }
+    ];
+
+    for (var i = 0; i < sections.length; i++) {
+      var s = sections[i];
+      var desc = t(s.desc);
+      if (s.replace) {
+        for (var key in s.replace) {
+          desc = desc.replace(key, s.replace[key]);
+        }
+      }
+      h += '<div class="legal-section"><h2>' + t(s.title) + '</h2><p>' + desc + '</p></div>';
+    }
+
+    h += '<div class="legal-section"><h2>' + t("legal_contact_title") + '</h2>';
+    h += '<p>' + t("legal_contact_desc") + '</p>';
+    h += '<div class="legal-contact"><a href="mailto:' + legal.email + '">' + legal.email + '</a></div></div>';
+
+    return h;
+  }
+  </script>
+</body>
+</html>

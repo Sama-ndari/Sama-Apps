@@ -272,7 +272,7 @@ function renderDetailPage() {
     ? '<a href="' + app.downloadUrl + '" target="_blank" class="btn btn--primary"><i class="bi bi-download"></i> ' + t("download_apk") + '</a>'
     : "";
   var baseUrl = window.location.origin + window.location.pathname.replace("app.html", "");
-  var shareUrl = baseUrl + app.id + ".html";
+  var shareUrl = baseUrl + "apps/" + app.id + "/";
   var shareBtn = '<button class="btn btn--share" id="copyLinkBtn" data-url="' + shareUrl + '"><i class="bi bi-link-45deg"></i> ' + t("copy_link") + '</button>';
   var devBadge = isDev ? '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>' : '';
   var heroIconHtml = isDev
@@ -423,6 +423,17 @@ function renderDetailPage() {
           var desc = (lang === "fr" && tier.desc_fr) ? tier.desc_fr : tier.desc;
           return '<div class="tier-item"><div class="tier-item__name">' + tier.name + '</div><div class="tier-item__desc">' + desc + '</div></div>';
         }).join("");
+    }
+  }
+
+  /* Legal links */
+  if (app.legal) {
+    var legalEl = document.getElementById("sidebarLegal");
+    if (legalEl) {
+      legalEl.hidden = false;
+      legalEl.innerHTML =
+        '<a href="apps/' + app.id + '/privacy.html" class="legal-link"><i class="bi bi-shield-lock"></i> ' + t("privacy_policy") + '</a>' +
+        '<a href="apps/' + app.id + '/terms.html" class="legal-link"><i class="bi bi-file-earmark-text"></i> ' + t("terms_of_service") + '</a>';
     }
   }
 
