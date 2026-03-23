@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initLangToggle();
 
-  if (document.getElementById("appDetail")) {
-    renderDetailPage();
-  } else {
-    renderHomePage();
+  if (typeof APPS !== "undefined") {
+    if (document.getElementById("appDetail")) {
+      renderDetailPage();
+    } else {
+      renderHomePage();
+    }
   }
 });
 
