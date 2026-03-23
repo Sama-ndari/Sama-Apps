@@ -234,6 +234,14 @@ function renderHomePage() {
   }
 }
 
+function normalizeVideos(app) {
+  if (app.videos && app.videos.length > 0) return app.videos;
+  if (app.videoUrl) {
+    return [{ url: app.videoUrl, title: app.videoTitle || "", title_fr: app.videoTitle_fr || "" }];
+  }
+  return [];
+}
+
 /* ===== DETAIL PAGE ===== */
 function renderDetailPage() {
   applyCommonI18n();
@@ -334,20 +342,27 @@ function renderDetailPage() {
     }
   }
 
-  /* Video */
-  var videoSection = document.getElementById("videoSection");
-  var videoTitleEl = document.getElementById("videoTitle");
-  var videoFrame = document.getElementById("videoFrame");
-  var videoFullscreen = document.getElementById("videoFullscreen");
-  var videoFullscreenLabel = document.getElementById("videoFullscreenLabel");
-  if (videoSection && app.videoUrl) {
-    videoSection.hidden = false;
-    var vTitle = (getLang() === "fr" && app.videoTitle_fr) ? app.videoTitle_fr : (app.videoTitle || t("video_demo"));
-    if (videoTitleEl) videoTitleEl.textContent = t("video_demo") + ": " + vTitle;
-    if (videoFrame) videoFrame.src = app.videoUrl + "?title=0&byline=0&portrait=0&color=4CAF50&playsinline=1";
-    var vimeoId = app.videoUrl.replace("https://player.vimeo.com/video/", "").split("?")[0];
-    if (videoFullscreen) videoFullscreen.href = "https://vimeo.com/" + vimeoId;
-    if (videoFullscreenLabel) videoFullscreenLabel.textContent = t("video_fullscreen");
+  /* Videos */
+  var videosSection = document.getElementById("videosSection");
+  var videoList = normalizeVideos(app);
+  if (videosSection && videoList.length > 0) {
+    videosSection.hidden = false;
+    videosSection.innerHTML = videoList.map(function (v, idx) {
+      var vTitle = (getLang() === "fr" && v.title_fr) ? v.title_fr : (v.title || t("video_demo"));
+      var vimeoId = v.url.replace("https://player.vimeo.com/video/", "").split("?")[0];
+      var fsLabel = t("video_fullscreen");
+      return '<div class="app-video">' +
+        '<div class="app-video__header">' +
+          '<h3>' + t("video_demo") + " " + (idx + 1) + ": " + vTitle + '</h3>' +
+          '<a href="https://vimeo.com/' + vimeoId + '" target="_blank" rel="noopener" class="btn-fullscreen">' +
+            '<i class="bi bi-fullscreen"></i> <span>' + fsLabel + '</span>' +
+          '</a>' +
+        '</div>' +
+        '<div class="video-wrapper">' +
+          '<iframe src="' + v.url + '?title=0&byline=0&portrait=0&color=4CAF50&playsinline=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; web-share" allowfullscreen webkitallowfullscreen mozallowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy" title="' + vTitle + '"></iframe>' +
+        '</div>' +
+      '</div>';
+    }).join("");
   }
 
   /* Screenshots */

@@ -51,9 +51,18 @@ const APPS = [
       appAsset("esama", "screenshots/esama-about.png"),
       appAsset("esama", "screenshots/esama-settings-delete.png")
     ],
-    videoUrl: "https://player.vimeo.com/video/1162754098",
-    videoTitle: "Demo: How to add products",
-    videoTitle_fr: "Demo: Enregistrement des produits",
+    videos: [
+      {
+        url: "https://player.vimeo.com/video/1176175794",
+        title: "Manage stock without internet",
+        title_fr: "Gérer son stock sans internet"
+      },
+      {
+        url: "https://player.vimeo.com/video/1162754098",
+        title: "How to add products",
+        title_fr: "Enregistrement des produits"
+      }
+    ],
     downloadUrl: "https://drive.google.com/uc?export=download&id=1HhG-0U46eTxKDo74Wy1AdXYlABgmqzca",
     trialBadge: "1 month FREE trial",
     trialBadge_fr: "1 mois d\u2019essai GRATUIT",
