@@ -1,19 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Velora</title>
-  <meta name="description" content="Privacy Policy for Velora — Productivity &amp; Wellness app. Learn how your data is stored and protected." />
+  <meta name="description" content="Privacy Policy for Velora — Productivity &amp; Wellness app. Learn how your data is collected, used, stored, and protected." />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Privacy Policy — Velora" />
   <meta property="og:description" content="Privacy Policy for Velora. Your data stays on your device. Cloud backup is optional and encrypted." />
-  <meta property="og:url" content="https://sama-ndari.github.io/Sama-Apps/apps/velora/privacy" />
+  <meta property="og:url" content="https://sama-ndari.github.io/Sama-Apps/apps/velora/privacy.html" />
   <meta property="og:site_name" content="Sama Apps" />
 
-  <meta http-equiv="refresh" content="0; url=../../legal.html?id=velora&page=privacy" />
-  <script>window.location.replace("../../legal.html?id=velora&page=privacy");</script>
+  <link rel="icon" href="../../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    [data-theme="dark"] {
+      --bg: #0b0f1a; --bg-card: #141925; --border: #1e2640;
+      --text: #e8ecf4; --text-muted: #8892a8; --text-dim: #5a6480;
+      --accent: #3b82f6; --green: #22c55e; --green-soft: rgba(34,197,94,0.12);
+      --radius-sm: 8px;
+    }
+    [data-theme="light"] {
+      --bg: #f4f6fb; --bg-card: #ffffff; --border: #dfe3ed;
+      --text: #1a1f2e; --text-muted: #5c6578; --text-dim: #8b93a5;
+      --accent: #2563eb; --green: #16a34a; --green-soft: rgba(22,163,74,0.1);
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+    }
+    .legal-content { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+    .legal-content h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+    .legal-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    .legal-meta .app-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .legal-meta .app-badge img { width: 28px; height: 28px; border-radius: 6px; }
+    .legal-meta .app-badge span { font-weight: 600; color: var(--text); font-size: 1rem; }
+    .legal-intro { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 28px; }
+    .legal-section { margin-bottom: 28px; }
+    .legal-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .legal-section p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 10px; }
+    .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .legal-section li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .legal-section .third-party-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
+    .legal-section .tp-name { font-weight: 600; color: var(--text); }
+    .legal-section .tp-purpose { color: var(--text-dim); }
+    .legal-highlight { padding: 14px 18px; background: var(--green-soft); border: 1px solid var(--green); border-radius: var(--radius-sm); color: var(--green); font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; }
+    .legal-tabs { display: flex; gap: 8px; margin-bottom: 28px; }
+    .legal-tab { padding: 8px 20px; border: 1px solid var(--border); border-radius: 100px; background: transparent; color: var(--text-muted); font-family: inherit; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; }
+    .legal-tab:hover { border-color: var(--accent); color: var(--text); }
+    .legal-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .legal-contact { padding: 16px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .legal-contact a { color: var(--accent); text-decoration: none; }
+    .legal-contact a:hover { text-decoration: underline; }
+    @media (max-width: 480px) {
+      .legal-content { padding: 24px 14px 60px; }
+      .legal-content h1 { font-size: 1.3rem; }
+    }
+  </style>
 </head>
-<body></body>
+<body>
+
+<div class="legal-content">
+
+  <div class="legal-meta">
+    <div class="app-badge">
+      <img src="../../assets/apps/velora/icon.png" alt="Velora" />
+      <span>Velora</span>
+    </div><br />
+    <span>Effective date: 2026-03-20</span>
+  </div>
+
+  <div class="legal-tabs">
+    <a href="privacy.html" class="legal-tab active">Privacy Policy</a>
+    <a href="terms.html" class="legal-tab">Terms of Service</a>
+  </div>
+
+  <h1>Privacy Policy</h1>
+  <p class="legal-intro">Velora ("the App") is developed by Samandari. This Privacy Policy explains how we collect, use, store, and protect your information when you use the App.</p>
+
+  <!-- DATA COLLECTION -->
+  <div class="legal-section">
+    <h2>Data Collection</h2>
+    <p>Velora collects and stores the following data locally on your device. We do not have access to this data, and it never leaves your device unless you explicitly enable cloud backup.</p>
+    <ul>
+      <li>Tasks, habits, goals, and journal entries</li>
+      <li>Expenses, budgets, and debt records</li>
+      <li>Alarm and notification settings</li>
+      <li>App preferences and settings</li>
+    </ul>
+    <p>If you enable cloud backup, the following data may be transmitted to Google Drive:</p>
+    <ul>
+      <li>Backup data synced to Google Drive (with explicit user consent)</li>
+    </ul>
+  </div>
+
+  <!-- DATA USAGE -->
+  <div class="legal-section">
+    <h2>Data Usage</h2>
+    <p>Your data is used exclusively to provide the App's core functionality: managing your tasks, habits, goals, expenses, journal, and alarms. Specifically:</p>
+    <ul>
+      <li>Local data is processed on-device to display your dashboards, reports, and reminders</li>
+      <li>Cloud backup data is used solely to restore your data on a new device or after reinstallation</li>
+      <li>If you use AI features (Life Coach, Creative Muse, etc.), relevant data may be sent to a third-party AI API for processing. This data is not stored or used for training by the provider</li>
+      <li>If you configure email reports, emails are sent using your provided SMTP credentials. Your email address and credentials are only stored locally on your device</li>
+    </ul>
+    <p>We do not sell, rent, or share your data with any third party for marketing or advertising purposes.</p>
+  </div>
+
+  <!-- DATA STORAGE -->
+  <div class="legal-section">
+    <h2>Data Storage</h2>
+    <p>All your data is stored locally on your device in an encrypted database. We do not operate any servers that store your personal data.</p>
+    <p>If you enable cloud backup, your data is transmitted securely via HTTPS and stored on your personal Google Drive account. Velora does not have access to your Google Drive outside of the app-specific backup folder.</p>
+  </div>
+
+  <!-- DATA SHARING -->
+  <div class="legal-section">
+    <h2>Data Sharing &amp; Third-Party Services</h2>
+    <p>The App may use the following third-party services:</p>
+    <div class="third-party-item"><span><span class="tp-name">Google Drive API</span> — <span class="tp-purpose">Cloud backup (optional, requires explicit user consent)</span></span></div>
+    <div class="third-party-item"><span><span class="tp-name">Google Sign-In</span> — <span class="tp-purpose">Authentication for cloud backup</span></span></div>
+    <div class="third-party-item"><span><span class="tp-name">Google Gemini AI</span> — <span class="tp-purpose">AI-powered features (optional)</span></span></div>
+    <p>We do not share your data with any other third parties. No data is sold or transferred for advertising, analytics, or profiling purposes.</p>
+  </div>
+
+  <!-- DATA RETENTION & DELETION -->
+  <div class="legal-section">
+    <h2>Data Retention &amp; Deletion</h2>
+    <p>Your data is retained on your device for as long as you use the App. You can delete any or all of your data at any time from within the App's settings.</p>
+    <p>If you uninstall the App, all locally stored data is permanently deleted.</p>
+    <p>If you have enabled cloud backup, your backup data remains on your Google Drive until you manually delete it. You can revoke Velora's access to your Google Drive at any time through your Google Account permissions at <a href="https://myaccount.google.com/permissions" style="color:var(--accent)">myaccount.google.com/permissions</a>.</p>
+  </div>
+
+  <!-- NO ANALYTICS / NO ADS -->
+  <div class="legal-highlight">We do not use any analytics or tracking tools.</div>
+  <div class="legal-highlight">The App does not display advertisements.</div>
+
+  <!-- EMAIL FEATURES -->
+  <div class="legal-section">
+    <h2>Email Features</h2>
+    <p>If you configure email reports, emails are sent using your provided SMTP credentials. Your email address and credentials are only stored locally on your device.</p>
+  </div>
+
+  <!-- AI FEATURES -->
+  <div class="legal-section">
+    <h2>AI Features</h2>
+    <p>When using AI features (Life Coach, Creative Muse, etc.), your data may be sent to a third-party AI API for processing. This data is not stored or used for training by the provider.</p>
+  </div>
+
+  <!-- DATA SECURITY -->
+  <div class="legal-section">
+    <h2>Data Security</h2>
+    <p>Your data is stored encrypted on your device. Cloud backups are transmitted securely via HTTPS to Google Drive.</p>
+  </div>
+
+  <!-- CHILDREN'S PRIVACY -->
+  <div class="legal-section">
+    <h2>Children's Privacy</h2>
+    <p>The App is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+  </div>
+
+  <!-- CHANGES -->
+  <div class="legal-section">
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="legal-section">
+    <h2>Contact Us</h2>
+    <p>If you have questions about this Privacy Policy, contact us at:</p>
+    <div class="legal-contact"><a href="mailto:cezaremardini10@gmail.com">cezaremardini10@gmail.com</a></div>
+  </div>
+
+</div>
+
+</body>
 </html>

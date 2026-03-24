@@ -157,21 +157,25 @@
     h += '</ul></div>';
 
     var dataCloud = legal["dataCloud_" + lang] || legal.dataCloud;
-    h += '<div class="legal-section"><h2>' + t("legal_data_cloud_title") + '</h2>';
-    h += '<p>' + t("legal_data_cloud_desc") + '</p><ul>';
-    for (var j = 0; j < dataCloud.length; j++) {
-      h += '<li><span>' + dataCloud[j] + '</span></li>';
+    if (dataCloud && dataCloud.length > 0) {
+      h += '<div class="legal-section"><h2>' + t("legal_data_cloud_title") + '</h2>';
+      h += '<p>' + t("legal_data_cloud_desc") + '</p><ul>';
+      for (var j = 0; j < dataCloud.length; j++) {
+        h += '<li><span>' + dataCloud[j] + '</span></li>';
+      }
+      h += '</ul></div>';
     }
-    h += '</ul></div>';
 
-    h += '<div class="legal-section"><h2>' + t("legal_third_party_title") + '</h2>';
-    h += '<p>' + t("legal_third_party_desc") + '</p>';
-    for (var k = 0; k < legal.thirdParty.length; k++) {
-      var tp = legal.thirdParty[k];
-      var purpose = tp["purpose_" + lang] || tp.purpose;
-      h += '<div class="third-party-item"><span><span class="tp-name">' + tp.name + '</span> — <span class="tp-purpose">' + purpose + '</span></span></div>';
+    if (legal.thirdParty && legal.thirdParty.length > 0) {
+      h += '<div class="legal-section"><h2>' + t("legal_third_party_title") + '</h2>';
+      h += '<p>' + t("legal_third_party_desc") + '</p>';
+      for (var k = 0; k < legal.thirdParty.length; k++) {
+        var tp = legal.thirdParty[k];
+        var purpose = tp["purpose_" + lang] || tp.purpose;
+        h += '<div class="third-party-item"><span><span class="tp-name">' + tp.name + '</span> — <span class="tp-purpose">' + purpose + '</span></span></div>';
+      }
+      h += '</div>';
     }
-    h += '</div>';
 
     if (legal.privacyExtra) {
       for (var x = 0; x < legal.privacyExtra.length; x++) {

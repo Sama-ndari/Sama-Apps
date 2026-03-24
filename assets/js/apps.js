@@ -308,6 +308,37 @@ const APPS = [
       "Les notifications sont captur\u00e9es en temps r\u00e9el, m\u00eame en arri\u00e8re-plan",
       "Toutes les donn\u00e9es restent sur votre appareil uniquement, rien n'est envoy\u00e9 au cloud"
     ],
-    tiers: []
+    tiers: [],
+    legal: {
+      developer: "Samandari",
+      email: "cezaremardini10@gmail.com",
+      effectiveDate: "2026-03-22",
+      dataLocal: [
+        "Notification content captured from other apps on your device",
+        "App name, sender/contact name, timestamp, and notification text",
+        "App preferences and settings"
+      ],
+      dataLocal_fr: [
+        "Contenu des notifications captur\u00e9es depuis d\u2019autres applications",
+        "Nom de l\u2019application, nom de l\u2019exp\u00e9diteur, horodatage et texte de la notification",
+        "Pr\u00e9f\u00e9rences et param\u00e8tres de l\u2019application"
+      ],
+      dataCloud: [],
+      thirdParty: [],
+      noAnalytics: true,
+      noAds: true,
+      noCloud: true,
+      country: "Burundi",
+      privacyExtra: [
+        { title: "Notification Listener Permission", title_fr: "Permission d\u2019\u00e9coute des notifications",
+          desc: "NotifSpy requires the Android Notification Listener permission to function. This permission allows the App to read notifications as they appear. The captured data is stored exclusively on your device.",
+          desc_fr: "NotifSpy n\u00e9cessite la permission d\u2019\u00e9coute des notifications Android pour fonctionner. Cette permission permet \u00e0 l\u2019application de lire les notifications \u00e0 leur apparition. Les donn\u00e9es captur\u00e9es sont stock\u00e9es exclusivement sur votre appareil." }
+      ],
+      termsExtra: [
+        { title: "Permissions", title_fr: "Permissions",
+          desc: "NotifSpy requires the Android Notification Listener permission to function. This permission is used solely to capture notifications for display within the App. You can revoke this permission at any time through your device settings.",
+          desc_fr: "NotifSpy n\u00e9cessite la permission d\u2019\u00e9coute des notifications Android. Cette permission est utilis\u00e9e uniquement pour capturer les notifications et les afficher dans l\u2019application. Vous pouvez r\u00e9voquer cette permission \u00e0 tout moment dans les param\u00e8tres de votre appareil." }
+      ]
+    }
   }
 ];
