@@ -56,6 +56,16 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://sama-ndari.github.io/Sama-Apps/apps/notifspy/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sama-ndari.github.io/Sama-Apps/apps/notifspy/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://sama-ndari.github.io/Sama-Apps/legal.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
