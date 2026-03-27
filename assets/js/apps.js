@@ -7,6 +7,11 @@ const GIST_SOURCES = [
   { id: "velora", gistId: "b806e5a54d4cf1a24b23ce2bfc4c5116", file: "velora_admin_sync.json" }
 ];
 
+const REMOTE_CONFIGS = [
+  { id: "esama", url: "https://gist.githubusercontent.com/Sama-ndari/d37c77064385b9600f7c946830a7aa5f/raw/e_sama_config.json" },
+  { id: "velora", url: "https://gist.githubusercontent.com/Sama-ndari/55d00b35530e4695d35cde0edcc6e5d5/raw/velora_config.json" }
+];
+
 const APPS = [
   {
     id: "esama",

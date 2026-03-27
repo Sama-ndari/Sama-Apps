@@ -72,6 +72,27 @@ function categoryLabel(cat) {
   return t(map[cat] || cat.toLowerCase());
 }
 
+/* ===== LIVE VERSIONS (from remote config Gists) ===== */
+var _liveVersions = {};
+
+function fetchLiveVersion(appId, callback) {
+  if (typeof REMOTE_CONFIGS === "undefined") return;
+  if (_liveVersions[appId]) { callback(_liveVersions[appId]); return; }
+
+  var cfg = REMOTE_CONFIGS.find(function (c) { return c.id === appId; });
+  if (!cfg) return;
+
+  fetch(cfg.url + "?t=" + Date.now())
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (data && data.latest_version) {
+        _liveVersions[appId] = data.latest_version;
+        callback(data.latest_version);
+      }
+    })
+    .catch(function () {});
+}
+
 /* ===== USER STATS ===== */
 var _userCounts = {};
 var _userCountsLoaded = false;
@@ -402,7 +423,7 @@ function renderDetailPage() {
     sidebarInfo.innerHTML =
       '<h4>' + t("information") + '</h4>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("developer") + '</span><span class="sidebar-row__value">' + app.developer + '</span></div>' +
-      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("version") + '</span><span class="sidebar-row__value">' + app.version + '</span></div>' +
+      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("version") + '</span><span class="sidebar-row__value" id="sidebarVersion">' + app.version + '</span></div>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("category") + '</span><span class="sidebar-row__value">' + categoryLabel(app.category) + '</span></div>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("price") + '</span><span class="sidebar-row__value">' + priceLabel(app) + '</span></div>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("languages") + '</span><span class="sidebar-row__value">' + app.languages.join(", ") + '</span></div>' +
@@ -427,6 +448,12 @@ function renderDetailPage() {
         badges.appendChild(badge);
       }
     }
+  });
+
+  /* Fetch live version from remote config Gist */
+  fetchLiveVersion(app.id, function (version) {
+    var el = document.getElementById("sidebarVersion");
+    if (el) el.textContent = version;
   });
 
   /* Tiers */
