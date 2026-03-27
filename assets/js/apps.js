@@ -149,7 +149,19 @@ const APPS = [
         { title: "Remote Configuration", title_fr: "Configuration \u00e0 distance", title_sw: "Usanidi wa Mbali",
           desc: "We use a remote configuration service to manage app updates, communicate important messages, and enforce license compliance.",
           desc_fr: "Nous utilisons un service de configuration \u00e0 distance pour g\u00e9rer les mises \u00e0 jour, communiquer des messages importants et assurer la conformit\u00e9 des licences.",
-          desc_sw: "Tunatumia huduma ya usanidi wa mbali kusimamia masasisho ya programu, kuwasiliana ujumbe muhimu, na kuhakikisha utiifu wa leseni." }
+          desc_sw: "Tunatumia huduma ya usanidi wa mbali kusimamia masasisho ya programu, kuwasiliana ujumbe muhimu, na kuhakikisha utiifu wa leseni." },
+        { title: "Storage Access", title_fr: "Acc\u00e8s au stockage", title_sw: "Ufikiaji wa Hifadhi",
+          desc: "E-Sama requests storage access to export and import business data backups to a location you choose on your device. This allows you to transfer data between devices or recover data in case of device loss. No files outside the app\u2019s backup folder are accessed or modified.",
+          desc_fr: "E-Sama demande l\u2019acc\u00e8s au stockage pour exporter et importer des sauvegardes de donn\u00e9es commerciales vers un emplacement que vous choisissez sur votre appareil. Cela vous permet de transf\u00e9rer des donn\u00e9es entre appareils ou de r\u00e9cup\u00e9rer des donn\u00e9es en cas de perte d\u2019appareil. Aucun fichier en dehors du dossier de sauvegarde n\u2019est consult\u00e9 ou modifi\u00e9.",
+          desc_sw: "E-Sama inaomba ufikiaji wa hifadhi ili kusafirisha na kuleta nakala za data za biashara kwenye eneo unalochagua kwenye kifaa chako. Hii inakuruhusu kuhamisha data kati ya vifaa au kurejesha data ikiwa kifaa kimepotea. Hakuna faili nje ya folda ya nakala inayofikiwa au kubadilishwa." },
+        { title: "Bluetooth Printing", title_fr: "Impression Bluetooth", title_sw: "Uchapishaji wa Bluetooth",
+          desc: "If you connect a Bluetooth thermal printer, the app uses the Bluetooth permission solely to discover and communicate with your printer. No data is sent to any external server through this connection.",
+          desc_fr: "Si vous connectez une imprimante thermique Bluetooth, l\u2019application utilise la permission Bluetooth uniquement pour d\u00e9couvrir et communiquer avec votre imprimante. Aucune donn\u00e9e n\u2019est envoy\u00e9e \u00e0 un serveur externe via cette connexion.",
+          desc_sw: "Ukiunganisha printa ya Bluetooth ya joto, programu hutumia ruhusa ya Bluetooth tu kutambua na kuwasiliana na printa yako. Hakuna data inayotumwa kwa seva yoyote ya nje kupitia muunganisho huu." },
+        { title: "Biometric Authentication", title_fr: "Authentification biom\u00e9trique", title_sw: "Uthibitishaji wa Kibayometriki",
+          desc: "E-Sama supports fingerprint or face unlock for app security. Your biometric data is processed entirely by your device\u2019s hardware and is never accessed or stored by the app.",
+          desc_fr: "E-Sama prend en charge le d\u00e9verrouillage par empreinte digitale ou reconnaissance faciale pour la s\u00e9curit\u00e9 de l\u2019app. Vos donn\u00e9es biom\u00e9triques sont trait\u00e9es enti\u00e8rement par le mat\u00e9riel de votre appareil et ne sont jamais consult\u00e9es ou stock\u00e9es par l\u2019application.",
+          desc_sw: "E-Sama inasaidia kufungua kwa alama ya kidole au uso kwa usalama wa programu. Data yako ya kibayometriki inashughulikiwa kabisa na vifaa vya kifaa chako na haifikiwi au kuhifadhiwa na programu." }
       ],
       termsExtra: [
         { title: "Payments", title_fr: "Paiements", title_sw: "Malipo",
@@ -159,7 +171,11 @@ const APPS = [
         { title: "Cloud Backup", title_fr: "Sauvegarde cloud", title_sw: "Hifadhi ya Wingu",
           desc: "Cloud backup stores your data on Google Drive using your Google account. You are responsible for the security of your Google account. E-Sama is not liable for data loss or unauthorized access to your Google Drive.",
           desc_fr: "La sauvegarde cloud stocke vos donn\u00e9es sur Google Drive via votre compte Google. Vous \u00eates responsable de la s\u00e9curit\u00e9 de votre compte Google. E-Sama n\u2019est pas responsable de la perte de donn\u00e9es ou de l\u2019acc\u00e8s non autoris\u00e9 \u00e0 votre Google Drive.",
-          desc_sw: "Hifadhi ya wingu inahifadhi data yako kwenye Google Drive kupitia akaunti yako ya Google. Unawajibika kwa usalama wa akaunti yako ya Google. E-Sama haiwajibiki kwa upotezaji wa data au ufikiaji usioruhusiwa." }
+          desc_sw: "Hifadhi ya wingu inahifadhi data yako kwenye Google Drive kupitia akaunti yako ya Google. Unawajibika kwa usalama wa akaunti yako ya Google. E-Sama haiwajibiki kwa upotezaji wa data au ufikiaji usioruhusiwa." },
+        { title: "Storage Access", title_fr: "Acc\u00e8s au stockage", title_sw: "Ufikiaji wa Hifadhi",
+          desc: "E-Sama requires access to device storage to export and import local backups. This permission is used only for backup and restore operations initiated by you. The app does not access, read, or modify any files outside its own backup folder.",
+          desc_fr: "E-Sama n\u00e9cessite l\u2019acc\u00e8s au stockage de l\u2019appareil pour exporter et importer des sauvegardes locales. Cette permission n\u2019est utilis\u00e9e que pour les op\u00e9rations de sauvegarde et restauration que vous initiez. L\u2019application n\u2019acc\u00e8de, ne lit ni ne modifie aucun fichier en dehors de son propre dossier de sauvegarde.",
+          desc_sw: "E-Sama inahitaji ufikiaji wa hifadhi ya kifaa ili kusafirisha na kuleta nakala za hifadhi za ndani. Ruhusa hii inatumika tu kwa shughuli za kuhifadhi na kurejesha unazozindua wewe. Programu haifikii, haisomi wala haibadilishi faili yoyote nje ya folda yake ya nakala." }
       ]
     }
   },
@@ -265,7 +281,19 @@ const APPS = [
           desc_fr: "Si vous configurez les rapports par e-mail, les e-mails sont envoy\u00e9s avec vos identifiants SMTP. Votre adresse e-mail et vos identifiants sont uniquement stock\u00e9s localement sur votre appareil." },
         { title: "AI Features", title_fr: "Fonctionnalit\u00e9s IA",
           desc: "When using AI features (Life Coach, Creative Muse, etc.), your data may be sent to a third-party AI API for processing. This data is not stored or used for training by the provider.",
-          desc_fr: "Lors de l\u2019utilisation des fonctionnalit\u00e9s IA (Coach de vie, Muse cr\u00e9ative, etc.), vos donn\u00e9es peuvent \u00eatre envoy\u00e9es \u00e0 une API IA tierce pour traitement. Ces donn\u00e9es ne sont ni stock\u00e9es ni utilis\u00e9es pour l\u2019entra\u00eenement par le fournisseur." }
+          desc_fr: "Lors de l\u2019utilisation des fonctionnalit\u00e9s IA (Coach de vie, Muse cr\u00e9ative, etc.), vos donn\u00e9es peuvent \u00eatre envoy\u00e9es \u00e0 une API IA tierce pour traitement. Ces donn\u00e9es ne sont ni stock\u00e9es ni utilis\u00e9es pour l\u2019entra\u00eenement par le fournisseur." },
+        { title: "Device Identification", title_fr: "Identification de l\u2019appareil",
+          desc: "We collect your device ID solely for license verification purposes. This ID is not linked to any personal information.",
+          desc_fr: "Nous collectons l\u2019identifiant de votre appareil uniquement \u00e0 des fins de v\u00e9rification de licence. Cet identifiant n\u2019est li\u00e9 \u00e0 aucune information personnelle." },
+        { title: "Remote Configuration", title_fr: "Configuration \u00e0 distance",
+          desc: "We use a remote configuration service to manage app updates, communicate important messages, and enforce license compliance.",
+          desc_fr: "Nous utilisons un service de configuration \u00e0 distance pour g\u00e9rer les mises \u00e0 jour, communiquer des messages importants et assurer la conformit\u00e9 des licences." },
+        { title: "Biometric Authentication", title_fr: "Authentification biom\u00e9trique",
+          desc: "Velora supports fingerprint or face unlock for app security. Your biometric data is processed entirely by your device\u2019s hardware and is never accessed or stored by the app.",
+          desc_fr: "Velora prend en charge le d\u00e9verrouillage par empreinte digitale ou reconnaissance faciale pour la s\u00e9curit\u00e9 de l\u2019app. Vos donn\u00e9es biom\u00e9triques sont trait\u00e9es enti\u00e8rement par le mat\u00e9riel de votre appareil et ne sont jamais consult\u00e9es ou stock\u00e9es par l\u2019application." },
+        { title: "Alarms & Notifications", title_fr: "Alarmes et notifications",
+          desc: "Velora uses the exact alarm and notification permissions to deliver reminders, habit alerts, and smart alarms you configure. These permissions are used only for features you explicitly enable.",
+          desc_fr: "Velora utilise les permissions d\u2019alarme exacte et de notification pour d\u00e9livrer les rappels, alertes d\u2019habitudes et alarmes intelligentes que vous configurez. Ces permissions ne sont utilis\u00e9es que pour les fonctionnalit\u00e9s que vous activez explicitement." }
       ],
       termsExtra: [
         { title: "AI Disclaimer", title_fr: "Avertissement IA",
