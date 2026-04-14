@@ -27,4 +27,4 @@ Pure HTML, CSS, and vanilla JavaScript. No frameworks, no build step.
 
 ## Author
 
-Built by [Samandari](https://apps.samandari.dev/)
+Built by [Samandari](https://www.samandari.dev/)
