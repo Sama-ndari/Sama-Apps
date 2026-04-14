@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/app.html?id=velora</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/app.html?id=velora</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/app.html?id=esama</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/app.html?id=esama</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/app.html?id=notifspy</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/app.html?id=notifspy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/velora/</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/velora/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/esama/</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/esama/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/notifspy/</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/notifspy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/velora/privacy.html</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/velora/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/velora/terms.html</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/velora/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/esama/privacy.html</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/esama/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/esama/terms.html</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/esama/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/notifspy/privacy.html</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/notifspy/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/apps/notifspy/terms.html</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/apps/notifspy/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://sama-ndari.github.io/Sama-Apps/legal.html</loc>
+    <loc>https://apps.samandari.dev/Sama-Apps/legal.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

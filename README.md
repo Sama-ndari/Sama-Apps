@@ -2,7 +2,7 @@
 
 A simple static marketplace to discover and download Android apps built by independent developers.
 
-**Live:** [https://sama-ndari.github.io/Sama-Apps](https://sama-ndari.github.io/Sama-Apps)
+**Live:** [https://apps.samandari.dev/Sama-Apps](https://apps.samandari.dev/Sama-Apps)
 
 ## Apps
 
@@ -27,4 +27,4 @@ Pure HTML, CSS, and vanilla JavaScript. No frameworks, no build step.
 
 ## Author
 
-Built by [Samandari](https://sama-ndari.github.io/)
+Built by [Samandari](https://apps.samandari.dev/)

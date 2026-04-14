@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sama-ndari.github.io/Sama-Apps/sitemap.xml
+Sitemap: https://apps.samandari.dev/Sama-Apps/sitemap.xml
