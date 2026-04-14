@@ -2,7 +2,7 @@
 
 A simple static marketplace to discover and download Android apps built by independent developers.
 
-**Live:** [https://apps.samandari.dev/Sama-Apps](https://apps.samandari.dev/Sama-Apps)
+**Live:** [https://apps.samandari.dev/](https://apps.samandari.dev/)
 
 ## Apps
 
