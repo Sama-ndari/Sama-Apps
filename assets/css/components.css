@@ -219,6 +219,7 @@
 .badge--free { background: var(--green-soft); color: var(--green); }
 .badge--paid { background: var(--orange-soft); color: var(--orange); }
 .badge--dev { background: rgba(107, 114, 128, 0.15); color: #9ca3af; }
+.badge--sold { background: rgba(139, 92, 246, 0.12); color: #a78bfa; }
 
 /* ===== Dev Lock Overlay (Card) ===== */
 .app-card__icon-wrap {

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — FabWash</title>
+  <meta name="description" content="Privacy Policy for FabWash — Carwash Management System. Learn how your data is collected, used, stored, and protected." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy — FabWash" />
+  <meta property="og:description" content="Privacy Policy for FabWash. Your data stays on your device. Cloud sync is via Firebase Firestore." />
+  <meta property="og:url" content="https://apps.samandari.dev/apps/fabwash/privacy.html" />
+  <meta property="og:site_name" content="Sama Apps" />
+
+  <link rel="icon" href="../../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    [data-theme="dark"] {
+      --bg: #0b0f1a; --bg-card: #141925; --border: #1e2640;
+      --text: #e8ecf4; --text-muted: #8892a8; --text-dim: #5a6480;
+      --accent: #3b82f6; --green: #22c55e; --green-soft: rgba(34,197,94,0.12);
+      --radius-sm: 8px;
+    }
+    [data-theme="light"] {
+      --bg: #f4f6fb; --bg-card: #ffffff; --border: #dfe3ed;
+      --text: #1a1f2e; --text-muted: #5c6578; --text-dim: #8b93a5;
+      --accent: #2563eb; --green: #16a34a; --green-soft: rgba(22,163,74,0.1);
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+    }
+    .legal-content { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+    .legal-content h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+    .legal-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    .legal-meta .app-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .legal-meta .app-badge img { width: 28px; height: 28px; border-radius: 6px; }
+    .legal-meta .app-badge span { font-weight: 600; color: var(--text); font-size: 1rem; }
+    .legal-intro { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 28px; }
+    .legal-section { margin-bottom: 28px; }
+    .legal-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .legal-section p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 10px; }
+    .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .legal-section li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .legal-section .third-party-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
+    .legal-section .tp-name { font-weight: 600; color: var(--text); }
+    .legal-section .tp-purpose { color: var(--text-dim); }
+    .legal-highlight { padding: 14px 18px; background: var(--green-soft); border: 1px solid var(--green); border-radius: var(--radius-sm); color: var(--green); font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; }
+    .legal-tabs { display: flex; gap: 8px; margin-bottom: 28px; }
+    .legal-tab { padding: 8px 20px; border: 1px solid var(--border); border-radius: 100px; background: transparent; color: var(--text-muted); font-family: inherit; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; }
+    .legal-tab:hover { border-color: var(--accent); color: var(--text); }
+    .legal-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .legal-contact { padding: 16px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .legal-contact a { color: var(--accent); text-decoration: none; }
+    .legal-contact a:hover { text-decoration: underline; }
+    @media (max-width: 480px) {
+      .legal-content { padding: 24px 14px 60px; }
+      .legal-content h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="legal-content">
+
+  <div class="legal-meta">
+    <div class="app-badge">
+      <img src="../../assets/apps/fabwash/icon.webp" alt="FabWash" />
+      <span>FabWash</span>
+    </div><br />
+    <span>Effective date: 2026-04-25</span>
+  </div>
+
+  <div class="legal-tabs">
+    <a href="privacy.html" class="legal-tab active">Privacy Policy</a>
+    <a href="terms.html" class="legal-tab">Terms of Service</a>
+  </div>
+
+  <h1>Privacy Policy</h1>
+  <p class="legal-intro">FabWash ("the App") is developed by Samandari. This Privacy Policy explains how we collect, use, store, and protect your information when you use the App.</p>
+
+  <div class="legal-section">
+    <h2>Data Collection</h2>
+    <p>FabWash collects and stores the following data locally on your device. We do not have access to this data unless cloud sync is active.</p>
+    <ul>
+      <li>Vehicle registration records (plate number, type, wash type, date)</li>
+      <li>Employee information (name, PIN hash, role)</li>
+      <li>Invoice and expense records</li>
+      <li>Client loyalty tracking data</li>
+      <li>App configuration and preferences</li>
+    </ul>
+    <p>When online, the following data may be synced to Firebase Firestore:</p>
+    <ul>
+      <li>All local data synced to Firebase Firestore (with automatic sync when online)</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>Data Usage</h2>
+    <p>Your data is used exclusively to provide the App's core functionality: managing vehicle registrations, invoices, expenses, employee salaries, and client loyalty tracking. Specifically:</p>
+    <ul>
+      <li>Local data is processed on-device to display dashboards, daily reports, and salary calculations</li>
+      <li>Cloud sync data is used to keep your carwash data consistent across sessions and devices</li>
+      <li>No data is sold, rented, or shared with third parties for marketing or advertising</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>Data Storage</h2>
+    <p>All data is stored locally on your device using Hive encrypted database. Employee PINs are hashed with SHA-256 before storage.</p>
+    <p>When cloud sync is active, data is transmitted securely via HTTPS to Firebase Firestore (region: africa-south1). FabWash uses the Firebase Spark (free) plan.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Data Sharing &amp; Third-Party Services</h2>
+    <p>The App may use the following third-party services:</p>
+    <div class="third-party-item"><span><span class="tp-name">Firebase Firestore</span> — <span class="tp-purpose">Cloud sync and backup</span></span></div>
+    <div class="third-party-item"><span><span class="tp-name">Firebase Auth</span> — <span class="tp-purpose">Project authentication</span></span></div>
+    <p>We do not share your data with any other third parties. No data is sold or transferred for advertising, analytics, or profiling purposes.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Data Retention &amp; Deletion</h2>
+    <p>Your data is retained on your device for as long as you use the App. You can export a JSON backup and delete data at any time from within the App's settings.</p>
+    <p>If you uninstall the App, all locally stored data is permanently deleted.</p>
+    <p>Cloud sync data on Firebase Firestore can be deleted by contacting us or through the Firebase console.</p>
+  </div>
+
+  <div class="legal-highlight">We do not use any analytics or tracking tools.</div>
+  <div class="legal-highlight">The App does not display advertisements.</div>
+
+  <div class="legal-section">
+    <h2>PIN Authentication</h2>
+    <p>FabWash uses PIN codes for admin and cashier login. PINs are hashed using SHA-256 before storage. The admin PIN is stored in the app configuration, not transmitted externally.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Cloud Sync</h2>
+    <p>When online, FabWash automatically syncs data to Firebase Firestore. You can also manually push or pull data from Settings. All transfers are encrypted via HTTPS.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Backup &amp; Restore</h2>
+    <p>FabWash supports local JSON backup and restore as a fallback. Backup files are stored on your device at a location you choose.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Data Security</h2>
+    <p>Your data is stored encrypted on your device using Hive with encryption keys in Flutter Secure Storage. Cloud data is transmitted via HTTPS to Firebase.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Children's Privacy</h2>
+    <p>The App is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Contact Us</h2>
+    <p>If you have questions about this Privacy Policy, contact us at:</p>
+    <div class="legal-contact"><a href="mailto:cezaremardini10@gmail.com">cezaremardini10@gmail.com</a></div>
+  </div>
+
+</div>
+
+</body>
+</html>

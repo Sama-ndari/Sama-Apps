@@ -201,7 +201,10 @@ function renderHomePage() {
     if (grid) {
       grid.innerHTML = filtered.map(function (app) {
         var isDev = app.status === "dev";
-        var devBadge = isDev ? '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>' : '';
+        var isSold = app.status === "sold";
+        var statusBadge = "";
+        if (isDev) statusBadge = '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>';
+        else if (isSold) statusBadge = '<span class="badge badge--sold"><i class="bi bi-check-circle-fill"></i> ' + t("deployed") + '</span>';
         var iconHtml = isDev
           ? '<div class="app-card__icon-wrap app-card__icon-wrap--dev"><img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-card__lock"></i></div>'
           : '<img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" />';
@@ -215,7 +218,7 @@ function renderHomePage() {
             '<div class="app-card__meta">' +
               '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
               '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
-              devBadge +
+              statusBadge +
             '</div>' +
           '</div>' +
         '</a>';
@@ -299,13 +302,16 @@ function renderDetailPage() {
 
   /* Hero */
   var isDev = app.status === "dev";
+  var isSold = app.status === "sold";
   var downloadBtn = app.downloadUrl
     ? '<a href="' + app.downloadUrl + '" target="_blank" class="btn btn--primary"><i class="bi bi-download"></i> ' + t("download_apk") + '</a>'
     : "";
   var baseUrl = window.location.origin + window.location.pathname.replace("app.html", "");
   var shareUrl = baseUrl + "apps/" + app.id + "/";
   var shareBtn = '<button class="btn btn--share" id="copyLinkBtn" data-url="' + shareUrl + '"><i class="bi bi-link-45deg"></i> ' + t("copy_link") + '</button>';
-  var devBadge = isDev ? '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>' : '';
+  var statusBadge = "";
+  if (isDev) statusBadge = '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>';
+  else if (isSold) statusBadge = '<span class="badge badge--sold"><i class="bi bi-check-circle-fill"></i> ' + t("deployed") + '</span>';
   var heroIconHtml = isDev
     ? '<div class="app-hero__icon-wrap app-hero__icon-wrap--dev"><img class="app-hero__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-hero__lock"></i></div>'
     : '<img class="app-hero__icon" src="' + app.icon + '" alt="' + app.name + '" />';
@@ -320,7 +326,7 @@ function renderDetailPage() {
         '<div class="app-hero__badges">' +
           '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
           '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
-          devBadge +
+          statusBadge +
         '</div>' +
         '<div class="app-hero__actions">' + downloadBtn + shareBtn + '</div>' +
       '</div>';

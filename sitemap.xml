@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://apps.samandari.dev/app.html?id=fabwash</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://apps.samandari.dev/app.html?id=velora</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -19,6 +24,11 @@
     <loc>https://apps.samandari.dev/app.html?id=notifspy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://apps.samandari.dev/apps/fabwash/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://apps.samandari.dev/apps/velora/</loc>
@@ -62,6 +72,16 @@
   </url>
   <url>
     <loc>https://apps.samandari.dev/apps/notifspy/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://apps.samandari.dev/apps/fabwash/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://apps.samandari.dev/apps/fabwash/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
