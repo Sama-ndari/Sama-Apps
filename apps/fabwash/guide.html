@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide — FabWash</title>
+  <meta name="description" content="Complete user guide for FabWash: carwash management, vehicles, invoices, expenses, salaries, loyalty, and cloud sync." />
+  <link rel="icon" href="../../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../assets/css/base.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/legal.css" />
+  <style>
+    .guide-layout{max-width:1200px;margin:0 auto;padding:40px 20px 80px;display:flex;gap:40px}
+    .guide-sidebar{width:260px;flex-shrink:0;display:none}
+    .guide-sidebar-inner{position:sticky;top:90px}
+    .guide-sidebar-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .guide-sidebar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .guide-sidebar-header h3{font-size:.9rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+    .guide-sidebar-header button{padding:6px;border:none;background:none;color:var(--text-muted);cursor:pointer;border-radius:8px;transition:all var(--transition)}
+    .guide-sidebar-header button:hover{color:var(--accent);background:var(--bg-card)}
+    .toc-nav{display:flex;flex-direction:column;gap:2px}
+    .toc-btn{width:100%;text-align:left;padding:8px 12px;border:none;background:none;border-radius:10px;font-size:.82rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:inherit;line-height:1.4}
+    .toc-btn:hover{background:var(--bg-card);color:var(--text)}
+    .toc-btn.active{background:var(--accent);color:#fff;font-weight:600}
+    .toc-btn .toc-num{margin-right:6px}
+    .guide{flex:1;min-width:0;max-width:860px}
+    .guide h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+    .guide-meta{color:var(--text-muted);font-size:.9rem;margin-bottom:32px;display:flex;align-items:center;gap:10px}
+    .guide-meta img{width:32px;height:32px;border-radius:8px}
+    .guide-chapter{margin-bottom:48px;border-top:1px solid var(--border);padding-top:28px;scroll-margin-top:100px}
+    .guide-chapter:first-of-type{border-top:none;padding-top:0}
+    .guide-chapter h2{font-size:1.35rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px;color:var(--text)}
+    .guide-chapter h2 .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:var(--accent);color:#fff;font-size:.85rem;font-weight:700;flex-shrink:0}
+    .guide-section{margin-bottom:28px;padding-left:16px;border-left:3px solid var(--border)}
+    .guide-section h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+    .guide-section h4{font-size:.92rem;font-weight:600;margin:12px 0 6px;color:var(--accent)}
+    .guide-section p,.guide-section li{color:var(--text-muted);font-size:.9rem;line-height:1.7}
+    .guide-section ul{margin:8px 0 12px 18px;list-style:disc}
+    .guide-section ol{margin:8px 0 12px 18px}
+    .guide-path{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;font-size:.82rem;font-weight:600;color:var(--accent);margin:6px 0}
+    .guide-path i{font-size:.7rem;color:var(--text-dim)}
+    .guide-tip{padding:12px 16px;background:var(--green-soft);border:1px solid var(--green);border-radius:8px;color:var(--green);font-size:.85rem;font-weight:500;margin:12px 0;display:flex;align-items:flex-start;gap:8px}
+    .guide-tip i{margin-top:2px}
+    .guide-warn{padding:12px 16px;background:rgba(255,180,0,.08);border:1px solid rgba(255,180,0,.3);border-radius:8px;color:#e6a800;font-size:.85rem;font-weight:500;margin:12px 0;display:flex;align-items:flex-start;gap:8px}
+    .guide-warn i{margin-top:2px}
+    .guide-screenshots{display:flex;gap:10px;overflow-x:auto;padding:12px 0;scroll-snap-type:x mandatory}
+    .guide-screenshots img{height:280px;border-radius:10px;border:1px solid var(--border);scroll-snap-align:start;flex-shrink:0}
+    .guide-download{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+    .guide-download a{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all var(--transition)}
+    .guide-download .dl-btn{background:var(--accent);color:#fff}
+    .guide-download .dl-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+    .lang-tabs{display:flex;gap:8px;margin-bottom:28px}
+    .lang-tab{padding:8px 20px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--text-muted);font-family:inherit;font-size:.85rem;font-weight:500;cursor:pointer;transition:all var(--transition);text-decoration:none}
+    .lang-tab:hover{border-color:var(--accent);color:var(--text)}
+    .lang-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+    .toc-fab{display:flex;position:fixed;bottom:80px;left:16px;z-index:40;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.25);cursor:pointer;transition:transform .2s}
+    .toc-fab:hover{transform:scale(1.1)}
+    .back-top-btn{position:fixed;bottom:80px;right:16px;z-index:40;width:44px;height:44px;border-radius:50%;background:var(--bg-card);color:var(--text);border:1px solid var(--border);display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.15);cursor:pointer;transition:transform .2s}
+    .back-top-btn:hover{transform:scale(1.1)}
+    .back-top-btn.visible{display:flex}
+    .toc-modal-overlay{display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+    .toc-modal-overlay.open{display:flex;align-items:flex-end}
+    .toc-modal{width:100%;background:var(--bg);border-radius:24px 24px 0 0;padding:24px;max-height:70vh;overflow-y:auto}
+    .toc-modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .toc-modal-header h3{font-weight:700;color:var(--text);font-size:1rem}
+    .toc-modal-header button{padding:6px;border:none;background:none;color:var(--text-muted);cursor:pointer}
+    .toc-modal .toc-btn{padding:12px 14px;font-size:.88rem}
+    @media(min-width:1024px){.guide-sidebar{display:block}.toc-fab{display:none!important}}
+    @media(max-width:480px){.guide-layout{padding:24px 14px 60px}.guide h1{font-size:1.3rem}.guide-screenshots img{height:220px}}
+    @media print{
+      header,.footer,.lang-tabs,.guide-download,#themeToggle,.guide-sidebar,.toc-fab,.back-top-btn,.toc-modal-overlay{display:none!important}
+      .guide-layout{padding:0;display:block}
+      .guide{padding:0;max-width:100%}
+      .guide-chapter{break-inside:avoid}
+      .guide-tip,.guide-warn{break-inside:avoid}
+      body{background:#fff;color:#000}
+      .guide-section p,.guide-section li{color:#333}
+      .guide-chapter h2{color:#000}
+      .guide-section h3{color:#000}
+      .guide-path{background:#f5f5f5;border-color:#ddd;color:#333}
+      .guide-tip{background:#e8f5e9;border-color:#4caf50;color:#2e7d32}
+      .guide-warn{background:#fff8e1;border-color:#ff9800;color:#e65100}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../../index.html" class="header__logo">
+        <img src="../../assets/img/logo.webp" alt="Sama Apps" class="header__logo-img" />
+        <span>Sama Apps</span>
+      </a>
+      <nav class="header__nav">
+        <button class="header__toggle" id="themeToggle" title="Theme" type="button"><i class="bi bi-moon-fill"></i></button>
+        <a href="../../app.html?id=fabwash" class="header__link header__link--back">
+          <i class="bi bi-arrow-left"></i> <span id="backLabel">Back</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="guide-layout">
+      <aside class="guide-sidebar"><div class="guide-sidebar-inner" id="sidebarToc"></div></aside>
+      <div class="guide" id="guideContent"></div>
+    </div>
+    <button type="button" class="toc-fab" id="tocFab" aria-label="Table of contents"><i class="bi bi-list"></i></button>
+    <button type="button" class="back-top-btn" id="backTopBtn" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
+    <div class="toc-modal-overlay" id="tocModal"><div class="toc-modal" id="tocModalContent"></div></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 Sama Apps.</p>
+      <p class="footer__credit">FabWash — developed by Licia</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/i18n.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script>
+  var G = { en:{}, fr:{} };
+
+  G.en.title = "FabWash: Complete User Guide";
+  G.en.subtitle = "Carwash management: vehicles, invoices, expenses, washer salaries, loyalty, and Firebase sync.";
+  G.en.download_pdf = "Download PDF";
+  G.en.toc_title = "Table of Contents";
+  G.en.chapters = [
+  {
+    id:"install", title:"Installation & first launch",
+    sections:[
+      { title:"Download and install", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-login.webp" width="280" height="606" alt="FabWash sign-in" loading="lazy" decoding="async" /></div><ol><li>Get the APK from your agent or <a href="../../app.html?id=fabwash" style="color:var(--accent)">the Sama Apps store</a>.</li><li>If Android asks, allow installation from unknown sources.</li><li>Install, then open FabWash.</li></ol><div class="guide-tip"><i class="bi bi-info-circle"></i> FabWash is offline-first: data is stored on the device (Hive). Firebase Firestore sync runs when the network is available.</div>' },
+      { title:"What you need", html:'<p>A stable device for daily operations, and (optional) a Bluetooth thermal printer if you print POS-style receipts. PDF invoices can be shared without a printer.</p>' }
+    ]
+  },
+  {
+    id:"roles", title:"Roles, PIN & sign-in",
+    sections:[
+      { title:"Admin and cashier", html:'<p>FabWash separates <b>Admin</b> and <b>Cashier</b> roles. Admins configure prices, salary rules, loyalty, and see the full dashboard. Cashiers focus on registering vehicles and completing washes.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> Protect PINs: anyone with a PIN can act as that role on the device.</div>' },
+      { title:"PIN authentication", html:'<p>Roles use <b>PIN</b> sign-in instead of bulky passwords—fast at the lane. Follow on-screen prompts to select role and enter the correct PIN.</p>' }
+    ]
+  },
+  {
+    id:"navigation", title:"Main navigation",
+    sections:[
+      { title:"Home and dashboard", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-dashboard.webp" width="280" height="606" alt="Dashboard" loading="lazy" decoding="async" /></div><div class="guide-path">Open app <i class="bi bi-chevron-right"></i> Dashboard / home</div><p>From the main area you reach daily operational screens: registering vehicles, listing today\u2019s work, reviewing totals, and opening settings. Exact tab labels match your installed language (<b>French</b> / <b>English</b>).</p><div class="guide-tip"><i class="bi bi-info-circle"></i> Cashiers can use a dedicated language preference where the admin enables it.</div>' }
+    ]
+  },
+  {
+    id:"vehicles", title:"Vehicle registration",
+    sections:[
+      { title:"Four-step registration flow", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-registration.webp" width="280" height="606" alt="Registration" loading="lazy" decoding="async" /><img src="../../assets/apps/fabwash/screenshots/fabwash-vehicle-list.webp" width="280" height="606" alt="Vehicle list" loading="lazy" decoding="async" /></div><p>New visits follow four steps:</p><ol><li><b>Plate number</b> — enter the plate; the app can suggest loyalty history for returning plates.</li><li><b>Vehicle type</b> — choose the category that matches pricing.</li><li><b>Wash type</b> — pick services; pricing updates from your configured grid.</li><li><b>Washer assignment</b> — assign the washer (commission accrues to them for reporting).</li></ol><p>Use the vehicle list to review today\u2019s queue and open a record for edits or invoicing.</p>' },
+      { title:"Client detail", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-client-detail.webp" width="280" height="606" alt="Client detail" loading="lazy" decoding="async" /></div><p>Open a client or visit record to see history, loyalty progress, and actions tied to that plate.</p>' }
+    ]
+  },
+  {
+    id:"invoices", title:"Invoices & receipts",
+    sections:[
+      { title:"PDF and thermal printing", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-invoice.webp" width="280" height="606" alt="Invoice" loading="lazy" decoding="async" /></div><p>Generate a <b>PDF invoice</b> with your company branding where configured. For lane speed, use the <b>thermal POS receipt</b> layout with a compatible <b>Bluetooth</b> printer.</p><div class="guide-tip"><i class="bi bi-info-circle"></i> Keep printer firmware and pairing reliable; test a sample receipt before peak hours.</div>' }
+    ]
+  },
+  {
+    id:"expenses", title:"Daily expenses",
+    sections:[
+      { title:"Categories", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-expenses.webp" width="280" height="606" alt="Expenses" loading="lazy" decoding="async" /></div><p>Record expenses by category, for example: <b>ration</b>, <b>washer salary</b>, <b>cashier salary</b>, <b>infrastructure</b>, and <b>other</b>. Consistent categorization improves end-of-day and monthly reports.</p>' }
+    ]
+  },
+  {
+    id:"team", title:"Employees & salaries",
+    sections:[
+      { title:"Washer commissions", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-employees.webp" width="280" height="606" alt="Employees" loading="lazy" decoding="async" /></div><p>Each washer earns a configurable <b>percentage</b> of the revenue attributed to them (commonly around <b>30%</b> by default). Manage staff records and payouts from the employees area.</p>' }
+    ]
+  },
+  {
+    id:"reports", title:"Reports",
+    sections:[
+      { title:"Daily summary", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-reports.webp" width="280" height="606" alt="Reports" loading="lazy" decoding="async" /></div><p>Daily reports combine vehicle counts, <b>revenue</b>, <b>expenses</b>, <b>salaries</b>, <b>net</b>, and a per-washer breakdown. Share summaries via <b>WhatsApp</b> when you need a quick handoff to the owner or accountant.</p>' }
+    ]
+  },
+  {
+    id:"loyalty", title:"Loyalty program",
+    sections:[
+      { title:"Visits and free wash", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-loyalty.webp" width="280" height="606" alt="Loyalty" loading="lazy" decoding="async" /></div><p>The program tracks visits by <b>plate number</b>. After a configurable number of visits (for example every <b>10</b>), the customer earns a free wash. Thresholds are adjustable in admin settings.</p>' }
+    ]
+  },
+  {
+    id:"settings_sync", title:"Admin settings & sync",
+    sections:[
+      { title:"Pricing and rules", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-settings.webp" width="280" height="606" alt="Settings" loading="lazy" decoding="async" /></div><p>Admins maintain the <b>pricing grid</b>, <b>salary percentages</b>, <b>loyalty thresholds</b>, and business profile data such as logo for invoices.</p>' },
+      { title:"Cloud sync status", html:'<p>When online, FabWash syncs to <b>Firebase Firestore</b>. A <b>sync indicator</b> in the app bar shows state. If you are offline, operations continue locally and sync when connectivity returns.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> Avoid manual device clock changes; license and business logic may depend on correct time.</div>' }
+    ]
+  }
+  ];
+
+  G.fr.title = "FabWash : guide complet";
+  G.fr.subtitle = "Gestion carwash : v\u00e9hicules, factures, d\u00e9penses, salaires laveurs, fid\u00e9lit\u00e9 et synchro Firebase.";
+  G.fr.download_pdf = "T\u00e9l\u00e9charger PDF";
+  G.fr.toc_title = "Sommaire";
+  G.fr.chapters = [
+  {
+    id:"install", title:"Installation & premier lancement",
+    sections:[
+      { title:"T\u00e9l\u00e9charger et installer", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-login.webp" width="280" height="606" alt="Connexion FabWash" loading="lazy" decoding="async" /></div><ol><li>R\u00e9cup\u00e9rez l\u2019APK via votre agent ou <a href="../../app.html?id=fabwash" style="color:var(--accent)">la boutique Sama Apps</a>.</li><li>Si Android le demande, autorisez les sources inconnues.</li><li>Installez puis ouvrez FabWash.</li></ol><div class="guide-tip"><i class="bi bi-info-circle"></i> FabWash est <b>hors ligne d\u2019abord</b> : donn\u00e9es sur l\u2019appareil (Hive). La synchro Firebase Firestore s\u2019ex\u00e9cute quand le r\u00e9seau est disponible.</div>' },
+      { title:"Pr\u00e9requis", html:'<p>Un t\u00e9l\u00e9phone ou tablette fiable pour la journ\u00e9e, et (optionnel) une imprimante thermique Bluetooth pour les re\u00e7us de caisse. Les factures PDF se partagent sans imprimante.</p>' }
+    ]
+  },
+  {
+    id:"roles", title:"R\u00f4les, code PIN & connexion",
+    sections:[
+      { title:"Admin et caissier", html:'<p>FabWash s\u00e9pare les r\u00f4les <b>Admin</b> et <b>Caissier</b>. L\u2019admin configure les prix, r\u00e8gles de salaire, fid\u00e9lit\u00e9 et voit le tableau de bord complet. Le caissier enregistre les v\u00e9hicules et valide les lavages.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i> Prot\u00e9gez les codes PIN : toute personne qui conna\u00eet un PIN peut agir sous ce r\u00f4le.</div>' },
+      { title:"Authentification par PIN", html:'<p>La connexion se fait par <b>code PIN</b> pour aller vite au lavage. Suivez l\u2019\u00e9cran pour choisir le r\u00f4le et saisir le PIN.</p>' }
+    ]
+  },
+  {
+    id:"navigation", title:"Navigation principale",
+    sections:[
+      { title:"Accueil et tableau de bord", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-dashboard.webp" width="280" height="606" alt="Tableau de bord" loading="lazy" decoding="async" /></div><div class="guide-path">Ouverture app <i class="bi bi-chevron-right"></i> Accueil / tableau de bord</div><p>Depuis l\u2019accueil vous acc\u00e9dez aux \u00e9crans op\u00e9rationnels : enregistrer les v\u00e9hicules, liste du jour, totaux et r\u00e9glages. Les libell\u00e9s suivent la langue install\u00e9e (<b>Fran\u00e7ais</b> / <b>Anglais</b>).</p><div class="guide-tip"><i class="bi bi-info-circle"></i> Le caissier peut avoir une langue d\u2019interface d\u00e9di\u00e9e si l\u2019admin l\u2019active.</div>' }
+    ]
+  },
+  {
+    id:"vehicles", title:"Enregistrement v\u00e9hicule",
+    sections:[
+      { title:"Flux en 4 \u00e9tapes", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-registration.webp" width="280" height="606" alt="Enregistrement" loading="lazy" decoding="async" /><img src="../../assets/apps/fabwash/screenshots/fabwash-vehicle-list.webp" width="280" height="606" alt="Liste v\u00e9hicules" loading="lazy" decoding="async" /></div><p>Chaque passage suit quatre \u00e9tapes :</p><ol><li><b>Plaque</b> \u2014 saisie ; suggestion d\u2019historique fid\u00e9lit\u00e9 pour les clients connus.</li><li><b>Type de v\u00e9hicule</b> \u2014 cat\u00e9gorie pour la grille tarifaire.</li><li><b>Type de lavage</b> \u2014 services ; le prix refl\u00e8te votre configuration admin.</li><li><b>Affectation laveur</b> \u2014 attribution ; la commission se rapporte à ce laveur dans les bilans.</li></ol><p>La liste des v\u00e9hicules sert à suivre la file et ouvrir un dossier pour facture ou modification.</p>' },
+      { title:"D\u00e9tail client", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-client-detail.webp" width="280" height="606" alt="D\u00e9tail client" loading="lazy" decoding="async" /></div><p>Ouvrez un client ou un passage pour voir l\u2019historique, la progression fid\u00e9lit\u00e9 et les actions li\u00e9es \u00e0 la plaque.</p>' }
+    ]
+  },
+  {
+    id:"invoices", title:"Factures & re\u00e7us",
+    sections:[
+      { title:"PDF et imprimante thermique", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-invoice.webp" width="280" height="606" alt="Facture" loading="lazy" decoding="async" /></div><p>G\u00e9n\u00e9rez une <b>facture PDF</b> avec le logo entreprise si configur\u00e9. Pour le guichet, utilisez le format <b>re\u00e7u thermique POS</b> avec une imprimante <b>Bluetooth</b> compatible.</p><div class="guide-tip"><i class="bi bi-info-circle"></i> Testez un re\u00e7u exemple avant les heures de pointe pour v\u00e9rifier l\u2019appairage.</div>' }
+    ]
+  },
+  {
+    id:"expenses", title:"D\u00e9penses quotidiennes",
+    sections:[
+      { title:"Cat\u00e9gories", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-expenses.webp" width="280" height="606" alt="D\u00e9penses" loading="lazy" decoding="async" /></div><p>Enregistrez les d\u00e9penses par cat\u00e9gorie : <b>ration</b>, <b>salaire laveur</b>, <b>salaire caissier</b>, <b>infrastructure</b>, <b>autre</b>. Des cat\u00e9gories coh\u00e9rentes am\u00e9liorent cl\u00f4ture et rapports mensuels.</p>' }
+    ]
+  },
+  {
+    id:"team", title:"Employ\u00e9s & salaires",
+    sections:[
+      { title:"Commissions laveurs", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-employees.webp" width="280" height="606" alt="Employ\u00e9s" loading="lazy" decoding="async" /></div><p>Chaque laveur re\u00e7oit un <b>pourcentage</b> configurable du chiffre qui lui est attribu\u00e9 (souvent ~<b>30 %</b> par d\u00e9faut). G\u00e9rez les fiches et paiements depuis l\u2019\u00e9cran employ\u00e9s.</p>' }
+    ]
+  },
+  {
+    id:"reports", title:"Rapports",
+    sections:[
+      { title:"Bilan journalier", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-reports.webp" width="280" height="606" alt="Rapports" loading="lazy" decoding="async" /></div><p>Le rapport jour agr\u00e8ge passages, <b>revenus</b>, <b>d\u00e9penses</b>, <b>salaires</b>, <b>net</b> et le d\u00e9tail par laveur. Partage rapide via <b>WhatsApp</b> vers le patron ou la compta.</p>' }
+    ]
+  },
+  {
+    id:"loyalty", title:"Programme fid\u00e9lit\u00e9",
+    sections:[
+      { title:"Passages et lavage gratuit", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-loyalty.webp" width="280" height="606" alt="Fid\u00e9lit\u00e9" loading="lazy" decoding="async" /></div><p>Les visites suivent la <b>plaque</b>. Apr\u00e8s un nombre configurable de passages (ex. <b>10</b>), le client obtient un lavage gratuit. Les seuils se r\u00e8glent c\u00f4t\u00e9 admin.</p>' }
+    ]
+  },
+  {
+    id:"settings_sync", title:"Param\u00e8tres admin & synchro",
+    sections:[
+      { title:"Tarifs et r\u00e8gles", html:'<div class="guide-screenshots"><img src="../../assets/apps/fabwash/screenshots/fabwash-settings.webp" width="280" height="606" alt="Param\u00e8tres" loading="lazy" decoding="async" /></div><p>L\u2019admin tient à jour la <b>grille tarifaire</b>, les <b>pourcentages de salaire</b>, les <b>seuils fid\u00e9lit\u00e9</b> et les infos soci\u00e9t\u00e9 (ex. logo sur facture).</p>' },
+      { title:"\u00c9tat de synchronisation", html:'<p>En ligne, FabWash synchronise vers <b>Firebase Firestore</b>. Un <b>indicateur</b> dans la barre indique l\u2019\u00e9tat. Hors ligne, l\u2019app continue localement puis synchronise au retour r\u00e9seau.</p><div class="guide-warn"><i class="bi bi-exclamation-triangle"></i>\u00c9vitez de modifier manuellement l\u2019heure syst\u00e8me ; la licence et la logique m\u00e9tier en d\u00e9pendent.</div>' }
+    ]
+  }
+  ];
+
+  var _activeSection = "";
+  var _chapterIds = [];
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var bl = document.getElementById("backLabel");
+    if (bl && typeof t === "function") bl.textContent = t("back");
+    var params = new URLSearchParams(window.location.search);
+    var forceLang = params.get("lang");
+    if (forceLang && G[forceLang]) setLang(forceLang);
+    renderGuide();
+    initScrollSpy();
+    initTocInteractions();
+  });
+
+  function buildTocNav(chapters, activeId) {
+    var nav = "";
+    for (var i = 0; i < chapters.length; i++) {
+      var cls = activeId === chapters[i].id ? " active" : "";
+      nav += '<button type="button" class="toc-btn' + cls + '" data-target="' + chapters[i].id + '"><span class="toc-num">' + (i+1) + ".</span>" + chapters[i].title + "</button>";
+    }
+    return nav;
+  }
+
+  function renderSidebar(g, activeId) {
+    var sb = document.getElementById("sidebarToc");
+    sb.innerHTML = '<div class="guide-sidebar-card"><div class="guide-sidebar-header"><h3><i class="bi bi-list"></i> ' + g.toc_title + '</h3><button type="button" onclick="window.print()" aria-label="PDF"><i class="bi bi-download"></i></button></div><nav class="toc-nav">' + buildTocNav(g.chapters, activeId) + "</nav></div>";
+  }
+
+  function renderMobileToc(g, activeId) {
+    var mc = document.getElementById("tocModalContent");
+    mc.innerHTML = '<div class="toc-modal-header"><h3>' + g.toc_title + '</h3><button type="button" id="tocModalClose" aria-label="Close"><i class="bi bi-x-lg"></i></button></div><nav class="toc-nav">' + buildTocNav(g.chapters, activeId) + "</nav>";
+  }
+
+  function updateActiveToc(newId) {
+    if (newId === _activeSection) return;
+    _activeSection = newId;
+    document.querySelectorAll(".toc-btn").forEach(function(btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-target") === newId);
+    });
+  }
+
+  function getElementPageTop(el) {
+    var top = 0;
+    while (el) { top += el.offsetTop; el = el.offsetParent; }
+    return top;
+  }
+
+  function scrollToChapter(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var top = getElementPageTop(el) - 100;
+    window.scrollTo({ top: top, behavior: "smooth" });
+    document.getElementById("tocModal").classList.remove("open");
+  }
+
+  function initScrollSpy() {
+    var ticking = false;
+    window.addEventListener("scroll", function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        var scrollY = window.scrollY;
+        document.getElementById("backTopBtn").classList.toggle("visible", scrollY > 500);
+        var pos = scrollY + 150;
+        for (var i = _chapterIds.length - 1; i >= 0; i--) {
+          var chapterEl = document.getElementById(_chapterIds[i]);
+          if (chapterEl && getElementPageTop(chapterEl) <= pos) {
+            updateActiveToc(_chapterIds[i]);
+            break;
+          }
+        }
+        ticking = false;
+      });
+    });
+  }
+
+  function initTocInteractions() {
+    document.addEventListener("click", function(e) {
+      var btn = e.target.closest(".toc-btn");
+      if (btn) {
+        e.preventDefault();
+        scrollToChapter(btn.getAttribute("data-target"));
+        return;
+      }
+      if (e.target.closest("#tocFab")) {
+        document.getElementById("tocModal").classList.add("open");
+        return;
+      }
+      if (e.target.closest("#backTopBtn")) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      if (e.target.closest("#tocModalClose")) {
+        document.getElementById("tocModal").classList.remove("open");
+        return;
+      }
+      if (e.target.id === "tocModal") document.getElementById("tocModal").classList.remove("open");
+    });
+  }
+
+  function renderGuide() {
+    var lang = getLang();
+    if (!G[lang]) lang = "en";
+    var g = G[lang];
+    var guideEl = document.getElementById("guideContent");
+    _chapterIds = g.chapters.map(function(ch) { return ch.id; });
+
+    var h = '<div class="guide-meta"><img src="../../assets/apps/fabwash/icon.webp" width="32" height="32" alt="FabWash" loading="lazy" decoding="async" /><span>' + g.title + "</span></div>";
+    h += "<h1>" + g.title + "</h1>";
+    h += '<p style="color:var(--text-muted);margin-bottom:20px">' + g.subtitle + "</p>";
+
+    h += '<div class="lang-tabs">';
+    ["en","fr"].forEach(function(l) {
+      var label = l === "en" ? "English" : "Fran\u00e7ais";
+      h += '<a href="?lang=' + l + '" class="lang-tab' + (lang === l ? " active" : "") + '">' + label + "</a>";
+    });
+    h += "</div>";
+
+    h += '<div class="guide-download">';
+    h += '<a href="#" onclick="window.print();return false;" class="dl-btn"><i class="bi bi-file-earmark-pdf"></i> ' + g.download_pdf + " (" + lang.toUpperCase() + ")</a>";
+    h += "</div>";
+
+    for (var i = 0; i < g.chapters.length; i++) {
+      var ch = g.chapters[i];
+      h += '<div class="guide-chapter" id="' + ch.id + '">';
+      h += '<h2><span class="num">' + (i+1) + "</span> " + ch.title + "</h2>";
+      for (var j = 0; j < ch.sections.length; j++) {
+        var s = ch.sections[j];
+        h += '<div class="guide-section"><h3>' + s.title + "</h3>" + s.html + "</div>";
+      }
+      h += "</div>";
+    }
+    guideEl.innerHTML = h;
+
+    _activeSection = _chapterIds[0] || "";
+    renderSidebar(g, _activeSection);
+    renderMobileToc(g, _activeSection);
+  }
+  </script>
+</body>
+</html>
