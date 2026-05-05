@@ -18,7 +18,7 @@ const APPS = [
     name: "FabWash",
     tagline: "Carwash Management System",
     tagline_fr: "Système de Gestion de Carwash",
-    developer: "Samandari",
+    developer: "Licia",
     category: "Business",
     price: "paid",
     status: "sold",
@@ -73,7 +73,7 @@ const APPS = [
       { name: "Multi-Station", desc: "Unlimited stations, consolidated reports, employee transfers, priority support", desc_fr: "Stations illimitées, rapports consolidés, transfert employés, support prioritaire" }
     ],
     legal: {
-      developer: "Samandari",
+      developer: "Licia",
       email: "cezaremardini10@gmail.com",
       effectiveDate: "2026-04-25",
       dataLocal: [
