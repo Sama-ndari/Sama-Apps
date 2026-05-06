@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Capsule — Velora</title>
+  <meta name="description" content="Someone has created a time capsule for you using Velora." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Time Capsule — Velora" />
+  <meta property="og:description" content="A time capsule is waiting for you. The message will be delivered by email when the time comes." />
+  <meta property="og:url" content="https://apps.samandari.dev/apps/velora/capsule.html" />
+  <meta property="og:site_name" content="Sama Apps" />
+
+  <link rel="icon" href="../../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    [data-theme="dark"] {
+      --bg: #0b0f1a; --bg-card: #141925; --border: #1e2640;
+      --text: #e8ecf4; --text-muted: #8892a8; --text-dim: #5a6480;
+      --accent: #3b82f6; --accent-hover: #2563eb;
+      --capsule-gradient-start: #6366f1; --capsule-gradient-end: #8b5cf6;
+      --radius-sm: 8px;
+    }
+    [data-theme="light"] {
+      --bg: #f4f6fb; --bg-card: #ffffff; --border: #dfe3ed;
+      --text: #1a1f2e; --text-muted: #5c6578; --text-dim: #8b93a5;
+      --accent: #2563eb; --accent-hover: #1d4ed8;
+      --capsule-gradient-start: #6366f1; --capsule-gradient-end: #8b5cf6;
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    .capsule-page {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 40px 20px; text-align: center;
+    }
+    .capsule-icon {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--capsule-gradient-start), var(--capsule-gradient-end));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px; box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .capsule-icon svg { width: 48px; height: 48px; fill: #fff; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3); }
+      50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4); }
+    }
+    .capsule-title {
+      font-size: 1.6rem; font-weight: 800; margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--capsule-gradient-start), var(--capsule-gradient-end));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .capsule-desc {
+      color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;
+      max-width: 440px; margin-bottom: 32px;
+    }
+    .capsule-id-box {
+      display: inline-block; padding: 8px 16px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); margin-bottom: 32px;
+      font-family: monospace; font-size: 0.78rem; color: var(--text-dim);
+      word-break: break-all; max-width: 320px;
+    }
+    .capsule-details {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 28px; padding: 16px 24px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); max-width: 380px; width: 100%;
+    }
+    .capsule-detail-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.88rem;
+    }
+    .capsule-detail-row .label { color: var(--text-dim); font-weight: 500; }
+    .capsule-detail-row .value { color: var(--text); font-weight: 600; }
+    .capsule-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; background: var(--accent); color: #fff;
+      border-radius: 100px; text-decoration: none; font-weight: 600;
+      font-size: 0.92rem; transition: background 0.2s, transform 0.2s;
+    }
+    .capsule-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .capsule-footer {
+      padding: 20px; text-align: center;
+      color: var(--text-dim); font-size: 0.8rem;
+    }
+    .theme-toggle {
+      position: fixed; top: 16px; right: 16px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 50%; width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text-muted); font-size: 1.1rem;
+      transition: border-color 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--accent); }
+    @media (max-width: 480px) {
+      .capsule-title { font-size: 1.3rem; }
+      .capsule-icon { width: 80px; height: 80px; }
+      .capsule-icon svg { width: 38px; height: 38px; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">&#9790;</button>
+
+<main class="capsule-page">
+  <div class="capsule-icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-7v4h4l-5 7z"/></svg>
+  </div>
+
+  <h1 class="capsule-title" id="title"></h1>
+  <p class="capsule-desc" id="desc"></p>
+  <div class="capsule-details" id="details"></div>
+  <div class="capsule-id-box" id="idBox"></div>
+  <br />
+  <a href="../../app.html?id=velora" class="capsule-btn" id="ctaBtn"></a>
+</main>
+
+<footer class="capsule-footer">&copy; 2026 Sama Apps</footer>
+
+<script>
+(function() {
+  var T = {
+    en: {
+      title: "A time capsule is waiting for you",
+      desc: "Someone has written a personal message for you. It will be delivered to your email when the time comes. Time capsules cannot be opened before their date.",
+      cta: "Discover Velora",
+      id_label: "Capsule ID: ",
+      for_label: "For",
+      opens_on: "Opens on",
+      status_locked: "Locked",
+      status_open: "Ready to open"
+    },
+    fr: {
+      title: "Une capsule temporelle vous attend",
+      desc: "Quelqu\u2019un vous a \u00e9crit un message personnel. Il sera livr\u00e9 \u00e0 votre email le moment venu. Les capsules temporelles ne peuvent pas \u00eatre ouvertes avant leur date.",
+      cta: "D\u00e9couvrir Velora",
+      id_label: "Capsule ID : ",
+      for_label: "Pour",
+      opens_on: "Ouverture le",
+      status_locked: "Verrouill\u00e9e",
+      status_open: "Pr\u00eate \u00e0 ouvrir"
+    }
+  };
+
+  var lang = (navigator.language || "").slice(0, 2) === "fr" ? "fr" : "en";
+  var t = T[lang];
+
+  document.getElementById("title").textContent = t.title;
+  document.getElementById("desc").textContent = t.desc;
+  document.getElementById("ctaBtn").textContent = t.cta;
+
+  var params = new URLSearchParams(window.location.search);
+  var capsuleId = params.get("id") || "\u2014";
+  var openDate = params.get("date");
+  var recipient = params.get("to");
+
+  document.getElementById("idBox").textContent = t.id_label + capsuleId;
+
+  var detailsEl = document.getElementById("details");
+  var rows = "";
+
+  if (recipient) {
+    rows += '<div class="capsule-detail-row"><span class="label">' + t.for_label + '</span><span class="value">' + decodeURIComponent(recipient) + '</span></div>';
+  }
+
+  if (openDate) {
+    var d = new Date(openDate + "T00:00:00");
+    var formatted = d.toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US", { year: "numeric", month: "long", day: "numeric" });
+    var isOpen = new Date() >= d;
+    var statusText = isOpen ? t.status_open : t.status_locked;
+    var statusColor = isOpen ? "#22c55e" : "#f59e0b";
+    rows += '<div class="capsule-detail-row"><span class="label">' + t.opens_on + '</span><span class="value">' + formatted + '</span></div>';
+    rows += '<div class="capsule-detail-row"><span class="label">Status</span><span class="value" style="color:' + statusColor + '">' + statusText + '</span></div>';
+  }
+
+  if (rows) {
+    detailsEl.innerHTML = rows;
+  } else {
+    detailsEl.style.display = "none";
+  }
+
+  var saved = localStorage.getItem("theme") || "dark";
+  document.documentElement.setAttribute("data-theme", saved);
+  updateIcon(saved);
+
+  document.getElementById("themeToggle").addEventListener("click", function() {
+    var current = document.documentElement.getAttribute("data-theme");
+    var next = current === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateIcon(next);
+  });
+
+  function updateIcon(theme) {
+    document.getElementById("themeToggle").innerHTML = theme === "dark" ? "&#9788;" : "&#9790;";
+  }
+})();
+</script>
+</body>
+</html>
