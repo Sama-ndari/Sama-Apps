@@ -13,79 +13,7 @@
   <link rel="stylesheet" href="../../assets/css/base.css" />
   <link rel="stylesheet" href="../../assets/css/components.css" />
   <link rel="stylesheet" href="../../assets/css/legal.css" />
-  <style>
-    .guide-layout{max-width:1200px;margin:0 auto;padding:40px 20px 80px;display:flex;gap:40px}
-    .guide-sidebar{width:260px;flex-shrink:0;display:none}
-    .guide-sidebar-inner{position:sticky;top:90px}
-    .guide-sidebar-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-    .guide-sidebar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-    .guide-sidebar-header h3{font-size:.9rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
-    .guide-sidebar-header button{padding:6px;border:none;background:none;color:var(--text-muted);cursor:pointer;border-radius:8px;transition:all var(--transition)}
-    .guide-sidebar-header button:hover{color:var(--accent);background:var(--bg-card)}
-    .toc-nav{display:flex;flex-direction:column;gap:2px}
-    .toc-btn{width:100%;text-align:left;padding:8px 12px;border:none;background:none;border-radius:10px;font-size:.82rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:inherit;line-height:1.4}
-    .toc-btn:hover{background:var(--bg-card);color:var(--text)}
-    .toc-btn.active{background:var(--accent);color:#fff;font-weight:600}
-    .toc-btn .toc-num{margin-right:6px}
-    .guide{flex:1;min-width:0;max-width:860px}
-    .guide h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
-    .guide-meta{color:var(--text-muted);font-size:.9rem;margin-bottom:32px;display:flex;align-items:center;gap:10px}
-    .guide-meta img{width:32px;height:32px;border-radius:8px}
-    .guide-chapter{margin-bottom:48px;border-top:1px solid var(--border);padding-top:28px;scroll-margin-top:100px}
-    .guide-chapter:first-of-type{border-top:none;padding-top:0}
-    .guide-chapter h2{font-size:1.35rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px;color:var(--text)}
-    .guide-chapter h2 .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:var(--accent);color:#fff;font-size:.85rem;font-weight:700;flex-shrink:0}
-    .guide-section{margin-bottom:28px;padding-left:16px;border-left:3px solid var(--border)}
-    .guide-section h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--text)}
-    .guide-section h4{font-size:.92rem;font-weight:600;margin:12px 0 6px;color:var(--accent)}
-    .guide-section p,.guide-section li{color:var(--text-muted);font-size:.9rem;line-height:1.7}
-    .guide-section ul{margin:8px 0 12px 18px;list-style:disc}
-    .guide-section ol{margin:8px 0 12px 18px}
-    .guide-path{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;font-size:.82rem;font-weight:600;color:var(--accent);margin:6px 0}
-    .guide-path i{font-size:.7rem;color:var(--text-dim)}
-    .guide-tip{padding:12px 16px;background:var(--green-soft);border:1px solid var(--green);border-radius:8px;color:var(--green);font-size:.85rem;font-weight:500;margin:12px 0;display:flex;align-items:flex-start;gap:8px}
-    .guide-tip i{margin-top:2px}
-    .guide-warn{padding:12px 16px;background:rgba(255,180,0,.08);border:1px solid rgba(255,180,0,.3);border-radius:8px;color:#e6a800;font-size:.85rem;font-weight:500;margin:12px 0;display:flex;align-items:flex-start;gap:8px}
-    .guide-warn i{margin-top:2px}
-    .guide-screenshots{display:flex;gap:10px;overflow-x:auto;padding:12px 0;scroll-snap-type:x mandatory}
-    .guide-screenshots img{height:280px;border-radius:10px;border:1px solid var(--border);scroll-snap-align:start;flex-shrink:0}
-    .guide-download{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
-    .guide-download a{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all var(--transition)}
-    .guide-download .dl-btn{background:var(--accent);color:#fff}
-    .guide-download .dl-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
-    .lang-tabs{display:flex;gap:8px;margin-bottom:28px}
-    .lang-tab{padding:8px 20px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--text-muted);font-family:inherit;font-size:.85rem;font-weight:500;cursor:pointer;transition:all var(--transition);text-decoration:none}
-    .lang-tab:hover{border-color:var(--accent);color:var(--text)}
-    .lang-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
-    .toc-fab{display:flex;position:fixed;bottom:80px;left:16px;z-index:40;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.25);cursor:pointer;transition:transform .2s}
-    .toc-fab:hover{transform:scale(1.1)}
-    .back-top-btn{position:fixed;bottom:80px;right:16px;z-index:40;width:44px;height:44px;border-radius:50%;background:var(--bg-card);color:var(--text);border:1px solid var(--border);display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.15);cursor:pointer;transition:transform .2s}
-    .back-top-btn:hover{transform:scale(1.1)}
-    .back-top-btn.visible{display:flex}
-    .toc-modal-overlay{display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-    .toc-modal-overlay.open{display:flex;align-items:flex-end}
-    .toc-modal{width:100%;background:var(--bg);border-radius:24px 24px 0 0;padding:24px;max-height:70vh;overflow-y:auto}
-    .toc-modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-    .toc-modal-header h3{font-weight:700;color:var(--text);font-size:1rem}
-    .toc-modal-header button{padding:6px;border:none;background:none;color:var(--text-muted);cursor:pointer}
-    .toc-modal .toc-btn{padding:12px 14px;font-size:.88rem}
-    @media(min-width:1024px){.guide-sidebar{display:block}.toc-fab{display:none!important}}
-    @media(max-width:480px){.guide-layout{padding:24px 14px 60px}.guide h1{font-size:1.3rem}.guide-screenshots img{height:220px}}
-    @media print{
-      header,.footer,.lang-tabs,.guide-download,#themeToggle,.guide-sidebar,.toc-fab,.back-top-btn,.toc-modal-overlay{display:none!important}
-      .guide-layout{padding:0;display:block}
-      .guide{padding:0;max-width:100%}
-      .guide-chapter{break-inside:avoid}
-      .guide-tip,.guide-warn{break-inside:avoid}
-      body{background:#fff;color:#000}
-      .guide-section p,.guide-section li{color:#333}
-      .guide-chapter h2{color:#000}
-      .guide-section h3{color:#000}
-      .guide-path{background:#f5f5f5;border-color:#ddd;color:#333}
-      .guide-tip{background:#e8f5e9;border-color:#4caf50;color:#2e7d32}
-      .guide-warn{background:#fff8e1;border-color:#ff9800;color:#e65100}
-    }
-  </style>
+  <link rel="stylesheet" href="../../assets/css/guide.css" />
 </head>
 <body>
   <header class="header">
@@ -116,12 +44,13 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p>&copy; 2026 Sama Apps.</p>
-      <p class="footer__credit">FabWash — developed by StarK</p>
+      <p class="footer__credit">FabWash — developed by Samandari</p>
     </div>
   </footer>
 
   <script src="../../assets/js/i18n.js"></script>
   <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/guide.js"></script>
   <script>
   var G = { en:{}, fr:{} };
 
@@ -267,144 +196,11 @@
   }
   ];
 
-  var _activeSection = "";
-  var _chapterIds = [];
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var bl = document.getElementById("backLabel");
-    if (bl && typeof t === "function") bl.textContent = t("back");
-    var params = new URLSearchParams(window.location.search);
-    var forceLang = params.get("lang");
-    if (forceLang && G[forceLang]) setLang(forceLang);
-    renderGuide();
-    initScrollSpy();
-    initTocInteractions();
+  guideInit({
+    G: G,
+    icon: "../../assets/apps/fabwash/icon.webp",
+    langs: ["en", "fr"]
   });
-
-  function buildTocNav(chapters, activeId) {
-    var nav = "";
-    for (var i = 0; i < chapters.length; i++) {
-      var cls = activeId === chapters[i].id ? " active" : "";
-      nav += '<button type="button" class="toc-btn' + cls + '" data-target="' + chapters[i].id + '"><span class="toc-num">' + (i+1) + ".</span>" + chapters[i].title + "</button>";
-    }
-    return nav;
-  }
-
-  function renderSidebar(g, activeId) {
-    var sb = document.getElementById("sidebarToc");
-    sb.innerHTML = '<div class="guide-sidebar-card"><div class="guide-sidebar-header"><h3><i class="bi bi-list"></i> ' + g.toc_title + '</h3><button type="button" onclick="window.print()" aria-label="PDF"><i class="bi bi-download"></i></button></div><nav class="toc-nav">' + buildTocNav(g.chapters, activeId) + "</nav></div>";
-  }
-
-  function renderMobileToc(g, activeId) {
-    var mc = document.getElementById("tocModalContent");
-    mc.innerHTML = '<div class="toc-modal-header"><h3>' + g.toc_title + '</h3><button type="button" id="tocModalClose" aria-label="Close"><i class="bi bi-x-lg"></i></button></div><nav class="toc-nav">' + buildTocNav(g.chapters, activeId) + "</nav>";
-  }
-
-  function updateActiveToc(newId) {
-    if (newId === _activeSection) return;
-    _activeSection = newId;
-    document.querySelectorAll(".toc-btn").forEach(function(btn) {
-      btn.classList.toggle("active", btn.getAttribute("data-target") === newId);
-    });
-  }
-
-  function getElementPageTop(el) {
-    var top = 0;
-    while (el) { top += el.offsetTop; el = el.offsetParent; }
-    return top;
-  }
-
-  function scrollToChapter(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var top = getElementPageTop(el) - 100;
-    window.scrollTo({ top: top, behavior: "smooth" });
-    document.getElementById("tocModal").classList.remove("open");
-  }
-
-  function initScrollSpy() {
-    var ticking = false;
-    window.addEventListener("scroll", function() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function() {
-        var scrollY = window.scrollY;
-        document.getElementById("backTopBtn").classList.toggle("visible", scrollY > 500);
-        var pos = scrollY + 150;
-        for (var i = _chapterIds.length - 1; i >= 0; i--) {
-          var chapterEl = document.getElementById(_chapterIds[i]);
-          if (chapterEl && getElementPageTop(chapterEl) <= pos) {
-            updateActiveToc(_chapterIds[i]);
-            break;
-          }
-        }
-        ticking = false;
-      });
-    });
-  }
-
-  function initTocInteractions() {
-    document.addEventListener("click", function(e) {
-      var btn = e.target.closest(".toc-btn");
-      if (btn) {
-        e.preventDefault();
-        scrollToChapter(btn.getAttribute("data-target"));
-        return;
-      }
-      if (e.target.closest("#tocFab")) {
-        document.getElementById("tocModal").classList.add("open");
-        return;
-      }
-      if (e.target.closest("#backTopBtn")) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-      if (e.target.closest("#tocModalClose")) {
-        document.getElementById("tocModal").classList.remove("open");
-        return;
-      }
-      if (e.target.id === "tocModal") document.getElementById("tocModal").classList.remove("open");
-    });
-  }
-
-  function renderGuide() {
-    var lang = getLang();
-    if (!G[lang]) lang = "en";
-    var g = G[lang];
-    var guideEl = document.getElementById("guideContent");
-    _chapterIds = g.chapters.map(function(ch) { return ch.id; });
-
-    var h = '<div class="guide-meta"><img src="../../assets/apps/fabwash/icon.webp" width="32" height="32" alt="FabWash" loading="lazy" decoding="async" /><span>' + g.title + "</span></div>";
-    h += "<h1>" + g.title + "</h1>";
-    h += '<p style="color:var(--text-muted);margin-bottom:20px">' + g.subtitle + "</p>";
-
-    h += '<div class="lang-tabs">';
-    ["en","fr"].forEach(function(l) {
-      var label = l === "en" ? "English" : "Fran\u00e7ais";
-      h += '<a href="?lang=' + l + '" class="lang-tab' + (lang === l ? " active" : "") + '">' + label + "</a>";
-    });
-    h += "</div>";
-
-    h += '<div class="guide-download">';
-    h += '<a href="#" onclick="window.print();return false;" class="dl-btn"><i class="bi bi-file-earmark-pdf"></i> ' + g.download_pdf + " (" + lang.toUpperCase() + ")</a>";
-    h += "</div>";
-
-    for (var i = 0; i < g.chapters.length; i++) {
-      var ch = g.chapters[i];
-      h += '<div class="guide-chapter" id="' + ch.id + '">';
-      h += '<h2><span class="num">' + (i+1) + "</span> " + ch.title + "</h2>";
-      for (var j = 0; j < ch.sections.length; j++) {
-        var s = ch.sections[j];
-        h += '<div class="guide-section"><h3>' + s.title + "</h3>" + s.html + "</div>";
-      }
-      h += "</div>";
-    }
-    guideEl.innerHTML = h;
-
-    _activeSection = _chapterIds[0] || "";
-    renderSidebar(g, _activeSection);
-    renderMobileToc(g, _activeSection);
-  }
   </script>
 </body>
 </html>

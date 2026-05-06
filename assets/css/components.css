@@ -361,22 +361,6 @@
   background: var(--accent-soft);
   transform: translateY(-1px);
 }
-.btn--share.copied {
-  border-color: var(--green);
-  color: var(--green);
-  background: var(--green-soft);
-}
-
-.btn--ghost {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-}
-
-.btn--ghost:hover {
-  border-color: var(--accent);
-  color: var(--text);
-}
 
 /* ========== CONTENT LAYOUT ========== */
 .app-content {
@@ -465,11 +449,6 @@
   color: var(--green);
   flex-shrink: 0;
   margin-top: 1px;
-}
-
-.feature-label {
-  font-weight: 600;
-  color: var(--text);
 }
 
 /* ========== SIDEBAR ========== */

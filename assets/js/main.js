@@ -1,24 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
+var _lightboxKeyHandler = null;
+
+document.addEventListener("DOMContentLoaded", function () {
   initTheme();
   initLangToggle();
 
   if (typeof APPS !== "undefined") {
-    if (document.getElementById("appDetail")) {
-      renderDetailPage();
-    } else {
-      renderHomePage();
-    }
+    renderPage();
   }
 });
 
+function renderPage() {
+  if (document.getElementById("appDetail")) {
+    renderDetailPage();
+  } else {
+    renderHomePage();
+  }
+}
+
 function initTheme() {
-  const saved = getTheme();
+  var saved = getTheme();
   document.documentElement.setAttribute("data-theme", saved);
   updateThemeIcon(saved);
 
-  document.getElementById("themeToggle").addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme");
-    const next = current === "dark" ? "light" : "dark";
+  document.getElementById("themeToggle").addEventListener("click", function () {
+    var current = document.documentElement.getAttribute("data-theme");
+    var next = current === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     setTheme(next);
     updateThemeIcon(next);
@@ -26,7 +32,7 @@ function initTheme() {
 }
 
 function updateThemeIcon(theme) {
-  const btn = document.getElementById("themeToggle");
+  var btn = document.getElementById("themeToggle");
   if (!btn) return;
   btn.innerHTML = theme === "dark"
     ? '<i class="bi bi-sun-fill"></i>'
@@ -34,27 +40,22 @@ function updateThemeIcon(theme) {
 }
 
 function initLangToggle() {
-  const btn = document.getElementById("langToggle");
+  var btn = document.getElementById("langToggle");
   if (!btn) return;
   btn.textContent = getLang().toUpperCase();
 
-  btn.addEventListener("click", () => {
-    const next = getLang() === "en" ? "fr" : "en";
+  btn.addEventListener("click", function () {
+    var next = getLang() === "en" ? "fr" : "en";
     setLang(next);
     btn.textContent = next.toUpperCase();
     document.documentElement.lang = next;
-
-    if (document.getElementById("appDetail")) {
-      renderDetailPage();
-    } else {
-      renderHomePage();
-    }
+    renderPage();
   });
 }
 
 function applyCommonI18n() {
-  const footerRights = document.getElementById("footerRights");
-  const footerBuilt = document.getElementById("footerBuilt");
+  var footerRights = document.getElementById("footerRights");
+  var footerBuilt = document.getElementById("footerBuilt");
   if (footerRights) footerRights.textContent = "\u00a9 " + new Date().getFullYear() + " Sama Apps. " + t("footer_rights");
   if (footerBuilt) footerBuilt.textContent = t("footer_built");
 }
@@ -145,6 +146,20 @@ function userBadgeHtml(appId) {
   return '<span class="app-card__users"><i class="bi bi-people-fill"></i> ' + count + ' ' + t("users") + '</span>';
 }
 
+/* ===== SHARED HELPERS ===== */
+function statusBadgeHtml(app) {
+  if (app.status === "dev") return '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>';
+  if (app.status === "sold") return '<span class="badge badge--sold"><i class="bi bi-check-circle-fill"></i> ' + t("deployed") + '</span>';
+  return "";
+}
+
+function appIconHtml(app, prefix) {
+  if (app.status === "dev") {
+    return '<div class="' + prefix + '__icon-wrap ' + prefix + '__icon-wrap--dev"><img class="' + prefix + '__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill ' + prefix + '__lock"></i></div>';
+  }
+  return '<img class="' + prefix + '__icon" src="' + app.icon + '" alt="' + app.name + '" />';
+}
+
 /* ===== HOME PAGE ===== */
 function renderHomePage() {
   applyCommonI18n();
@@ -200,14 +215,8 @@ function renderHomePage() {
 
     if (grid) {
       grid.innerHTML = filtered.map(function (app) {
-        var isDev = app.status === "dev";
-        var isSold = app.status === "sold";
-        var statusBadge = "";
-        if (isDev) statusBadge = '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>';
-        else if (isSold) statusBadge = '<span class="badge badge--sold"><i class="bi bi-check-circle-fill"></i> ' + t("deployed") + '</span>';
-        var iconHtml = isDev
-          ? '<div class="app-card__icon-wrap app-card__icon-wrap--dev"><img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-card__lock"></i></div>'
-          : '<img class="app-card__icon" src="' + app.icon + '" alt="' + app.name + '" />';
+        var statusBadge = statusBadgeHtml(app);
+        var iconHtml = appIconHtml(app, "app-card");
         return '<a href="app.html?id=' + app.id + '" class="app-card">' +
           userBadgeHtml(app.id) +
           iconHtml +
@@ -300,21 +309,23 @@ function renderDetailPage() {
 
   document.title = app.name + " | Sama Apps";
 
-  /* Hero */
-  var isDev = app.status === "dev";
-  var isSold = app.status === "sold";
+  renderHero(app);
+  initCopyLink(app);
+  renderMedia(app);
+  renderContent(app);
+  renderDetailSidebar(app);
+  initLightbox(app);
+}
+
+function renderHero(app) {
   var downloadBtn = app.downloadUrl
     ? '<a href="' + app.downloadUrl + '" target="_blank" class="btn btn--primary"><i class="bi bi-download"></i> ' + t("download_apk") + '</a>'
     : "";
   var baseUrl = window.location.origin + window.location.pathname.replace("app.html", "");
   var shareUrl = baseUrl + "apps/" + app.id + "/";
   var shareBtn = '<button class="btn btn--share" id="copyLinkBtn" data-url="' + shareUrl + '"><i class="bi bi-link-45deg"></i> ' + t("copy_link") + '</button>';
-  var statusBadge = "";
-  if (isDev) statusBadge = '<span class="badge badge--dev"><i class="bi bi-lock-fill"></i> ' + t("in_development") + '</span>';
-  else if (isSold) statusBadge = '<span class="badge badge--sold"><i class="bi bi-check-circle-fill"></i> ' + t("deployed") + '</span>';
-  var heroIconHtml = isDev
-    ? '<div class="app-hero__icon-wrap app-hero__icon-wrap--dev"><img class="app-hero__icon" src="' + app.icon + '" alt="' + app.name + '" /><i class="bi bi-lock-fill app-hero__lock"></i></div>'
-    : '<img class="app-hero__icon" src="' + app.icon + '" alt="' + app.name + '" />';
+  var statusBadge = statusBadgeHtml(app);
+  var heroIconHtml = appIconHtml(app, "app-hero");
 
   var heroEl = document.getElementById("appHero");
   if (heroEl) {
@@ -331,35 +342,24 @@ function renderDetailPage() {
         '<div class="app-hero__actions">' + downloadBtn + shareBtn + '</div>' +
       '</div>';
   }
+}
 
-  /* Copy link button */
+function initCopyLink() {
   var copyBtn = document.getElementById("copyLinkBtn");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", function () {
-      var url = copyBtn.dataset.url;
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(url).then(function () {
-          copyBtn.innerHTML = '<i class="bi bi-check-lg"></i> ' + t("copied");
-          setTimeout(function () {
-            copyBtn.innerHTML = '<i class="bi bi-link-45deg"></i> ' + t("copy_link");
-          }, 2000);
-        });
-      } else {
-        var el = document.createElement("textarea");
-        el.value = url;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand("copy");
-        document.body.removeChild(el);
-        copyBtn.innerHTML = '<i class="bi bi-check-lg"></i> ' + t("copied");
-        setTimeout(function () {
-          copyBtn.innerHTML = '<i class="bi bi-link-45deg"></i> ' + t("copy_link");
-        }, 2000);
-      }
-    });
-  }
+  if (!copyBtn) return;
 
-  /* Trial banner */
+  copyBtn.addEventListener("click", function () {
+    var url = copyBtn.dataset.url;
+    navigator.clipboard.writeText(url).then(function () {
+      copyBtn.innerHTML = '<i class="bi bi-check-lg"></i> ' + t("copied");
+      setTimeout(function () {
+        copyBtn.innerHTML = '<i class="bi bi-link-45deg"></i> ' + t("copy_link");
+      }, 2000);
+    });
+  });
+}
+
+function renderMedia(app) {
   var trialBanner = document.getElementById("trialBanner");
   if (trialBanner && (app.trialBadge || app.trialBadge_fr)) {
     var trialText = (getLang() === "fr" && app.trialBadge_fr) ? app.trialBadge_fr : (app.trialBadge || "");
@@ -369,7 +369,6 @@ function renderDetailPage() {
     }
   }
 
-  /* Videos */
   var videosSection = document.getElementById("videosSection");
   var videoList = normalizeVideos(app);
   if (videosSection && videoList.length > 0) {
@@ -392,7 +391,6 @@ function renderDetailPage() {
     }).join("");
   }
 
-  /* Screenshots */
   if (app.screenshots && app.screenshots.length > 0) {
     var ssSection = document.getElementById("screenshotsSection");
     var ssTitle = document.getElementById("screenshotsTitle");
@@ -405,14 +403,14 @@ function renderDetailPage() {
       }).join("");
     }
   }
+}
 
-  /* Description */
+function renderContent(app) {
   var aboutTitle = document.getElementById("aboutTitle");
   var appDesc = document.getElementById("appDescription");
   if (aboutTitle) aboutTitle.textContent = t("about");
   if (appDesc) appDesc.textContent = tApp(app, "description");
 
-  /* Features */
   var featTitle = document.getElementById("featuresTitle");
   var featList = document.getElementById("featuresList");
   if (featTitle) featTitle.textContent = t("features");
@@ -422,8 +420,9 @@ function renderDetailPage() {
       return '<li><span>' + f + '</span></li>';
     }).join("");
   }
+}
 
-  /* Sidebar info */
+function renderDetailSidebar(app) {
   var sidebarInfo = document.getElementById("sidebarInfo");
   if (sidebarInfo) {
     sidebarInfo.innerHTML =
@@ -436,7 +435,6 @@ function renderDetailPage() {
       '<div class="sidebar-row" id="sidebarUsers" hidden><span class="sidebar-row__label">' + t("active_users") + '</span><span class="sidebar-row__value" id="sidebarUsersCount"></span></div>';
   }
 
-  /* Fetch user count for this app */
   fetchUserStats(function (counts) {
     var count = counts[app.id];
     if (count && count > 0) {
@@ -456,13 +454,11 @@ function renderDetailPage() {
     }
   });
 
-  /* Fetch live version from remote config Gist */
   fetchLiveVersion(app.id, function (version) {
     var el = document.getElementById("sidebarVersion");
     if (el) el.textContent = version;
   });
 
-  /* Tiers */
   if (app.tiers && app.tiers.length > 0) {
     var tiersEl = document.getElementById("sidebarTiers");
     if (tiersEl) {
@@ -476,7 +472,6 @@ function renderDetailPage() {
     }
   }
 
-  /* Legal links */
   if (app.legal) {
     var legalEl = document.getElementById("sidebarLegal");
     if (legalEl) {
@@ -487,49 +482,52 @@ function renderDetailPage() {
         '<a href="apps/' + app.id + '/guide.html" class="legal-link"><i class="bi bi-book"></i> ' + t("user_guide") + '</a>';
     }
   }
+}
 
-  /* Lightbox */
-  if (app.screenshots && app.screenshots.length > 0) {
-    var lightbox = document.getElementById("lightbox");
-    var lbImg = document.getElementById("lightboxImg");
-    var currentIdx = 0;
+function initLightbox(app) {
+  if (!app.screenshots || app.screenshots.length === 0) return;
 
-    function openLb(i) {
-      currentIdx = i;
-      lbImg.src = app.screenshots[currentIdx];
-      lightbox.hidden = false;
-      document.body.style.overflow = "hidden";
-    }
+  var lightbox = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImg");
+  var currentIdx = 0;
 
-    function closeLb() {
-      lightbox.hidden = true;
-      document.body.style.overflow = "";
-    }
-
-    function navLb(dir) {
-      currentIdx = (currentIdx + dir + app.screenshots.length) % app.screenshots.length;
-      lbImg.src = app.screenshots[currentIdx];
-    }
-
-    document.querySelectorAll(".screenshot-item").forEach(function (el) {
-      el.addEventListener("click", function () {
-        openLb(parseInt(el.dataset.index, 10));
-      });
-    });
-
-    document.getElementById("lightboxClose").addEventListener("click", closeLb);
-    document.getElementById("lightboxPrev").addEventListener("click", function () { navLb(-1); });
-    document.getElementById("lightboxNext").addEventListener("click", function () { navLb(1); });
-
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) closeLb();
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (lightbox.hidden) return;
-      if (e.key === "Escape") closeLb();
-      if (e.key === "ArrowLeft") navLb(-1);
-      if (e.key === "ArrowRight") navLb(1);
-    });
+  function openLb(i) {
+    currentIdx = i;
+    lbImg.src = app.screenshots[currentIdx];
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
   }
+
+  function closeLb() {
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  function navLb(dir) {
+    currentIdx = (currentIdx + dir + app.screenshots.length) % app.screenshots.length;
+    lbImg.src = app.screenshots[currentIdx];
+  }
+
+  document.querySelectorAll(".screenshot-item").forEach(function (el) {
+    el.addEventListener("click", function () {
+      openLb(parseInt(el.dataset.index, 10));
+    });
+  });
+
+  document.getElementById("lightboxClose").addEventListener("click", closeLb);
+  document.getElementById("lightboxPrev").addEventListener("click", function () { navLb(-1); });
+  document.getElementById("lightboxNext").addEventListener("click", function () { navLb(1); });
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) closeLb();
+  });
+
+  if (_lightboxKeyHandler) document.removeEventListener("keydown", _lightboxKeyHandler);
+  _lightboxKeyHandler = function (e) {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowLeft") navLb(-1);
+    if (e.key === "ArrowRight") navLb(1);
+  };
+  document.addEventListener("keydown", _lightboxKeyHandler);
 }
