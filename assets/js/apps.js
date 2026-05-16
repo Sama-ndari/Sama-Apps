@@ -486,3 +486,7 @@ const APPS = [
     }
   }
 ];
+
+const SAMA_APPS_CATALOG = {
+  appCount: APPS.length
+};
