@@ -179,7 +179,7 @@ const APPS = [
         title_fr: "Enregistrement des produits"
       }
     ],
-    downloadUrl: "https://drive.google.com/uc?export=download&id=1HhG-0U46eTxKDo74Wy1AdXYlABgmqzca",
+    downloadUrl: "https://github.com/Sama-ndari/esama-releases/releases/latest/download/E-Sama.apk",
     trialBadge: "1 week FREE trial",
     trialBadge_fr: "1 semaine d\u2019essai GRATUIT",
     shortDesc: "Trilingual app (FR/EN/SW) for all your business types: shop, pharmacy, bar, restaurant, rental and more. Works fully offline.",
@@ -327,7 +327,7 @@ const APPS = [
       appAsset("velora", "screenshots/velora-license-buy.webp"),
       appAsset("velora", "screenshots/velora-widget.webp")
     ],
-    downloadUrl: "https://drive.google.com/uc?export=download&id=1zt4N9ZE8QJntwgVg5m4yga5LgKfoQ_E-",
+    downloadUrl: "https://github.com/Sama-ndari/velora-releases/releases/latest/download/Velora.apk",
     shortDesc: "A personal productivity app with habit tracking, goals, smart alarms, expense management, and AI features.",
     shortDesc_fr: "Une app de productivit\u00e9 avec suivi d'habitudes, objectifs, alarmes intelligentes, gestion de d\u00e9penses et fonctions IA.",
     description: "Velora is a personal productivity and wellness app that helps you build better habits, manage your goals, and stay organized. It works entirely offline and includes smart alarms, expense tracking, a debt manager, and an AI-powered assistant. Back up your entire data to Google Drive with one tap and restore it on a new device in seconds.",
