@@ -211,29 +211,35 @@ const APPS = [
     tiers: [
       { name: "Standard", desc: "1 store, basic POS and inventory", desc_fr: "1 magasin, POS et inventaire de base" },
       { name: "Business", desc: "3 stores, PDF export, cloud backup, WhatsApp reminders", desc_fr: "3 magasins, export PDF, sauvegarde cloud, rappels WhatsApp" },
-      { name: "Premium", desc: "Unlimited stores, all analytics, priority support", desc_fr: "Magasins illimit\u00e9s, toutes les analyses, support prioritaire" }
+      { name: "Premium", desc: "Up to 10 stores, optional AI, all analytics, priority support", desc_fr: "Jusqu\u2019\u00e0 10 magasins, IA optionnelle, toutes les analyses, support prioritaire" }
     ],
     legal: {
       developer: "Samandari",
       email: "cezaremardini10@gmail.com",
-      effectiveDate: "2026-03-20",
+      effectiveDate: "2026-06-21",
       dataLocal: [
         "Sales, purchases, and inventory records",
         "Client and supplier information",
         "Expense and profit reports",
-        "App preferences and settings"
+        "Rental and restaurant data (when enabled)",
+        "Multi-store settings and app preferences",
+        "Notification and printer settings"
       ],
       dataLocal_fr: [
         "Ventes, achats et registres d\u2019inventaire",
         "Informations clients et fournisseurs",
         "Rapports de d\u00e9penses et b\u00e9n\u00e9fices",
-        "Pr\u00e9f\u00e9rences et param\u00e8tres de l\u2019application"
+        "Donn\u00e9es location et restaurant (si activ\u00e9es)",
+        "Param\u00e8tres multi-boutiques et pr\u00e9f\u00e9rences",
+        "Notifications et imprimante"
       ],
       dataLocal_sw: [
         "Mauzo, manunuzi na rekodi za hesabu",
         "Taarifa za wateja na wasambazaji",
         "Ripoti za gharama na faida",
-        "Mapendeleo na mipangilio ya programu"
+        "Data ya kukodisha na mgahawa (inapowezeshwa)",
+        "Mipangilio ya maduka mengi na mapendeleo",
+        "Arifa na mipangilio ya printa"
       ],
       dataCloud: [
         "Backup data synced to Google Drive (with explicit user consent)"
@@ -247,7 +253,7 @@ const APPS = [
       thirdParty: [
         { name: "Google Drive API", purpose: "Cloud backup", purpose_fr: "Sauvegarde cloud", purpose_sw: "Hifadhi ya wingu" },
         { name: "Google Sign-In", purpose: "Authentication for cloud backup", purpose_fr: "Authentification pour la sauvegarde cloud", purpose_sw: "Uthibitishaji wa hifadhi ya wingu" },
-        { name: "Google Gemini AI", purpose: "AI-powered features (optional)", purpose_fr: "Fonctionnalit\u00e9s IA (optionnel)", purpose_sw: "Vipengele vya AI (hiari)" }
+        { name: "Creative Muse AI API", purpose: "Optional Premium message generation (short description only)", purpose_fr: "G\u00e9n\u00e9ration de messages Premium optionnelle (description courte uniquement)", purpose_sw: "Ujumbe wa Premium hiari (maelezo mafupi tu)" }
       ],
       noAnalytics: true,
       noAds: true,
@@ -269,6 +275,10 @@ const APPS = [
           desc: "If you connect a Bluetooth thermal printer, the app uses the Bluetooth permission solely to discover and communicate with your printer. No data is sent to any external server through this connection.",
           desc_fr: "Si vous connectez une imprimante thermique Bluetooth, l\u2019application utilise la permission Bluetooth uniquement pour d\u00e9couvrir et communiquer avec votre imprimante. Aucune donn\u00e9e n\u2019est envoy\u00e9e \u00e0 un serveur externe via cette connexion.",
           desc_sw: "Ukiunganisha printa ya Bluetooth ya joto, programu hutumia ruhusa ya Bluetooth tu kutambua na kuwasiliana na printa yako. Hakuna data inayotumwa kwa seva yoyote ya nje kupitia muunganisho huu." },
+        { title: "Optional AI Features", title_fr: "Fonctionnalit\u00e9s IA optionnelles", title_sw: "Vipengele vya AI (Hiari)",
+          desc: "Premium plans may include optional AI features that require internet. When used, a short message description you enter is sent to the Creative Muse backend to generate French, English, and Swahili notification text. Your sales, inventory, and client records are not sent.",
+          desc_fr: "Les forfaits Premium peuvent inclure des fonctions IA n\u00e9cessitant internet. Une courte description saisie est envoy\u00e9e au backend Creative Muse pour g\u00e9n\u00e9rer du texte trilingue. Vos ventes, stock et clients ne sont pas envoy\u00e9s.",
+          desc_sw: "Mipango ya Premium inaweza kujumuisha AI inayohitaji mtandao. Maelezo mafupi yanaweza kutumwa kwa Creative Muse kuzalisha maandishi ya lugha tatu. Mauzo, hesabu na wateja hawatumiliki." },
         { title: "Biometric Authentication", title_fr: "Authentification biom\u00e9trique", title_sw: "Uthibitishaji wa Kibayometriki",
           desc: "E-Sama supports fingerprint or face unlock for app security. Your biometric data is processed entirely by your device\u2019s hardware and is never accessed or stored by the app.",
           desc_fr: "E-Sama prend en charge le d\u00e9verrouillage par empreinte digitale ou reconnaissance faciale pour la s\u00e9curit\u00e9 de l\u2019app. Vos donn\u00e9es biom\u00e9triques sont trait\u00e9es enti\u00e8rement par le mat\u00e9riel de votre appareil et ne sont jamais consult\u00e9es ou stock\u00e9es par l\u2019application.",
@@ -359,18 +369,20 @@ const APPS = [
     legal: {
       developer: "Samandari",
       email: "cezaremardini10@gmail.com",
-      effectiveDate: "2026-03-20",
+      effectiveDate: "2026-06-21",
       dataLocal: [
         "Tasks, habits, goals, and journal entries",
-        "Expenses, budgets, and debt records",
-        "Alarm and notification settings",
-        "App preferences and settings"
+        "Expenses, budgets, incomes, investments, and debt records",
+        "Notes and contacts (including birthdays and relations)",
+        "User profile and app preferences",
+        "Alarm and notification settings"
       ],
       dataLocal_fr: [
         "T\u00e2ches, habitudes, objectifs et entr\u00e9es de journal",
-        "D\u00e9penses, budgets et registres de dettes",
-        "Param\u00e8tres d\u2019alarmes et de notifications",
-        "Pr\u00e9f\u00e9rences et param\u00e8tres de l\u2019application"
+        "D\u00e9penses, budgets, revenus, investissements et registres de dettes",
+        "Notes et contacts (anniversaires et relations inclus)",
+        "Profil utilisateur et pr\u00e9f\u00e9rences de l\u2019application",
+        "Param\u00e8tres d\u2019alarmes et de notifications"
       ],
       dataCloud: [
         "Backup data synced to Google Drive (with explicit user consent)"
@@ -379,9 +391,9 @@ const APPS = [
         "Donn\u00e9es de sauvegarde synchronis\u00e9es sur Google Drive (avec consentement explicite)"
       ],
       thirdParty: [
-        { name: "Google Drive API", purpose: "Cloud backup", purpose_fr: "Sauvegarde cloud" },
+        { name: "Google Drive API", purpose: "Cloud backup (optional, requires explicit user consent)", purpose_fr: "Sauvegarde cloud (optionnelle, consentement explicite requis)" },
         { name: "Google Sign-In", purpose: "Authentication for cloud backup", purpose_fr: "Authentification pour la sauvegarde cloud" },
-        { name: "Google Gemini AI", purpose: "AI-powered features (optional)", purpose_fr: "Fonctionnalit\u00e9s IA (optionnel)" }
+        { name: "Creative Muse AI API", purpose: "Optional AI features (Life Coach, Personal Chat, Creative Muse, challenges)", purpose_fr: "Fonctionnalit\u00e9s IA optionnelles (Coach de vie, Chat Personnel, Muse cr\u00e9ative, d\u00e9fis)" }
       ],
       noAnalytics: true,
       noAds: true,
@@ -391,8 +403,8 @@ const APPS = [
           desc: "If you configure email reports, emails are sent using your provided SMTP credentials. Your email address and credentials are only stored locally on your device.",
           desc_fr: "Si vous configurez les rapports par e-mail, les e-mails sont envoy\u00e9s avec vos identifiants SMTP. Votre adresse e-mail et vos identifiants sont uniquement stock\u00e9s localement sur votre appareil." },
         { title: "AI Features", title_fr: "Fonctionnalit\u00e9s IA",
-          desc: "When using AI features (Life Coach, Creative Muse, etc.), your data may be sent to a third-party AI API for processing. This data is not stored or used for training by the provider.",
-          desc_fr: "Lors de l\u2019utilisation des fonctionnalit\u00e9s IA (Coach de vie, Muse cr\u00e9ative, etc.), vos donn\u00e9es peuvent \u00eatre envoy\u00e9es \u00e0 une API IA tierce pour traitement. Ces donn\u00e9es ne sont ni stock\u00e9es ni utilis\u00e9es pour l\u2019entra\u00eenement par le fournisseur." },
+          desc: "Optional AI features require an internet connection. Selected data is sent to the Creative Muse backend for processing. Data is not stored or used for training by the provider.\n\n\u2022 Life Coach: journal entries (date, mood, full text). You choose the last 15 entries or your full journal.\n\u2022 Personal Chat: task titles and expense descriptions with amounts from the current week only. One-time confirmation required before first use.\n\u2022 Creative Muse: up to 3 note titles and 3 journal moods (no full journal text).\n\u2022 Challenges and missions: a short locally computed summary only.\n\u2022 General Chat: your typed message only, with no personal context.",
+          desc_fr: "Les fonctionnalit\u00e9s IA n\u00e9cessitent internet. Des donn\u00e9es s\u00e9lectionn\u00e9es sont envoy\u00e9es au backend Creative Muse. Elles ne sont ni stock\u00e9es ni utilis\u00e9es pour l\u2019entra\u00eenement.\n\n\u2022 Coach de vie : entr\u00e9es de journal (date, humeur, texte complet). Vous choisissez les 15 derni\u00e8res ou tout le journal.\n\u2022 Chat Personnel : titres de t\u00e2ches et descriptions de d\u00e9penses de la semaine en cours. Confirmation unique avant la premi\u00e8re utilisation.\n\u2022 Muse Cr\u00e9ative : jusqu\u2019\u00e0 3 titres de notes et 3 humeurs (pas le texte complet du journal).\n\u2022 D\u00e9fis et missions : court r\u00e9sum\u00e9 calcul\u00e9 localement.\n\u2022 Chat G\u00e9n\u00e9ral : votre message uniquement, sans contexte personnel." },
         { title: "Device Identification", title_fr: "Identification de l\u2019appareil",
           desc: "We collect your device ID solely for license verification purposes. This ID is not linked to any personal information.",
           desc_fr: "Nous collectons l\u2019identifiant de votre appareil uniquement \u00e0 des fins de v\u00e9rification de licence. Cet identifiant n\u2019est li\u00e9 \u00e0 aucune information personnelle." },
@@ -403,13 +415,16 @@ const APPS = [
           desc: "Velora supports fingerprint or face unlock for app security. Your biometric data is processed entirely by your device\u2019s hardware and is never accessed or stored by the app.",
           desc_fr: "Velora prend en charge le d\u00e9verrouillage par empreinte digitale ou reconnaissance faciale pour la s\u00e9curit\u00e9 de l\u2019app. Vos donn\u00e9es biom\u00e9triques sont trait\u00e9es enti\u00e8rement par le mat\u00e9riel de votre appareil et ne sont jamais consult\u00e9es ou stock\u00e9es par l\u2019application." },
         { title: "Alarms & Notifications", title_fr: "Alarmes et notifications",
-          desc: "Velora uses the exact alarm and notification permissions to deliver reminders, habit alerts, and smart alarms you configure. These permissions are used only for features you explicitly enable.",
-          desc_fr: "Velora utilise les permissions d\u2019alarme exacte et de notification pour d\u00e9livrer les rappels, alertes d\u2019habitudes et alarmes intelligentes que vous configurez. Ces permissions ne sont utilis\u00e9es que pour les fonctionnalit\u00e9s que vous activez explicitement." }
+          desc: "Velora uses alarm and notification permissions only for features you enable: tasks, habits, debts, goals, water, inspiration, morning summary, and calendar reminders (contact birthdays, your birthday, celebrated cultural days). All scheduling is local.",
+          desc_fr: "Velora utilise les permissions d\u2019alarme et de notification uniquement pour les fonctions activ\u00e9es : t\u00e2ches, habitudes, dettes, objectifs, eau, inspiration, r\u00e9sum\u00e9 matinal et rappels calendrier (anniversaires contacts, votre anniversaire, journ\u00e9es c\u00e9l\u00e9br\u00e9es). Tout est planifi\u00e9 localement." },
+        { title: "Children's Privacy", title_fr: "Confidentialit\u00e9 des enfants",
+          desc: "Velora is not directed at children under 13. We do not knowingly collect personal information from children.",
+          desc_fr: "Velora ne s\u2019adresse pas aux moins de 13 ans. Nous ne collectons pas sciemment de donn\u00e9es d\u2019enfants." }
       ],
       termsExtra: [
         { title: "AI Disclaimer", title_fr: "Avertissement IA",
-          desc: "The AI features (Life Coach, therapist mode, creative challenges) are NOT a substitute for professional medical or psychological advice. They are designed for personal reflection and productivity purposes only.",
-          desc_fr: "Les fonctionnalit\u00e9s IA (Coach de vie, mode th\u00e9rapeute, d\u00e9fis cr\u00e9atifs) ne sont PAS un substitut \u00e0 un avis m\u00e9dical ou psychologique professionnel. Elles sont con\u00e7ues uniquement \u00e0 des fins de r\u00e9flexion personnelle et de productivit\u00e9." },
+          desc: "AI features (Life Coach, Personal Chat, Creative Muse, challenges) are NOT a substitute for professional medical or psychological advice. They are for personal reflection and productivity only.",
+          desc_fr: "Les fonctionnalit\u00e9s IA (Coach de vie, Chat Personnel, Muse cr\u00e9ative, d\u00e9fis) ne sont PAS un substitut \u00e0 un avis m\u00e9dical ou psychologique professionnel. Elles servent \u00e0 la r\u00e9flexion et la productivit\u00e9 personnelles." },
         { title: "Cloud Backup", title_fr: "Sauvegarde cloud",
           desc: "Cloud backup stores your data on Google Drive using your Google account. You are responsible for the security of your Google account. Velora is not liable for data loss or unauthorized access to your Google Drive.",
           desc_fr: "La sauvegarde cloud stocke vos donn\u00e9es sur Google Drive via votre compte Google. Vous \u00eates responsable de la s\u00e9curit\u00e9 de votre compte Google. Velora n\u2019est pas responsable de la perte de donn\u00e9es ou de l\u2019acc\u00e8s non autoris\u00e9 \u00e0 votre Google Drive." }

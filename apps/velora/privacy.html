@@ -4,17 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Velora</title>
-  <meta name="description" content="Privacy Policy for Velora — Productivity &amp; Wellness app. Learn how your data is collected, used, stored, and protected." />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Privacy Policy — Velora" />
-  <meta property="og:description" content="Privacy Policy for Velora. Your data stays on your device. Cloud backup is optional and encrypted." />
-  <meta property="og:url" content="https://apps.samandari.dev/apps/velora/privacy.html" />
-  <meta property="og:site_name" content="Sama Apps" />
-
   <link rel="icon" href="../../assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     [data-theme="dark"] {
@@ -62,148 +52,134 @@
       .legal-content { padding: 24px 14px 60px; }
       .legal-content h1 { font-size: 1.3rem; }
     }
+  
+    .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .legal-section li { padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); }
   </style>
 </head>
 <body>
-
 <div class="legal-content">
-
   <div class="legal-meta">
-    <div class="app-badge">
-      <img src="../../assets/apps/velora/icon.webp" alt="Velora" />
-      <span>Velora</span>
-    </div><br />
-    <span>Effective date: 2026-03-20</span>
+    <div class="app-badge"><img src="../../assets/apps/velora/icon.webp" alt="Velora" /><span>Velora</span></div><br />
+    <span>Effective date: 2026-06-21</span>
   </div>
-
   <div class="legal-tabs">
     <a href="privacy.html" class="legal-tab active">Privacy Policy</a>
-    <a href="terms.html" class="legal-tab">Terms of Service</a>
+    <a href="terms.html" class="legal-tab ">Terms of Service</a>
   </div>
-
   <h1>Privacy Policy</h1>
-  <p class="legal-intro">Velora ("the App") is developed by Samandari. This Privacy Policy explains how we collect, use, store, and protect your information when you use the App.</p>
+  <p class="legal-intro">Velora is developed by Samandari. This Privacy Policy explains how we collect, use, store, and protect your information when you use the app.</p>
 
-  <!-- DATA COLLECTION -->
   <div class="legal-section">
     <h2>Data Collection</h2>
-    <p>Velora collects and stores the following data locally on your device. We do not have access to this data, and it never leaves your device unless you explicitly enable cloud backup.</p>
+    <p>Velora stores the following data locally on your device. We do not have access to this data by default. It stays on your device unless you explicitly enable cloud backup or use optional AI features.</p>
     <ul>
       <li>Tasks, habits, goals, and journal entries</li>
-      <li>Expenses, budgets, and debt records</li>
+      <li>Expenses, budgets, incomes, investments, and debt records</li>
+      <li>Notes and contacts (including birthdays and relations)</li>
+      <li>User profile and app preferences</li>
       <li>Alarm and notification settings</li>
-      <li>App preferences and settings</li>
     </ul>
-    <p>If you enable cloud backup, the following data may be transmitted to Google Drive:</p>
-    <ul>
-      <li>Backup data synced to Google Drive (with explicit user consent)</li>
-    </ul>
+    <p>If you enable cloud backup, selected backup data may be transmitted to your personal Google Drive account (with explicit consent).</p>
   </div>
 
-  <!-- DATA USAGE -->
-  <div class="legal-section">
-    <h2>Data Usage</h2>
-    <p>Your data is used exclusively to provide the App's core functionality: managing your tasks, habits, goals, expenses, journal, and alarms. Specifically:</p>
-    <ul>
-      <li>Local data is processed on-device to display your dashboards, reports, and reminders</li>
-      <li>Cloud backup data is used solely to restore your data on a new device or after reinstallation</li>
-      <li>If you use AI features (Life Coach, Creative Muse, etc.), relevant data may be sent to a third-party AI API for processing. This data is not stored or used for training by the provider</li>
-      <li>If you configure email reports, emails are sent using your provided SMTP credentials. Your email address and credentials are only stored locally on your device</li>
-    </ul>
-    <p>We do not sell, rent, or share your data with any third party for marketing or advertising purposes.</p>
-  </div>
-
-  <!-- DATA STORAGE -->
   <div class="legal-section">
     <h2>Data Storage</h2>
-    <p>All your data is stored locally on your device in an encrypted database. We do not operate any servers that store your personal data.</p>
-    <p>If you enable cloud backup, your data is transmitted securely via HTTPS and stored on your personal Google Drive account. Velora does not have access to your Google Drive outside of the app-specific backup folder.</p>
+    <p>All your data is stored locally on your device in an encrypted database. We do not operate servers that store your personal data. If you enable cloud backup, data is transmitted securely via HTTPS to your personal Google Drive. Velora does not access your Google Drive outside the app-specific backup folder.</p>
   </div>
 
-  <!-- DATA SHARING -->
   <div class="legal-section">
-    <h2>Data Sharing &amp; Third-Party Services</h2>
-    <p>The App may use the following third-party services:</p>
-    <div class="third-party-item"><span><span class="tp-name">Google Drive API</span> — <span class="tp-purpose">Cloud backup (optional, requires explicit user consent)</span></span></div>
-    <div class="third-party-item"><span><span class="tp-name">Google Sign-In</span> — <span class="tp-purpose">Authentication for cloud backup</span></span></div>
-    <div class="third-party-item"><span><span class="tp-name">Google Gemini AI</span> — <span class="tp-purpose">AI-powered features (optional)</span></span></div>
-    <p>We do not share your data with any other third parties. No data is sold or transferred for advertising, analytics, or profiling purposes.</p>
+    <h2>Data Usage</h2>
+    <p>Your data is used exclusively to provide the app's features: dashboards, reports, reminders, and backups. Local data is processed on-device. Cloud backup data is used only to restore on a new device. If you use AI features, selected data is sent to the Creative Muse backend (see AI Features). We do not sell, rent, or share your data for marketing or advertising.</p>
   </div>
 
-  <!-- DATA RETENTION & DELETION -->
   <div class="legal-section">
-    <h2>Data Retention &amp; Deletion</h2>
-    <p>Your data is retained on your device for as long as you use the App. You can delete any or all of your data at any time from within the App's settings.</p>
-    <p>If you uninstall the App, all locally stored data is permanently deleted.</p>
-    <p>If you have enabled cloud backup, your backup data remains on your Google Drive until you manually delete it. You can revoke Velora's access to your Google Drive at any time through your Google Account permissions at <a href="https://myaccount.google.com/permissions" style="color:var(--accent)">myaccount.google.com/permissions</a>.</p>
+    <h2>Third-Party Services</h2>
+    <ul>
+      <li>Google Drive API — optional cloud backup (explicit consent)</li>
+      <li>Google Sign-In — authentication for cloud backup</li>
+      <li>Creative Muse AI API — optional AI features (Life Coach, Personal Chat, Creative Muse, challenges)</li>
+    </ul>
+    <p>We do not share your data with any other third parties for analytics, advertising, or profiling.</p>
   </div>
 
-  <!-- NO ANALYTICS / NO ADS -->
-  <div class="legal-highlight">We do not use any analytics or tracking tools.</div>
-  <div class="legal-highlight">The App does not display advertisements.</div>
+  <div class="legal-section">
+    <h2>No Tracking or Ads</h2>
+    <p>We do not use analytics or tracking tools. The app does not display advertisements.</p>
+  </div>
 
-  <!-- EMAIL FEATURES -->
   <div class="legal-section">
     <h2>Email Features</h2>
     <p>If you configure email reports, emails are sent using your provided SMTP credentials. Your email address and credentials are only stored locally on your device.</p>
   </div>
 
-  <!-- AI FEATURES -->
   <div class="legal-section">
     <h2>AI Features</h2>
-    <p>When using AI features (Life Coach, Creative Muse, etc.), your data may be sent to a third-party AI API for processing. This data is not stored or used for training by the provider.</p>
+    <p>Optional AI features require an internet connection. Selected data is sent to the Creative Muse backend for processing. Data is not stored or used for training by the provider.</p>
+    <ul>
+      <li>Life Coach: journal entries (date, mood, full text). You choose the last 15 entries or your full journal.</li>
+      <li>Personal Chat: task titles and expense descriptions with amounts from the current week only. One-time confirmation required before first use.</li>
+      <li>Creative Muse: up to 3 note titles and 3 journal moods (no full journal text).</li>
+      <li>Challenges and missions: a short locally computed summary only.</li>
+      <li>General Chat: your typed message only, with no personal context.</li>
+    </ul>
   </div>
 
-  <!-- DEVICE IDENTIFICATION -->
+  <div class="legal-section">
+    <h2>Backup & Restore</h2>
+    <p>Local backups are saved as JSON files you control. You choose where they are stored and shared.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Cloud Backup</h2>
+    <p>If you enable cloud backup, your selected data is stored on your personal Google Drive account. Velora does not have access to your Google Drive — data transfer uses Google's secure OAuth2 authentication. You can delete your cloud data at any time.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Data Retention & Deletion</h2>
+    <p>Your data remains on your device while you use the app. You can delete any or all data from Settings. Uninstalling the app permanently deletes local data. Cloud backup data remains on Google Drive until you delete it. You can revoke Velora's Google access anytime from your Google Account permissions.</p>
+  </div>
+
   <div class="legal-section">
     <h2>Device Identification</h2>
-    <p>We collect your device ID solely for license verification purposes. This ID is not linked to any personal information.</p>
+    <p>We collect your device ID solely for license verification. This ID is not linked to personal information.</p>
   </div>
 
-  <!-- REMOTE CONFIGURATION -->
   <div class="legal-section">
     <h2>Remote Configuration</h2>
-    <p>We use a remote configuration service to manage app updates, communicate important messages, and enforce license compliance.</p>
+    <p>We use remote configuration to manage app updates, communicate important messages, and enforce license compliance.</p>
   </div>
 
-  <!-- BIOMETRIC AUTHENTICATION -->
   <div class="legal-section">
     <h2>Biometric Authentication</h2>
-    <p>Velora supports fingerprint or face unlock for app security. Your biometric data is processed entirely by your device's hardware and is never accessed or stored by the app.</p>
+    <p>Fingerprint or face unlock is processed entirely by your device hardware. Velora never accesses or stores biometric data.</p>
   </div>
 
-  <!-- ALARMS & NOTIFICATIONS -->
   <div class="legal-section">
-    <h2>Alarms &amp; Notifications</h2>
-    <p>Velora uses the exact alarm and notification permissions to deliver reminders, habit alerts, and smart alarms you configure. These permissions are used only for features you explicitly enable.</p>
+    <h2>Alarms & Notifications</h2>
+    <p>Velora uses alarm and notification permissions only for features you enable: tasks, habits, debts, goals, water, daily inspiration, morning summary, and calendar reminders (contact birthdays, your profile birthday, and cultural days). All calendar reminders are scheduled locally on your device.</p>
   </div>
 
-  <!-- DATA SECURITY -->
   <div class="legal-section">
     <h2>Data Security</h2>
-    <p>Your data is stored encrypted on your device. Cloud backups are transmitted securely via HTTPS to Google Drive.</p>
+    <p>Your data is encrypted on your device. Cloud backups use HTTPS to Google Drive.</p>
   </div>
 
-  <!-- CHILDREN'S PRIVACY -->
   <div class="legal-section">
     <h2>Children's Privacy</h2>
-    <p>The App is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+    <p>Velora is not directed at children under 13. We do not knowingly collect personal information from children.</p>
   </div>
 
-  <!-- CHANGES -->
   <div class="legal-section">
     <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted with an updated effective date.</p>
   </div>
 
-  <!-- CONTACT -->
   <div class="legal-section">
-    <h2>Contact Us</h2>
-    <p>If you have questions about this Privacy Policy, contact us at:</p>
-    <div class="legal-contact"><a href="mailto:cezaremardini10@gmail.com">cezaremardini10@gmail.com</a></div>
+    <h2>Contact</h2>
+    <p>Questions about this Privacy Policy: cezaremardini10@gmail.com</p>
   </div>
 
 </div>
-
 </body>
 </html>

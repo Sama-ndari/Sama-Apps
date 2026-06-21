@@ -4,28 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Service — E-Sama</title>
-  <meta name="description" content="Terms of Service for E-Sama — Trilingual Business Management &amp; POS app." />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Terms of Service — E-Sama" />
-  <meta property="og:description" content="Terms of Service for E-Sama. Read before using the app." />
-  <meta property="og:url" content="https://apps.samandari.dev/apps/esama/terms.html" />
-  <meta property="og:site_name" content="Sama Apps" />
-
   <link rel="icon" href="../../assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     [data-theme="dark"] {
       --bg: #0b0f1a; --bg-card: #141925; --border: #1e2640;
       --text: #e8ecf4; --text-muted: #8892a8; --text-dim: #5a6480;
-      --accent: #3b82f6; --radius-sm: 8px;
+      --accent: #3b82f6; --green: #22c55e; --green-soft: rgba(34,197,94,0.12);
+      --radius-sm: 8px;
     }
     [data-theme="light"] {
       --bg: #f4f6fb; --bg-card: #ffffff; --border: #dfe3ed;
       --text: #1a1f2e; --text-muted: #5c6578; --text-dim: #8b93a5;
-      --accent: #2563eb; --radius-sm: 8px;
+      --accent: #2563eb; --green: #16a34a; --green-soft: rgba(22,163,74,0.1);
+      --radius-sm: 8px;
     }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -43,6 +35,12 @@
     .legal-section { margin-bottom: 28px; }
     .legal-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
     .legal-section p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 10px; }
+    .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .legal-section li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .legal-section .third-party-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
+    .legal-section .tp-name { font-weight: 600; color: var(--text); }
+    .legal-section .tp-purpose { color: var(--text-dim); }
+    .legal-highlight { padding: 14px 18px; background: var(--green-soft); border: 1px solid var(--green); border-radius: var(--radius-sm); color: var(--green); font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; }
     .legal-tabs { display: flex; gap: 8px; margin-bottom: 28px; }
     .legal-tab { padding: 8px 20px; border: 1px solid var(--border); border-radius: 100px; background: transparent; color: var(--text-muted); font-family: inherit; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; }
     .legal-tab:hover { border-color: var(--accent); color: var(--text); }
@@ -54,71 +52,67 @@
       .legal-content { padding: 24px 14px 60px; }
       .legal-content h1 { font-size: 1.3rem; }
     }
+  
+    .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .legal-section li { padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); }
   </style>
 </head>
 <body>
-
 <div class="legal-content">
-
   <div class="legal-meta">
-    <div class="app-badge">
-      <img src="../../assets/apps/esama/icon.webp" alt="E-Sama" />
-      <span>E-Sama</span>
-    </div><br />
-    <span>Effective date: 2026-03-20</span>
+    <div class="app-badge"><img src="../../assets/apps/esama/icon.webp" alt="E-Sama" /><span>E-Sama</span></div><br />
+    <span>Effective date: 2026-06-21</span>
   </div>
-
   <div class="legal-tabs">
-    <a href="privacy.html" class="legal-tab">Privacy Policy</a>
+    <a href="privacy.html" class="legal-tab ">Privacy Policy</a>
     <a href="terms.html" class="legal-tab active">Terms of Service</a>
   </div>
-
   <h1>Terms of Service</h1>
-  <p class="legal-intro">By using E-Sama ("the App"), you agree to these Terms of Service. If you do not agree, please do not use the App.</p>
-
-  <div class="legal-section">
-    <h2>License</h2>
-    <p>Samandari grants you a limited, non-exclusive, non-transferable license to use the App for personal or commercial purposes.</p>
-  </div>
+  <p class="legal-intro">By using E-Sama, you agree to these Terms of Service. If you do not agree, please do not use the app.</p>
 
   <div class="legal-section">
     <h2>Acceptable Use</h2>
-    <p>You agree not to reverse-engineer, decompile, or distribute the App without authorization.</p>
+    <p>E-Sama is a business management application licensed for individual or commercial use. You may not reverse-engineer, decompile, or distribute the app without authorization.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>License</h2>
+    <p>Samandari grants you a limited, non-exclusive, non-transferable license for the subscribed duration. The license is tied to your device.</p>
   </div>
 
   <div class="legal-section">
     <h2>Your Data</h2>
-    <p>You retain ownership of all data you enter into the App. We do not access or share your data.</p>
+    <p>You retain ownership of all data you enter. We do not access or share your data except as described in the Privacy Policy.</p>
   </div>
 
   <div class="legal-section">
     <h2>Disclaimer</h2>
-    <p>The App is provided "as is" without warranties of any kind. We are not liable for any loss of data or damages arising from the use of the App.</p>
-  </div>
-
-  <div class="legal-section">
-    <h2>Termination</h2>
-    <p>We reserve the right to terminate or suspend access to the App at any time, without prior notice, for any reason.</p>
+    <p>The app is provided "as is" without warranties of any kind. We are not liable for data loss or damages arising from use of the app.</p>
   </div>
 
   <div class="legal-section">
     <h2>Payments</h2>
-    <p>All payments are non-refundable once a license key has been generated and delivered.</p>
+    <p>All license payments are non-refundable once an activation key has been generated and delivered.</p>
   </div>
 
   <div class="legal-section">
     <h2>Cloud Backup</h2>
-    <p>Cloud backup stores your data on Google Drive using your Google account. You are responsible for the security of your Google account. E-Sama is not liable for data loss or unauthorized access to your Google Drive.</p>
+    <p>Cloud backup stores your data on Google Drive using your Google account. You are responsible for your Google account security. E-Sama is not liable for data loss or unauthorized access to your Google Drive.</p>
   </div>
 
   <div class="legal-section">
     <h2>Storage Access</h2>
-    <p>E-Sama requires access to device storage to export and import local backups. This permission is used only for backup and restore operations initiated by you. The app does not access, read, or modify any files outside its own backup folder.</p>
+    <p>E-Sama requires device storage access to export and import local backups. This permission is used only for backup and restore operations you initiate.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Termination</h2>
+    <p>We may terminate or suspend access to the app at any time, without prior notice, for any reason.</p>
   </div>
 
   <div class="legal-section">
     <h2>Changes to These Terms</h2>
-    <p>We may update these Terms from time to time. Continued use of the App constitutes acceptance of the updated Terms.</p>
+    <p>We may update these Terms from time to time. Continued use of the app constitutes acceptance of the updated Terms.</p>
   </div>
 
   <div class="legal-section">
@@ -127,12 +121,10 @@
   </div>
 
   <div class="legal-section">
-    <h2>Contact Us</h2>
-    <p>If you have questions about these Terms, contact us at:</p>
-    <div class="legal-contact"><a href="mailto:cezaremardini10@gmail.com">cezaremardini10@gmail.com</a></div>
+    <h2>Contact</h2>
+    <p>Questions about these Terms: cezaremardini10@gmail.com</p>
   </div>
 
 </div>
-
 </body>
 </html>

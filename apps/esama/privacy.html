@@ -4,17 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — E-Sama</title>
-  <meta name="description" content="Privacy Policy for E-Sama — Trilingual Business Management &amp; POS app. Learn how your data is collected, used, stored, and protected." />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Privacy Policy — E-Sama" />
-  <meta property="og:description" content="Privacy Policy for E-Sama. Your data stays on your device. Cloud backup is optional and encrypted." />
-  <meta property="og:url" content="https://apps.samandari.dev/apps/esama/privacy.html" />
-  <meta property="og:site_name" content="Sama Apps" />
-
   <link rel="icon" href="../../assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     [data-theme="dark"] {
@@ -62,142 +52,128 @@
       .legal-content { padding: 24px 14px 60px; }
       .legal-content h1 { font-size: 1.3rem; }
     }
+  
+    .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .legal-section li { padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); }
   </style>
 </head>
 <body>
-
 <div class="legal-content">
-
   <div class="legal-meta">
-    <div class="app-badge">
-      <img src="../../assets/apps/esama/icon.webp" alt="E-Sama" />
-      <span>E-Sama</span>
-    </div><br />
-    <span>Effective date: 2026-03-20</span>
+    <div class="app-badge"><img src="../../assets/apps/esama/icon.webp" alt="E-Sama" /><span>E-Sama</span></div><br />
+    <span>Effective date: 2026-06-21</span>
   </div>
-
   <div class="legal-tabs">
     <a href="privacy.html" class="legal-tab active">Privacy Policy</a>
-    <a href="terms.html" class="legal-tab">Terms of Service</a>
+    <a href="terms.html" class="legal-tab ">Terms of Service</a>
   </div>
-
   <h1>Privacy Policy</h1>
-  <p class="legal-intro">E-Sama ("the App") is developed by Samandari. This Privacy Policy explains how we collect, use, store, and protect your information when you use the App.</p>
+  <p class="legal-intro">E-Sama is developed by Samandari. This Privacy Policy explains how we collect, use, store, and protect your information when you use the app.</p>
 
-  <!-- DATA COLLECTION -->
   <div class="legal-section">
     <h2>Data Collection</h2>
-    <p>E-Sama collects and stores the following data locally on your device. We do not have access to this data, and it never leaves your device unless you explicitly enable cloud backup.</p>
+    <p>E-Sama stores the following data locally on your device. We do not have access by default. Data stays on your device unless you export, back up, or use optional Premium AI features.</p>
     <ul>
-      <li>Sales, purchases, and inventory records</li>
+      <li>Sales, purchases, inventory, and stock records</li>
       <li>Client and supplier information</li>
-      <li>Expense and profit reports</li>
-      <li>App preferences and settings</li>
+      <li>Expenses, debts, and profit reports</li>
+      <li>Rental and restaurant data (when those modes are enabled)</li>
+      <li>Multi-store settings and app preferences</li>
+      <li>Notification and printer settings</li>
     </ul>
-    <p>If you enable cloud backup, the following data may be transmitted to Google Drive:</p>
-    <ul>
-      <li>Backup data synced to Google Drive (with explicit user consent)</li>
-    </ul>
+    <p>If you enable cloud backup, selected data may be transmitted to your Google Drive (explicit consent).</p>
   </div>
 
-  <!-- DATA USAGE -->
-  <div class="legal-section">
-    <h2>Data Usage</h2>
-    <p>Your data is used exclusively to provide the App's core functionality: managing your sales, purchases, inventory, clients, suppliers, expenses, and reports. Specifically:</p>
-    <ul>
-      <li>Local data is processed on-device to display your dashboards, reports, and business analytics</li>
-      <li>Cloud backup data is used solely to restore your data on a new device or after reinstallation</li>
-      <li>Device ID is collected solely for license verification purposes and is not linked to any personal information</li>
-      <li>A remote configuration service is used to manage app updates, communicate important messages, and enforce license compliance</li>
-    </ul>
-    <p>We do not sell, rent, or share your data with any third party for marketing or advertising purposes.</p>
-  </div>
-
-  <!-- DATA STORAGE -->
   <div class="legal-section">
     <h2>Data Storage</h2>
-    <p>All your data is stored locally on your device in an encrypted database. We do not operate any servers that store your personal data.</p>
-    <p>If you enable cloud backup, your data is transmitted securely via HTTPS and stored on your personal Google Drive account. E-Sama does not have access to your Google Drive outside of the app-specific backup folder.</p>
+    <p>All your data is stored locally on your device in an encrypted database. We do not operate servers that store your business data. Cloud backup uses HTTPS to your personal Google Drive. E-Sama does not access your Drive outside the app backup folder.</p>
   </div>
 
-  <!-- DATA SHARING -->
   <div class="legal-section">
-    <h2>Data Sharing &amp; Third-Party Services</h2>
-    <p>The App may use the following third-party services:</p>
-    <div class="third-party-item"><span><span class="tp-name">Google Drive API</span> — <span class="tp-purpose">Cloud backup (optional, requires explicit user consent)</span></span></div>
-    <div class="third-party-item"><span><span class="tp-name">Google Sign-In</span> — <span class="tp-purpose">Authentication for cloud backup</span></span></div>
-    <div class="third-party-item"><span><span class="tp-name">Google Gemini AI</span> — <span class="tp-purpose">AI-powered features (optional)</span></span></div>
-    <p>We do not share your data with any other third parties. No data is sold or transferred for advertising, analytics, or profiling purposes.</p>
+    <h2>Data Usage</h2>
+    <p>Your data is used exclusively to run the app: POS, inventory, clients, reports, reminders, and backups. Processing is on-device. Cloud backup is only for restore on a new device. Optional Premium AI sends a short message description to Creative Muse for trilingual text generation — not your sales or client records. We do not sell or share your data for advertising.</p>
   </div>
 
-  <!-- DATA RETENTION & DELETION -->
   <div class="legal-section">
-    <h2>Data Retention &amp; Deletion</h2>
-    <p>Your data is retained on your device for as long as you use the App. You can delete any or all of your data at any time from within the App's settings.</p>
-    <p>If you uninstall the App, all locally stored data is permanently deleted.</p>
-    <p>If you have enabled cloud backup, your backup data remains on your Google Drive until you manually delete it. You can revoke E-Sama's access to your Google Drive at any time through your Google Account permissions at <a href="https://myaccount.google.com/permissions" style="color:var(--accent)">myaccount.google.com/permissions</a>.</p>
+    <h2>Third-Party Services</h2>
+    <ul>
+      <li>Google Drive API — optional cloud backup (explicit consent)</li>
+      <li>Google Sign-In — authentication for cloud backup</li>
+      <li>Creative Muse AI API — optional Premium message generation (short description only)</li>
+    </ul>
+    <p>No other third parties for analytics, advertising, or profiling.</p>
   </div>
 
-  <!-- NO ANALYTICS / NO ADS -->
-  <div class="legal-highlight">We do not use any analytics or tracking tools.</div>
-  <div class="legal-highlight">The App does not display advertisements.</div>
+  <div class="legal-section">
+    <h2>No Tracking or Ads</h2>
+    <p>We do not use analytics or tracking tools. The app does not display advertisements.</p>
+  </div>
 
-  <!-- DEVICE IDENTIFICATION -->
+  <div class="legal-section">
+    <h2>Optional AI Features</h2>
+    <p>Premium plans may include optional AI features that require internet. When used, a short message description you enter is sent to the Creative Muse backend to generate French, English, and Swahili notification text. Your sales, inventory, and client records are not sent. Data is not stored or used for training by the provider.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Backup & Restore</h2>
+    <p>Local backups are saved as files you control. You choose where they are stored and shared.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Cloud Backup</h2>
+    <p>If you enable cloud backup, your selected data is stored on your personal Google Drive account. E-Sama does not have access to your Google Drive — data transfer uses Google's secure OAuth2 authentication. You can delete your cloud data at any time.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>Data Retention & Deletion</h2>
+    <p>Your data remains on your device while you use the app. You can delete data from Settings. Uninstalling permanently deletes local data. Cloud backup stays on Google Drive until you delete it. You can revoke Google access anytime from your Google Account permissions.</p>
+  </div>
+
   <div class="legal-section">
     <h2>Device Identification</h2>
-    <p>We collect your device ID solely for license verification purposes. This ID is not linked to any personal information.</p>
+    <p>We collect your device ID solely for license verification. This ID is not linked to personal information.</p>
   </div>
 
-  <!-- REMOTE CONFIGURATION -->
   <div class="legal-section">
     <h2>Remote Configuration</h2>
-    <p>We use a remote configuration service to manage app updates, communicate important messages, and enforce license compliance.</p>
+    <p>We use remote configuration to manage app updates, communicate important messages, and enforce license compliance.</p>
   </div>
 
-  <!-- STORAGE ACCESS -->
   <div class="legal-section">
     <h2>Storage Access</h2>
-    <p>E-Sama requests storage access to export and import business data backups to a location you choose on your device. This allows you to transfer data between devices or recover data in case of device loss. No files outside the app's backup folder are accessed or modified.</p>
+    <p>E-Sama requests storage access to export and import backups to a location you choose. No files outside the app backup folder are accessed or modified.</p>
   </div>
 
-  <!-- BLUETOOTH PRINTING -->
   <div class="legal-section">
     <h2>Bluetooth Printing</h2>
-    <p>If you connect a Bluetooth thermal printer, the app uses the Bluetooth permission solely to discover and communicate with your printer. No data is sent to any external server through this connection.</p>
+    <p>If you connect a Bluetooth thermal printer, the app uses Bluetooth only to communicate with your printer. No data is sent to external servers through this connection.</p>
   </div>
 
-  <!-- BIOMETRIC AUTHENTICATION -->
   <div class="legal-section">
     <h2>Biometric Authentication</h2>
-    <p>E-Sama supports fingerprint or face unlock for app security. Your biometric data is processed entirely by your device's hardware and is never accessed or stored by the app.</p>
+    <p>Fingerprint or face unlock is processed entirely by your device hardware. E-Sama never accesses or stores biometric data.</p>
   </div>
 
-  <!-- DATA SECURITY -->
   <div class="legal-section">
     <h2>Data Security</h2>
-    <p>Your data is stored encrypted on your device. Cloud backups are transmitted securely via HTTPS to Google Drive.</p>
+    <p>Your data is encrypted on your device. Cloud backups use HTTPS to Google Drive.</p>
   </div>
 
-  <!-- CHILDREN'S PRIVACY -->
   <div class="legal-section">
     <h2>Children's Privacy</h2>
-    <p>The App is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+    <p>E-Sama is not directed at children under 13. We do not knowingly collect personal information from children.</p>
   </div>
 
-  <!-- CHANGES -->
   <div class="legal-section">
     <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted with an updated effective date.</p>
   </div>
 
-  <!-- CONTACT -->
   <div class="legal-section">
-    <h2>Contact Us</h2>
-    <p>If you have questions about this Privacy Policy, contact us at:</p>
-    <div class="legal-contact"><a href="mailto:cezaremardini10@gmail.com">cezaremardini10@gmail.com</a></div>
+    <h2>Contact</h2>
+    <p>Questions about this Privacy Policy: cezaremardini10@gmail.com</p>
   </div>
 
 </div>
-
 </body>
 </html>

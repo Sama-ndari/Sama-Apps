@@ -84,14 +84,64 @@
 
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/apps.js"></script>
+  <script src="assets/js/legal-full.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
   document.addEventListener("DOMContentLoaded", function () {
     renderLegalPage();
     document.getElementById("langToggle").addEventListener("click", function () {
-      renderLegalPage();
+      var params = new URLSearchParams(window.location.search);
+      var appId = params.get("id");
+      var langs = (appId === "esama") ? ["en", "fr", "sw"] : ["en", "fr"];
+      var cur = getLang();
+      var idx = langs.indexOf(cur);
+      var next = langs[(idx + 1) % langs.length];
+      params.set("lang", next);
+      window.location.search = params.toString();
     });
   });
+
+  function legalPick(obj, lang) {
+    if (!obj) return "";
+    return obj[lang] || obj.en || "";
+  }
+
+  function legalFormatContent(text) {
+    if (!text) return "";
+    var blocks = text.split("\n\n");
+    var h = "";
+    for (var i = 0; i < blocks.length; i++) {
+      var block = blocks[i];
+      var lines = block.split("\n");
+      var isList = lines.length > 0 && lines.every(function (line) {
+        return line.trim() === "" || line.trim().indexOf("•") === 0;
+      }) && lines.some(function (line) { return line.trim().indexOf("•") === 0; });
+      if (isList) {
+        h += "<ul>";
+        for (var j = 0; j < lines.length; j++) {
+          var item = lines[j].replace(/^\s*•\s*/, "").trim();
+          if (item) h += "<li><span>" + item + "</span></li>";
+        }
+        h += "</ul>";
+      } else {
+        h += "<p>" + block.replace(/\n/g, "<br />") + "</p>";
+      }
+    }
+    return h;
+  }
+
+  function renderFullDoc(doc, lang, headingKey) {
+    var h = "";
+    h += "<h1>" + t(headingKey) + "</h1>";
+    h += '<p class="legal-intro">' + legalPick(doc.intro, lang) + "</p>";
+    for (var i = 0; i < doc.sections.length; i++) {
+      var sec = doc.sections[i];
+      h += '<div class="legal-section"><h2>' + legalPick(sec.title, lang) + "</h2>";
+      h += legalFormatContent(legalPick(sec.content, lang));
+      h += "</div>";
+    }
+    return h;
+  }
 
   function renderLegalPage() {
     var params = new URLSearchParams(window.location.search);
@@ -123,10 +173,13 @@
 
     var legal = app.legal;
     var lang = getLang();
+    if (appId === "esama" && lang !== "en" && lang !== "fr" && lang !== "sw") lang = "en";
+    if (appId === "velora" && lang !== "en" && lang !== "fr") lang = "en";
     document.title = (page === "privacy" ? t("privacy_policy") : t("terms_of_service")) + " — " + app.name + " | Sama Apps";
 
-    var privacyUrl = "legal.html?id=" + app.id + "&page=privacy";
-    var termsUrl = "legal.html?id=" + app.id + "&page=terms";
+    var langParam = forceLang || lang;
+    var privacyUrl = "legal.html?id=" + app.id + "&page=privacy&lang=" + langParam;
+    var termsUrl = "legal.html?id=" + app.id + "&page=terms&lang=" + langParam;
 
     var html = '';
     html += '<div class="legal-meta">';
@@ -140,9 +193,17 @@
     html += '</div>';
 
     if (page === "privacy") {
-      html += renderPrivacy(app, legal, lang);
+      if (typeof LEGAL_FULL !== "undefined" && LEGAL_FULL[app.id] && LEGAL_FULL[app.id].privacy) {
+        html += renderFullDoc(LEGAL_FULL[app.id].privacy, lang, "privacy_policy");
+      } else {
+        html += renderPrivacy(app, legal, lang);
+      }
     } else {
-      html += renderTerms(app, legal, lang);
+      if (typeof LEGAL_FULL !== "undefined" && LEGAL_FULL[app.id] && LEGAL_FULL[app.id].terms) {
+        html += renderFullDoc(LEGAL_FULL[app.id].terms, lang, "terms_of_service");
+      } else {
+        html += renderTerms(app, legal, lang);
+      }
     }
 
     container.innerHTML = html;
