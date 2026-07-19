@@ -2,6 +2,16 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sama-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found — Sama Apps</title>
   <meta name="description" content="The page you're looking for doesn't exist." />
@@ -11,7 +21,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
   <style>
     .error-page {
       display: flex;
@@ -38,7 +48,7 @@
       color: var(--text);
     }
     .error-page__desc {
-      color: var(--muted);
+      color: var(--text-muted);
       max-width: 420px;
       margin-bottom: 2rem;
     }
