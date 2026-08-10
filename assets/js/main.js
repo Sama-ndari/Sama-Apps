@@ -355,8 +355,17 @@ function renderDetailPage() {
 }
 
 function renderHero(app) {
+  var isPlayStore = app.downloadSource === "playstore";
+  var downloadLabel = isPlayStore ? t("get_on_play") : t("download_apk");
+  var downloadIcon = isPlayStore ? "bi-google-play" : "bi-download";
   var downloadBtn = app.downloadUrl
-    ? '<a href="' + app.downloadUrl + '" target="_blank" class="btn btn--primary"><i class="bi bi-download"></i> ' + t("download_apk") + '</a>'
+    ? '<a href="' +
+      app.downloadUrl +
+      '" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><i class="bi ' +
+      downloadIcon +
+      '" aria-hidden="true"></i> ' +
+      downloadLabel +
+      "</a>"
     : "";
   var baseUrl = window.location.origin + window.location.pathname.replace("app.html", "");
   var shareUrl = baseUrl + "apps/" + app.id + "/";
