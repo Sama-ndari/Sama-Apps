@@ -8,10 +8,10 @@ A simple static marketplace to discover and download Android apps built by indep
 
 | App | Category | Status |
 |-----|----------|--------|
-| **FabWash** — Carwash Management System | Business | Available |
-| **E-Sama** — Boutique & POS Management | Business | Available |
-| **Velora** — Productivity & Wellness | Productivity | Available |
-| **NotifSpy** — Notification Tracker | Utility | In Development |
+| **FabWash** • Carwash Management System | Business | Available |
+| **E-Sama** • Boutique & POS Management | Business | Available |
+| **Velora** • Productivity & Wellness | Productivity | Available |
+| **NotifSpy** • Notification Tracker | Utility | In Development |
 
 ## Features
 

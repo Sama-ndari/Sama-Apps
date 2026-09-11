@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legal — Sama Apps</title>
+  <title>Legal • Sama Apps</title>
   <meta name="description" content="Privacy Policy and Terms of Service" />
   <link rel="icon" href="assets/img/favicon.ico" />
   <link rel="apple-touch-icon" href="assets/img/logo.webp" />
@@ -175,7 +175,7 @@
     var lang = getLang();
     if (appId === "esama" && lang !== "en" && lang !== "fr" && lang !== "sw") lang = "en";
     if (appId === "velora" && lang !== "en" && lang !== "fr") lang = "en";
-    document.title = (page === "privacy" ? t("privacy_policy") : t("terms_of_service")) + " — " + app.name + " | Sama Apps";
+    document.title = (page === "privacy" ? t("privacy_policy") : t("terms_of_service")) + " • " + app.name + " | Sama Apps";
 
     var langParam = forceLang || lang;
     var privacyUrl = "legal.html?id=" + app.id + "&page=privacy&lang=" + langParam;
@@ -238,7 +238,7 @@
       for (var k = 0; k < legal.thirdParty.length; k++) {
         var tp = legal.thirdParty[k];
         var purpose = tp["purpose_" + lang] || tp.purpose;
-        h += '<div class="third-party-item"><span><span class="tp-name">' + tp.name + '</span> — <span class="tp-purpose">' + purpose + '</span></span></div>';
+        h += '<div class="third-party-item"><span><span class="tp-name">' + tp.name + '</span> • <span class="tp-purpose">' + purpose + '</span></span></div>';
       }
       h += '</div>';
     }

@@ -98,11 +98,27 @@ function applyCommonI18n() {
 }
 
 function priceLabel(app) {
-  return app.price === "free" ? t("free") : t("paid");
+  if (!app.price) return "";
+  if (app.price === "free") return t("free");
+  if (app.price === "license") return t("license");
+  return t("paid");
 }
 
 function priceBadgeClass(app) {
-  return app.price === "free" ? "badge--free" : "badge--paid";
+  if (app.price === "free") return "badge--free";
+  if (app.price === "license") return "badge--license";
+  return "badge--paid";
+}
+
+function priceBadgeHtml(app) {
+  if (!app.price) return "";
+  return (
+    '<span class="badge ' +
+    priceBadgeClass(app) +
+    '">' +
+    priceLabel(app) +
+    "</span>"
+  );
 }
 
 function categoryLabel(cat) {
@@ -263,7 +279,7 @@ function renderHomePage() {
             '<p class="app-card__desc">' + tApp(app, "shortDesc") + '</p>' +
             '<div class="app-card__meta">' +
               '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
-              '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
+              priceBadgeHtml(app) +
               statusBadge +
             '</div>' +
           '</div>' +
@@ -344,7 +360,7 @@ function renderDetailPage() {
     return;
   }
 
-  document.title = app.name + " | Sama Apps";
+  document.title = app.name + " • Sama Apps";
 
   renderHero(app);
   initCopyLink(app);
@@ -356,12 +372,26 @@ function renderDetailPage() {
 
 function renderHero(app) {
   var isPlayStore = app.downloadSource === "playstore";
-  var downloadLabel = isPlayStore ? t("get_on_play") : t("download_apk");
-  var downloadIcon = isPlayStore ? "bi-google-play" : "bi-download";
+  var isContact = app.downloadSource === "contact";
+  var downloadLabel = isPlayStore
+    ? t("get_on_play")
+    : isContact
+      ? t("contact_us")
+      : t("download_apk");
+  var downloadIcon = isPlayStore
+    ? "bi-google-play"
+    : isContact
+      ? "bi-envelope-fill"
+      : "bi-download";
+  var downloadRel = isContact ? "" : ' rel="noopener noreferrer"';
+  var downloadTarget = isContact ? "" : ' target="_blank"';
   var downloadBtn = app.downloadUrl
     ? '<a href="' +
       app.downloadUrl +
-      '" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><i class="bi ' +
+      '"' +
+      downloadTarget +
+      downloadRel +
+      ' class="btn btn--primary"><i class="bi ' +
       downloadIcon +
       '" aria-hidden="true"></i> ' +
       downloadLabel +
@@ -382,7 +412,7 @@ function renderHero(app) {
         '<p class="app-hero__tagline">' + tApp(app, "tagline") + '</p>' +
         '<div class="app-hero__badges">' +
           '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
-          '<span class="badge ' + priceBadgeClass(app) + '">' + priceLabel(app) + '</span>' +
+          priceBadgeHtml(app) +
           statusBadge +
         '</div>' +
         '<div class="app-hero__actions">' + downloadBtn + shareBtn + '</div>' +
@@ -471,12 +501,19 @@ function renderContent(app) {
 function renderDetailSidebar(app) {
   var sidebarInfo = document.getElementById("sidebarInfo");
   if (sidebarInfo) {
+    var priceRow = app.price
+      ? '<div class="sidebar-row"><span class="sidebar-row__label">' +
+        t("price") +
+        '</span><span class="sidebar-row__value">' +
+        priceLabel(app) +
+        "</span></div>"
+      : "";
     sidebarInfo.innerHTML =
       '<h4>' + t("information") + '</h4>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("developer") + '</span><span class="sidebar-row__value">' + app.developer + '</span></div>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("version") + '</span><span class="sidebar-row__value" id="sidebarVersion">' + app.version + '</span></div>' +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("category") + '</span><span class="sidebar-row__value">' + categoryLabel(app.category) + '</span></div>' +
-      '<div class="sidebar-row"><span class="sidebar-row__label">' + t("price") + '</span><span class="sidebar-row__value">' + priceLabel(app) + '</span></div>' +
+      priceRow +
       '<div class="sidebar-row"><span class="sidebar-row__label">' + t("languages") + '</span><span class="sidebar-row__value">' + app.languages.join(", ") + '</span></div>' +
       '<div class="sidebar-row" id="sidebarUsers" hidden><span class="sidebar-row__label">' + t("active_users") + '</span><span class="sidebar-row__value" id="sidebarUsersCount"></span></div>';
   }

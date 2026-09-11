@@ -20,8 +20,6 @@ const APPS = [
     tagline_fr: "Système de Gestion de Carwash",
     developer: "Samandari",
     category: "Business",
-    price: "paid",
-    status: "sold",
     version: "1.0.0",
     languages: ["Français", "English"],
     icon: appAsset("fabwash", "icon.webp"),
@@ -39,13 +37,12 @@ const APPS = [
       appAsset("fabwash", "screenshots/fabwash-settings.webp")
     ],
     videos: [],
-    downloadUrl: null,
-    trialBadge: "Contact us for pricing",
-    trialBadge_fr: "Contactez-nous pour le prix",
+    downloadUrl: "mailto:cezaremardini10@gmail.com?subject=FabWash",
+    downloadSource: "contact",
     shortDesc: "Digital management system for carwash businesses: vehicle registration, invoices, expense tracking, salary calculation, loyalty program and cloud sync.",
     shortDesc_fr: "Système de gestion digital pour carwash : enregistrement véhicules, factures, suivi dépenses, calcul salaires, programme fidélité et synchronisation cloud.",
-    description: "FabWash is a complete management app built for carwash businesses in Burundi and East Africa. Register vehicles in a 4-step flow, generate PDF invoices instantly, track daily expenses, auto-calculate washer salaries based on commissions, and reward loyal customers with a built-in loyalty program. The app works offline-first with Hive local storage and syncs to Firebase Firestore when online. Admin and cashier roles with PIN authentication keep operations secure. Configurable pricing, service types, and salary percentages adapt to any carwash setup.",
-    description_fr: "FabWash est une application complète de gestion pour les carwash au Burundi et en Afrique de l'Est. Enregistrez les véhicules en 4 étapes, générez des factures PDF instantanément, suivez les dépenses quotidiennes, calculez automatiquement les salaires des laveurs basés sur les commissions, et récompensez les clients fidèles avec un programme de fidélité intégré. L'app fonctionne hors ligne avec Hive et se synchronise sur Firebase Firestore quand le réseau est disponible. Les rôles admin et caissier avec authentification PIN sécurisent les opérations. Prix, types de service et pourcentages de salaire sont configurables pour s'adapter à tout carwash.",
+    description: "FabWash is a complete management app built for carwash businesses in Burundi and East Africa. Register vehicles in a 4-step flow, generate PDF invoices instantly, track daily expenses, auto-calculate washer salaries based on commissions, and reward loyal customers with a built-in loyalty program. The app works offline-first with Hive local storage and syncs to Firebase Firestore when online. Admin and cashier roles with PIN authentication keep operations secure. Configurable service types and salary percentages adapt to any carwash setup.",
+    description_fr: "FabWash est une application complète de gestion pour les carwash au Burundi et en Afrique de l'Est. Enregistrez les véhicules en 4 étapes, générez des factures PDF instantanément, suivez les dépenses quotidiennes, calculez automatiquement les salaires des laveurs basés sur les commissions, et récompensez les clients fidèles avec un programme de fidélité intégré. L'app fonctionne hors ligne avec Hive et se synchronise sur Firebase Firestore quand le réseau est disponible. Les rôles admin et caissier avec authentification PIN sécurisent les opérations. Types de service et pourcentages de salaire sont configurables pour s'adapter à tout carwash.",
     features: [
       "4-step vehicle registration: plate number (auto-suggest loyalty), vehicle type, wash type with instant pricing, washer assignment",
       "PDF invoice generation with company logo, thermal POS receipt format for Bluetooth printers",
@@ -67,10 +64,6 @@ const APPS = [
       "Synchronisation cloud via Firebase Firestore avec stockage local Hive hors ligne, indicateur de sync dans la barre",
       "Dashboard admin avec grille de prix configurable, pourcentages de salaire et seuils de fidélité",
       "Interface bilingue (Français / Anglais) avec formatage adapté à la locale et sélection de langue caissier"
-    ],
-    tiers: [
-      { name: "Single Station", desc: "1 carwash station, full POS, invoices, reports, Firebase sync", desc_fr: "1 station carwash, POS complet, factures, rapports, sync Firebase" },
-      { name: "Multi-Station", desc: "Unlimited stations, consolidated reports, employee transfers, priority support", desc_fr: "Stations illimitées, rapports consolidés, transfert employés, support prioritaire" }
     ],
     legal: {
       developer: "Samandari",
@@ -131,7 +124,7 @@ const APPS = [
     tagline_fr: "Gestion Business Trilingue & POS",
     developer: "Samandari",
     category: "Business",
-    price: "paid",
+    price: "license",
     version: "1.0.0",
     languages: ["English", "Fran\u00e7ais", "Kiswahili"],
     icon: appAsset("esama", "icon.webp"),
@@ -308,7 +301,7 @@ const APPS = [
     tagline_fr: "Productivit\u00e9 & Bien-\u00eatre",
     developer: "Samandari",
     category: "Productivity",
-    price: "paid",
+    price: "free",
     version: "1.0.0",
     languages: ["English", "Fran\u00e7ais"],
     icon: appAsset("velora", "icon.webp"),
@@ -334,16 +327,17 @@ const APPS = [
       appAsset("velora", "screenshots/velora-backup.webp"),
       appAsset("velora", "screenshots/velora-settings.webp"),
       appAsset("velora", "screenshots/velora-lockscreen.webp"),
-      appAsset("velora", "screenshots/velora-license-activate.webp"),
-      appAsset("velora", "screenshots/velora-license-buy.webp"),
+      // Temporarily hidden while Velora is free:
+      // appAsset("velora", "screenshots/velora-license-activate.webp"),
+      // appAsset("velora", "screenshots/velora-license-buy.webp"),
       appAsset("velora", "screenshots/velora-widget.webp")
     ],
     downloadUrl: "https://play.google.com/store/apps/details?id=dev.samandari.velora",
     downloadSource: "playstore",
     shortDesc: "A personal productivity app with habit tracking, goals, smart alarms, expense management, and AI features.",
     shortDesc_fr: "Une app de productivit\u00e9 avec suivi d'habitudes, objectifs, alarmes intelligentes, gestion de d\u00e9penses et fonctions IA.",
-    description: "Velora is a personal productivity and wellness app that helps you build better habits, manage your goals, and stay organized. It works entirely offline and includes smart alarms, expense tracking, a debt manager, and an AI-powered assistant. Back up your entire data to Google Drive with one tap and restore it on a new device in seconds.",
-    description_fr: "Velora est une application de productivit\u00e9 et bien-\u00eatre qui vous aide \u00e0 construire de meilleures habitudes, g\u00e9rer vos objectifs et rester organis\u00e9. Elle fonctionne enti\u00e8rement hors ligne et inclut des alarmes intelligentes, un suivi de d\u00e9penses, un gestionnaire de dettes et un assistant IA. Sauvegardez toutes vos donn\u00e9es sur Google Drive en un tap et restaurez-les sur un nouvel appareil en quelques secondes.",
+    description: "Velora is a personal productivity and wellness app that helps you build better habits, manage your goals, and stay organized. It works entirely offline and includes smart alarms, expense tracking, a debt manager, and an AI-powered assistant. Back up your entire data to Google Drive with one tap and restore it on a new device in seconds. Currently free to download and use.",
+    description_fr: "Velora est une application de productivit\u00e9 et bien-\u00eatre qui vous aide \u00e0 construire de meilleures habitudes, g\u00e9rer vos objectifs et rester organis\u00e9. Elle fonctionne enti\u00e8rement hors ligne et inclut des alarmes intelligentes, un suivi de d\u00e9penses, un gestionnaire de dettes et un assistant IA. Sauvegardez toutes vos donn\u00e9es sur Google Drive en un tap et restaurez-les sur un nouvel appareil en quelques secondes. Actuellement gratuite \u00e0 t\u00e9l\u00e9charger et \u00e0 utiliser.",
     features: [
       "Track daily, weekly, and monthly habits with streaks, a calendar heatmap, and detailed statistics",
       "Create goals with milestones, track your progress, and visualize completion over time",
@@ -364,10 +358,11 @@ const APPS = [
       "Sauvegarde cloud sur Google Drive : sauvegardez et restaurez toutes vos donn\u00e9es en un tap, m\u00eame sur un nouveau t\u00e9l\u00e9phone",
       "Fonctionne enti\u00e8rement hors ligne, vos donn\u00e9es restent priv\u00e9es et chiffr\u00e9es sur votre appareil"
     ],
-    tiers: [
-      { name: "Standard", desc: "Full access to habits, goals, alarms, journal, cloud backup", desc_fr: "Acc\u00e8s complet aux habitudes, objectifs, alarmes, journal, sauvegarde cloud" },
-      { name: "AI", desc: "Everything in Standard plus AI-powered features and analytics", desc_fr: "Tout le Standard plus les fonctionnalit\u00e9s IA et analyses" }
-    ],
+    // Temporarily hidden while Velora is free:
+    // tiers: [
+    //   { name: "Standard", desc: "Full access to habits, goals, alarms, journal, cloud backup", desc_fr: "Acc\u00e8s complet aux habitudes, objectifs, alarmes, journal, sauvegarde cloud" },
+    //   { name: "AI", desc: "Everything in Standard plus AI-powered features and analytics", desc_fr: "Tout le Standard plus les fonctionnalit\u00e9s IA et analyses" }
+    // ],
     legal: {
       developer: "Samandari",
       email: "cezaremardini10@gmail.com",
