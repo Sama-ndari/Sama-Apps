@@ -151,6 +151,13 @@ function fetchLiveVersion(appId, callback) {
 var _userCounts = {};
 var _userCountsLoaded = false;
 
+/* Display-only overrides (fetch system still runs; real numbers not shown) */
+var DISPLAY_USER_COUNT = {
+  velora: "+100",
+  esama: "+100"
+};
+var DISPLAY_TOTAL_USERS = "+100";
+
 function fetchUserStats(callback) {
   if (typeof GIST_SOURCES === "undefined") return;
 
@@ -180,23 +187,32 @@ function fetchUserStats(callback) {
   });
 }
 
-function renderStatsBanner(counts) {
+function renderStatsBanner(_counts) {
   var banner = document.getElementById("statsBanner");
   var bannerText = document.getElementById("statsBannerText");
   if (!banner || !bannerText) return;
 
+  /* Real total (commented — display override only)
   var total = 0;
   for (var k in counts) total += counts[k];
   if (total > 0) {
     bannerText.textContent = t("trusted_by").replace("{count}", total);
     banner.hidden = false;
   }
+  */
+  bannerText.textContent = t("trusted_by").replace("{count}", DISPLAY_TOTAL_USERS);
+  banner.hidden = false;
 }
 
 function userBadgeHtml(appId) {
+  /* Real count display (commented)
   var count = _userCounts[appId];
   if (!count || count <= 0) return "";
   return '<span class="app-card__users"><i class="bi bi-people-fill"></i> ' + count + ' ' + t("users") + '</span>';
+  */
+  var label = DISPLAY_USER_COUNT[appId];
+  if (!label) return "";
+  return '<span class="app-card__users"><i class="bi bi-people-fill"></i> ' + label + ' ' + t("users") + '</span>';
 }
 
 /* ===== SHARED HELPERS ===== */
@@ -518,7 +534,8 @@ function renderDetailSidebar(app) {
       '<div class="sidebar-row" id="sidebarUsers" hidden><span class="sidebar-row__label">' + t("active_users") + '</span><span class="sidebar-row__value" id="sidebarUsersCount"></span></div>';
   }
 
-  fetchUserStats(function (counts) {
+  fetchUserStats(function (_counts) {
+    /* Real count display (commented)
     var count = counts[app.id];
     if (count && count > 0) {
       var row = document.getElementById("sidebarUsers");
@@ -534,6 +551,22 @@ function renderDetailSidebar(app) {
         badge.innerHTML = '<i class="bi bi-people-fill"></i> ' + t("used_by").replace("{count}", count);
         badges.appendChild(badge);
       }
+    }
+    */
+    var label = DISPLAY_USER_COUNT[app.id];
+    if (!label) return;
+    var row = document.getElementById("sidebarUsers");
+    var val = document.getElementById("sidebarUsersCount");
+    if (row && val) {
+      val.innerHTML = '<span class="user-count-value"><i class="bi bi-people-fill"></i> ' + label + '</span>';
+      row.hidden = false;
+    }
+    var badges = document.querySelector(".app-hero__badges");
+    if (badges && !badges.querySelector(".badge--users")) {
+      var badge = document.createElement("span");
+      badge.className = "badge badge--users";
+      badge.innerHTML = '<i class="bi bi-people-fill"></i> ' + t("used_by").replace("{count}", label);
+      badges.appendChild(badge);
     }
   });
 
