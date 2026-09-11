@@ -125,7 +125,7 @@ const APPS = [
     developer: "Samandari",
     category: "Business",
     price: "license",
-    version: "1.0.0",
+    version: "1.0.3",
     languages: ["English", "Fran\u00e7ais", "Kiswahili"],
     icon: appAsset("esama", "icon.webp"),
     screenshots: [
@@ -302,7 +302,7 @@ const APPS = [
     developer: "Samandari",
     category: "Productivity",
     price: "free",
-    version: "1.0.0",
+    version: "1.0.6",
     languages: ["English", "Fran\u00e7ais"],
     icon: appAsset("velora", "icon.webp"),
     screenshots: [
