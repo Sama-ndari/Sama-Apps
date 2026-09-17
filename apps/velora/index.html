@@ -22,7 +22,16 @@
   <meta name="twitter:image" content="https://apps.samandari.dev/assets/apps/velora/og.webp" />
 
   <meta http-equiv="refresh" content="0; url=../../app.html?id=velora" />
-  <script>window.location.replace("../../app.html?id=velora");</script>
+  <script>
+    (function () {
+      var url = "../../app.html?id=velora";
+      try {
+        var lang = localStorage.getItem("sama-lang");
+        if (lang === "en" || lang === "fr") url += "&lang=" + lang;
+      } catch (_) {}
+      window.location.replace(url);
+    })();
+  </script>
 </head>
 <body></body>
 </html>

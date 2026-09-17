@@ -99,6 +99,8 @@ function guideRender(opts) {
 
   var lang = getLang();
   if (!G[lang]) lang = "en";
+  if (typeof setLang === "function") setLang(lang);
+  document.documentElement.lang = lang;
   var g = G[lang];
   var guideEl = document.getElementById("guideContent");
   if (!guideEl) return;

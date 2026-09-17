@@ -89,13 +89,20 @@
 
   <script>
     (function() {
-      var lang = (navigator.language || '').slice(0,2);
-      if (lang === 'fr') {
-        document.getElementById('errorTitle').textContent = 'Page introuvable';
-        document.getElementById('errorDesc').textContent = "La page que vous cherchez n'existe pas ou a été déplacée.";
-        document.getElementById('errorBtn').querySelector('span').textContent = "Retour à l'accueil";
+      var lang = "en";
+      try {
+        var stored = localStorage.getItem("sama-lang");
+        if (stored === "fr") lang = "fr";
+        else if ((navigator.language || "").slice(0, 2) === "fr") lang = "fr";
+      } catch (e) {
+        if ((navigator.language || "").slice(0, 2) === "fr") lang = "fr";
       }
-      setTimeout(function() { window.location.href = '/'; }, 8000);
+      if (lang === "fr") {
+        document.getElementById("errorTitle").textContent = "Page introuvable";
+        document.getElementById("errorDesc").textContent = "La page que vous cherchez n'existe pas ou a \u00e9t\u00e9 d\u00e9plac\u00e9e.";
+        document.getElementById("errorBtn").querySelector("span").textContent = "Retour \u00e0 l'accueil";
+      }
+      setTimeout(function() { window.location.href = "/"; }, 8000);
     })();
   </script>
 </body>

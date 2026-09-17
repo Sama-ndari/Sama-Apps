@@ -89,13 +89,16 @@
   <script>
   document.addEventListener("DOMContentLoaded", function () {
     renderLegalPage();
-    document.getElementById("langToggle").addEventListener("click", function () {
+    var langBtn = document.getElementById("langToggle");
+    if (!langBtn) return;
+    langBtn.addEventListener("click", function () {
       var params = new URLSearchParams(window.location.search);
       var appId = params.get("id");
       var langs = (appId === "esama") ? ["en", "fr", "sw"] : ["en", "fr"];
-      var cur = getLang();
-      var idx = langs.indexOf(cur);
-      var next = langs[(idx + 1) % langs.length];
+      var cur = params.get("lang") || getLang();
+      if (langs.indexOf(cur) < 0) cur = "en";
+      var next = langs[(langs.indexOf(cur) + 1) % langs.length];
+      setLang(next);
       params.set("lang", next);
       window.location.search = params.toString();
     });
@@ -150,9 +153,10 @@
     var forceLang = params.get("lang");
     if (forceLang && I18N[forceLang]) {
       setLang(forceLang);
-      var toggle = document.getElementById("langToggle");
-      if (toggle) toggle.textContent = forceLang.toUpperCase();
     }
+    var toggle = document.getElementById("langToggle");
+    if (toggle) toggle.textContent = getLang().toUpperCase();
+    document.documentElement.lang = getLang();
     var app = null;
 
     for (var i = 0; i < APPS.length; i++) {
@@ -177,7 +181,7 @@
     if (appId === "velora" && lang !== "en" && lang !== "fr") lang = "en";
     document.title = (page === "privacy" ? t("privacy_policy") : t("terms_of_service")) + " • " + app.name + " | Sama Apps";
 
-    var langParam = forceLang || lang;
+    var langParam = getLang();
     var privacyUrl = "legal.html?id=" + app.id + "&page=privacy&lang=" + langParam;
     var termsUrl = "legal.html?id=" + app.id + "&page=terms&lang=" + langParam;
 

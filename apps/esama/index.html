@@ -22,7 +22,16 @@
   <meta name="twitter:image" content="https://apps.samandari.dev/assets/apps/esama/og.webp" />
 
   <meta http-equiv="refresh" content="0; url=../../app.html?id=esama" />
-  <script>window.location.replace("../../app.html?id=esama");</script>
+  <script>
+    (function () {
+      var url = "../../app.html?id=esama";
+      try {
+        var lang = localStorage.getItem("sama-lang");
+        if (lang === "en" || lang === "fr" || lang === "sw") url += "&lang=" + lang;
+      } catch (_) {}
+      window.location.replace(url);
+    })();
+  </script>
 </head>
 <body></body>
 </html>

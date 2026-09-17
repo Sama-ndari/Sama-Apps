@@ -22,7 +22,16 @@
   <meta name="twitter:image" content="https://apps.samandari.dev/assets/apps/fabwash/icon.webp" />
 
   <meta http-equiv="refresh" content="0; url=../../app.html?id=fabwash" />
-  <script>window.location.replace("../../app.html?id=fabwash");</script>
+  <script>
+    (function () {
+      var url = "../../app.html?id=fabwash";
+      try {
+        var lang = localStorage.getItem("sama-lang");
+        if (lang === "en" || lang === "fr") url += "&lang=" + lang;
+      } catch (_) {}
+      window.location.replace(url);
+    })();
+  </script>
 </head>
 <body></body>
 </html>

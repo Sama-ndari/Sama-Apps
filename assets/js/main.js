@@ -1,6 +1,7 @@
 var _lightboxKeyHandler = null;
 
 document.addEventListener("DOMContentLoaded", function () {
+  applyUrlLang();
   initTheme();
   initLangToggle();
 
@@ -10,11 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function renderPage() {
+  if (document.getElementById("legalContent")) return;
   if (document.getElementById("appDetail")) {
     renderDetailPage();
-  } else {
+  } else if (document.getElementById("appGrid")) {
     renderHomePage();
   }
+}
+
+function applyUrlLang() {
+  var params = new URLSearchParams(window.location.search);
+  var forceLang = params.get("lang");
+  if (forceLang && typeof I18N !== "undefined" && I18N[forceLang]) {
+    setLang(forceLang);
+  }
+  document.documentElement.lang = getLang();
 }
 
 function initTheme() {
@@ -22,7 +33,9 @@ function initTheme() {
   document.documentElement.setAttribute("data-theme", saved);
   updateThemeIcon(saved);
 
-  document.getElementById("themeToggle").addEventListener("click", function () {
+  var themeBtn = document.getElementById("themeToggle");
+  if (!themeBtn) return;
+  themeBtn.addEventListener("click", function () {
     var current = document.documentElement.getAttribute("data-theme");
     var next = current === "dark" ? "light" : "dark";
     applyTheme(next, this);
@@ -79,6 +92,9 @@ function updateThemeIcon(theme) {
 function initLangToggle() {
   var btn = document.getElementById("langToggle");
   if (!btn) return;
+  /* legal.html owns its own multi-lang cycle (en/fr/sw) */
+  if (document.getElementById("legalContent")) return;
+
   btn.textContent = getLang().toUpperCase();
 
   btn.addEventListener("click", function () {
@@ -86,6 +102,12 @@ function initLangToggle() {
     setLang(next);
     btn.textContent = next.toUpperCase();
     document.documentElement.lang = next;
+
+    var params = new URLSearchParams(window.location.search);
+    params.set("lang", next);
+    var qs = params.toString();
+    history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : ""));
+
     renderPage();
   });
 }
@@ -592,10 +614,15 @@ function renderDetailSidebar(app) {
     var legalEl = document.getElementById("sidebarLegal");
     if (legalEl) {
       legalEl.hidden = false;
-      legalEl.innerHTML =
-        '<a href="legal.html?id=' + app.id + '&page=privacy" class="legal-link"><i class="bi bi-shield-lock"></i> ' + t("privacy_policy") + '</a>' +
-        '<a href="legal.html?id=' + app.id + '&page=terms" class="legal-link"><i class="bi bi-file-earmark-text"></i> ' + t("terms_of_service") + '</a>' +
-        '<a href="apps/' + app.id + '/guide.html" class="legal-link"><i class="bi bi-book"></i> ' + t("user_guide") + '</a>';
+      var langQs = "&lang=" + getLang();
+      var legalHtml =
+        '<a href="legal.html?id=' + app.id + '&page=privacy' + langQs + '" class="legal-link"><i class="bi bi-shield-lock"></i> ' + t("privacy_policy") + '</a>' +
+        '<a href="legal.html?id=' + app.id + '&page=terms' + langQs + '" class="legal-link"><i class="bi bi-file-earmark-text"></i> ' + t("terms_of_service") + '</a>';
+      if (app.hasGuide) {
+        legalHtml +=
+          '<a href="apps/' + app.id + '/guide.html?lang=' + getLang() + '" class="legal-link"><i class="bi bi-book"></i> ' + t("user_guide") + '</a>';
+      }
+      legalEl.innerHTML = legalHtml;
     }
   }
 }

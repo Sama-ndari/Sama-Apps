@@ -154,7 +154,14 @@
     }
   };
 
-  var lang = (navigator.language || "").slice(0, 2) === "fr" ? "fr" : "en";
+  var lang = "en";
+  try {
+    var stored = localStorage.getItem("sama-lang");
+    if (stored === "fr" || stored === "en") lang = stored;
+    else if ((navigator.language || "").slice(0, 2) === "fr") lang = "fr";
+  } catch (_) {
+    if ((navigator.language || "").slice(0, 2) === "fr") lang = "fr";
+  }
   var t = T[lang];
 
   document.getElementById("title").textContent = t.title;
