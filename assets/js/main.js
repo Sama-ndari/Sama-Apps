@@ -400,6 +400,25 @@ function renderDetailPage() {
 
   document.title = app.name + " • Sama Apps";
 
+  if (app.icon) {
+    var stale = document.querySelectorAll(
+      'link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]'
+    );
+    for (var f = 0; f < stale.length; f++) {
+      stale[f].parentNode.removeChild(stale[f]);
+    }
+    var fav = document.createElement("link");
+    fav.rel = "icon";
+    fav.type = "image/webp";
+    fav.sizes = "any";
+    fav.href = app.icon + (app.icon.indexOf("?") >= 0 ? "&" : "?") + "v=app";
+    document.head.appendChild(fav);
+    var apple = document.createElement("link");
+    apple.rel = "apple-touch-icon";
+    apple.href = app.icon;
+    document.head.appendChild(apple);
+  }
+
   renderHero(app);
   initCopyLink(app);
   renderMedia(app);
