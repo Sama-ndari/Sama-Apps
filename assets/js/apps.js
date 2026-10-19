@@ -211,7 +211,9 @@ const APPS = [
     ],
     legal: {
       developer: "Samandari",
-      email: "cezaremardini10@gmail.com",
+      email: "esamaburundi@gmail.com",
+      instagram: "https://www.instagram.com/esama392/",
+      facebook: "https://www.facebook.com/people/E-Sama/61595450701868/",
       effectiveDate: "2026-06-21",
       dataLocal: [
         "Sales, purchases, and inventory records",

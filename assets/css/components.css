@@ -298,11 +298,19 @@
 
 .app-hero__info { flex: 1; }
 
+.app-hero__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
 .app-hero__name {
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  margin-bottom: 0;
 }
 
 .app-hero__tagline {
@@ -322,6 +330,33 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-social {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.hero-social__btn {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  line-height: 0;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: transform var(--transition);
+}
+
+.hero-social__btn svg { width: 26px; height: 26px; display: block; }
+
+.hero-social__btn:hover { transform: translateY(-1px); }
+
+.hero-social__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 /* ========== BUTTONS ========== */
@@ -719,6 +754,7 @@
   .app-hero__icon { width: 72px; height: 72px; border-radius: 18px; }
   .app-hero__icon-wrap { width: 72px; height: 72px; }
   .app-hero__lock { width: 72px; height: 72px; font-size: 1.8rem; border-radius: 18px; }
+  .app-hero__title-row { justify-content: center; flex-wrap: wrap; }
   .app-hero__name { font-size: 1.25rem; }
   .app-hero__tagline { font-size: 0.88rem; }
 
@@ -805,6 +841,7 @@
     text-align: center;
   }
 
+  .app-hero__title-row,
   .app-hero__badges,
   .app-hero__actions { justify-content: center; }
 

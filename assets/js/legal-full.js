@@ -517,9 +517,9 @@ const LEGAL_FULL = {
             "sw": "Wasiliana"
           },
           "content": {
-            "en": "Questions about this Privacy Policy: cezaremardini10@gmail.com",
-            "fr": "Questions sur cette politique : cezaremardini10@gmail.com",
-            "sw": "Maswali kuhusu sera hii: cezaremardini10@gmail.com"
+            "en": "Questions about this Privacy Policy: esamaburundi@gmail.com",
+            "fr": "Questions sur cette politique : esamaburundi@gmail.com",
+            "sw": "Maswali kuhusu sera hii: esamaburundi@gmail.com"
           }
         }
       ]
@@ -658,9 +658,9 @@ const LEGAL_FULL = {
             "sw": "Wasiliana"
           },
           "content": {
-            "en": "Questions about these Terms: cezaremardini10@gmail.com",
-            "fr": "Questions sur ces conditions : cezaremardini10@gmail.com",
-            "sw": "Maswali kuhusu masharti haya: cezaremardini10@gmail.com"
+            "en": "Questions about these Terms: esamaburundi@gmail.com",
+            "fr": "Questions sur ces conditions : esamaburundi@gmail.com",
+            "sw": "Maswali kuhusu masharti haya: esamaburundi@gmail.com"
           }
         }
       ]

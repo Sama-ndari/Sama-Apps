@@ -465,7 +465,10 @@ function renderHero(app) {
     heroEl.innerHTML =
       heroIconHtml +
       '<div class="app-hero__info">' +
-        '<h1 class="app-hero__name">' + app.name + '</h1>' +
+        '<div class="app-hero__title-row">' +
+          '<h1 class="app-hero__name">' + app.name + '</h1>' +
+          heroSocialIcons(app.legal) +
+        '</div>' +
         '<p class="app-hero__tagline">' + tApp(app, "tagline") + '</p>' +
         '<div class="app-hero__badges">' +
           '<span class="badge badge--category">' + categoryLabel(app.category) + '</span>' +
@@ -553,6 +556,26 @@ function renderContent(app) {
       return '<li><span>' + f + '</span></li>';
     }).join("");
   }
+}
+
+var SOCIAL_MARKS = {
+  email: '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75L35 40h7c1.7 0 3-1.3 3-3V16.2z"/><path fill="#1e88e5" d="M3 16.2l3.6 1.7L13 23.7V40H6c-1.7 0-3-1.3-3-3V16.2z"/><path fill="#e53935" d="M35 11.2 24 19.5 13 11.2 12 17l1 6.7L24 32l11-8.3 1-6.7z"/><path fill="#c62828" d="M3 12.3V16.2l10 7.5V11.2L9.9 8.9C9.1 8.3 8.2 8 7.3 8 4.9 8 3 9.9 3 12.3z"/><path fill="#fbc02d" d="M45 12.3V16.2l-10 7.5V11.2l3.1-2.3c.8-.6 1.7-.9 2.6-.9 2.4 0 4.3 1.9 4.3 4.3z"/></svg>',
+  instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><defs><radialGradient id="igMark" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="24" height="24" rx="6" fill="url(#igMark)"/><rect x="4.2" y="4.2" width="15.6" height="15.6" rx="4.2" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="17.1" cy="6.9" r="1" fill="#fff"/></svg>',
+  facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.4 19.2v-5.5h1.9l.3-2.2h-2.2V10.2c0-.6.2-1 1.1-1h1.2V7.1c-.2 0-.9-.1-1.6-.1-1.6 0-2.7 1-2.7 2.8v1.7H9.4v2.2h2v5.5h2z"/></svg>'
+};
+
+function heroSocialIcons(legal) {
+  if (!legal || (!legal.instagram && !legal.facebook)) return "";
+  var html = '<div class="hero-social">';
+  if (legal.email) html += socialMarkLink("mailto:" + legal.email, "Email", SOCIAL_MARKS.email, false);
+  if (legal.instagram) html += socialMarkLink(legal.instagram, "Instagram", SOCIAL_MARKS.instagram, true);
+  if (legal.facebook) html += socialMarkLink(legal.facebook, "Facebook", SOCIAL_MARKS.facebook, true);
+  return html + "</div>";
+}
+
+function socialMarkLink(href, label, mark, external) {
+  var extra = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+  return '<a class="hero-social__btn" href="' + href + '"' + extra + ' aria-label="' + label + '" title="' + label + '">' + mark + "</a>";
 }
 
 function renderDetailSidebar(app) {

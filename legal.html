@@ -196,21 +196,40 @@
     html += '<a href="' + termsUrl + '" class="legal-tab' + (page === "terms" ? " active" : "") + '">' + t("terms_of_service") + '</a>';
     html += '</div>';
 
+    var usedFull = false;
     if (page === "privacy") {
-      if (typeof LEGAL_FULL !== "undefined" && LEGAL_FULL[app.id] && LEGAL_FULL[app.id].privacy) {
+      usedFull = typeof LEGAL_FULL !== "undefined" && LEGAL_FULL[app.id] && LEGAL_FULL[app.id].privacy;
+      if (usedFull) {
         html += renderFullDoc(LEGAL_FULL[app.id].privacy, lang, "privacy_policy");
       } else {
         html += renderPrivacy(app, legal, lang);
       }
     } else {
-      if (typeof LEGAL_FULL !== "undefined" && LEGAL_FULL[app.id] && LEGAL_FULL[app.id].terms) {
+      usedFull = typeof LEGAL_FULL !== "undefined" && LEGAL_FULL[app.id] && LEGAL_FULL[app.id].terms;
+      if (usedFull) {
         html += renderFullDoc(LEGAL_FULL[app.id].terms, lang, "terms_of_service");
       } else {
         html += renderTerms(app, legal, lang);
       }
     }
+    if (usedFull && (legal.instagram || legal.facebook)) {
+      html += '<div class="legal-section"><h2>' + t("legal_contact_title") + '</h2>';
+      html += contactBlock(legal);
+      html += '</div>';
+    }
 
     container.innerHTML = html;
+  }
+
+  function contactBlock(legal) {
+    var h = '<div class="legal-contact"><a href="mailto:' + legal.email + '">' + legal.email + '</a></div>';
+    if (legal.instagram) {
+      h += '<div class="legal-contact"><a href="' + legal.instagram + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i> Instagram</a></div>';
+    }
+    if (legal.facebook) {
+      h += '<div class="legal-contact"><a href="' + legal.facebook + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Facebook</a></div>';
+    }
+    return h;
   }
 
   function renderPrivacy(app, legal, lang) {
@@ -274,7 +293,7 @@
 
     h += '<div class="legal-section"><h2>' + t("legal_contact_title") + '</h2>';
     h += '<p>' + t("legal_contact_desc") + '</p>';
-    h += '<div class="legal-contact"><a href="mailto:' + legal.email + '">' + legal.email + '</a></div></div>';
+    h += contactBlock(legal) + '</div>';
 
     return h;
   }
@@ -316,7 +335,7 @@
 
     h += '<div class="legal-section"><h2>' + t("legal_contact_title") + '</h2>';
     h += '<p>' + t("legal_contact_desc") + '</p>';
-    h += '<div class="legal-contact"><a href="mailto:' + legal.email + '">' + legal.email + '</a></div></div>';
+    h += contactBlock(legal) + '</div>';
 
     return h;
   }
