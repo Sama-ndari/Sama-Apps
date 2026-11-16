@@ -175,8 +175,8 @@ var _userCountsLoaded = false;
 
 /* Display-only overrides (fetch system still runs; real numbers not shown) */
 var DISPLAY_USER_COUNT = {
-  velora: "+100",
-  esama: "+100"
+  velora: "+100"
+  // , esama: "+100" // temporarily hidden while unpublished on Play Store
 };
 var DISPLAY_TOTAL_USERS = "+100";
 
