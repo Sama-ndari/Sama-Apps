@@ -3,14 +3,12 @@ function appAsset(id, file) {
 }
 
 const GIST_SOURCES = [
-  // Temporarily hidden while E-Sama unpublished
-  // { id: "esama", gistId: "0250417d63c891faf03a52909d6010e4", file: "e_sama_admin_sync.json" },
+  { id: "esama", gistId: "0250417d63c891faf03a52909d6010e4", file: "e_sama_admin_sync.json" },
   { id: "velora", gistId: "b806e5a54d4cf1a24b23ce2bfc4c5116", file: "velora_admin_sync.json" }
 ];
 
 const REMOTE_CONFIGS = [
-  // Temporarily hidden while E-Sama unpublished
-  // { id: "esama", url: "https://gist.githubusercontent.com/Sama-ndari/d37c77064385b9600f7c946830a7aa5f/raw/e_sama_config.json" },
+  { id: "esama", url: "https://gist.githubusercontent.com/Sama-ndari/d37c77064385b9600f7c946830a7aa5f/raw/e_sama_config.json" },
   { id: "velora", url: "https://gist.githubusercontent.com/Sama-ndari/55d00b35530e4695d35cde0edcc6e5d5/raw/velora_config.json" }
 ];
 
@@ -120,7 +118,6 @@ const APPS = [
       ]
     }
   },
-  /* Temporarily hidden while E-Sama is unpublished on Play Store
   {
     id: "esama",
     name: "E-Sama",
@@ -301,7 +298,6 @@ const APPS = [
       ]
     }
   },
-  */
   {
     id: "velora",
     name: "Velora",
