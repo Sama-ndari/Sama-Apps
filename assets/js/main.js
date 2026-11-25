@@ -296,6 +296,7 @@ function renderHomePage() {
   function renderCards() {
     var query = getSearchQuery();
     var filtered = APPS.filter(function (app) {
+      if (app.unlisted) return false;
       var matchFilter = activeFilter === "all" || app.category === activeFilter;
       var name = app.name.toLowerCase();
       var tagline = tApp(app, "tagline").toLowerCase();
@@ -442,7 +443,8 @@ function renderHero(app) {
       : "bi-download";
   var downloadRel = isContact ? "" : ' rel="noopener noreferrer"';
   var downloadTarget = isContact ? "" : ' target="_blank"';
-  var downloadBtn = app.downloadUrl
+  // Unlisted apps are not downloadable (e.g. unpublished from Play Store).
+  var downloadBtn = app.downloadUrl && !app.unlisted
     ? '<a href="' +
       app.downloadUrl +
       '"' +

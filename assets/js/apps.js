@@ -125,6 +125,9 @@ const APPS = [
     tagline_fr: "Gestion Business Trilingue & POS",
     developer: "Samandari",
     category: "Business",
+    // Off the store grid while unpublished on Play Store; its detail, guide and
+    // legal pages stay reachable by direct link (needed for Google OAuth review).
+    unlisted: true,
     price: "license",
     hasGuide: true,
     version: "1.0.3",
@@ -505,5 +508,5 @@ const APPS = [
 ];
 
 const SAMA_APPS_CATALOG = {
-  appCount: APPS.length
+  appCount: APPS.filter(function (app) { return !app.unlisted; }).length
 };

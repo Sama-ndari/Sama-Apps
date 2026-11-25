@@ -99,6 +99,16 @@ const LEGAL_FULL = {
         },
         {
           "title": {
+            "en": "Google API Services — Limited Use",
+            "fr": "Services d'API Google — Utilisation limitée"
+          },
+          "content": {
+            "en": "Velora requests only the Google Drive \"drive.file\" permission, which lets it see and manage only the backup files it creates in your Drive — never your other files. This access is used solely to save and restore your backups at your request. This data is not sold, not used for advertising, and not used to train AI models, and Samandari has no access to it.\n\nVelora's use and transfer of information received from Google APIs will adhere to the <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener noreferrer\">Google API Services User Data Policy</a>, including the Limited Use requirements.",
+            "fr": "Velora demande uniquement la permission Google Drive « drive.file », qui lui permet de voir et gérer seulement les fichiers de sauvegarde qu'elle crée dans votre Drive — jamais vos autres fichiers. Cet accès sert uniquement à enregistrer et restaurer vos sauvegardes à votre demande. Ces données ne sont pas vendues, pas utilisées à des fins publicitaires ni pour entraîner des modèles d'IA, et Samandari n'y a pas accès.\n\nL'utilisation et le transfert par Velora des informations reçues des API Google respectent les <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener noreferrer\">Règles relatives aux données utilisateur des services d'API Google</a> (Google API Services User Data Policy), y compris les exigences d'utilisation limitée (Limited Use)."
+          }
+        },
+        {
+          "title": {
             "en": "Data Retention & Deletion",
             "fr": "Conservation et suppression"
           },
@@ -400,6 +410,18 @@ const LEGAL_FULL = {
             "en": "If you enable cloud backup, your selected data is stored on your personal Google Drive account. E-Sama does not have access to your Google Drive — data transfer uses Google's secure OAuth2 authentication. You can delete your cloud data at any time.",
             "fr": "Si vous activez la sauvegarde cloud, vos données sélectionnées sont stockées sur votre Google Drive personnel. E-Sama n'a pas accès à votre Drive — transfert via OAuth2 Google. Vous pouvez supprimer vos données cloud à tout moment.",
             "sw": "Ukiwasha hifadhi ya wingu, data iliyochaguliwa inahifadhiwa kwenye Google Drive yako. E-Sama haina ufikiaji wa Drive yako — uhamisho unatumia OAuth2 salama wa Google. Unaweza kufuta data ya wingu wakati wowote."
+          }
+        },
+        {
+          "title": {
+            "en": "Google API Services — Limited Use",
+            "fr": "Services d'API Google — Utilisation limitée",
+            "sw": "Huduma za API za Google — Matumizi Machache"
+          },
+          "content": {
+            "en": "E-Sama requests only the Google Drive \"drive.file\" permission, which lets it see and manage only the backup files it creates in your Drive — never your other files. This access is used solely to save and restore your backups at your request. This data is not sold, not used for advertising, and not used to train AI models, and Samandari has no access to it.\n\nE-Sama's use and transfer of information received from Google APIs will adhere to the <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener noreferrer\">Google API Services User Data Policy</a>, including the Limited Use requirements.",
+            "fr": "E-Sama demande uniquement la permission Google Drive « drive.file », qui lui permet de voir et gérer seulement les fichiers de sauvegarde qu'elle crée dans votre Drive — jamais vos autres fichiers. Cet accès sert uniquement à enregistrer et restaurer vos sauvegardes à votre demande. Ces données ne sont pas vendues, pas utilisées à des fins publicitaires ni pour entraîner des modèles d'IA, et Samandari n'y a pas accès.\n\nL'utilisation et le transfert par E-Sama des informations reçues des API Google respectent les <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener noreferrer\">Règles relatives aux données utilisateur des services d'API Google</a> (Google API Services User Data Policy), y compris les exigences d'utilisation limitée (Limited Use).",
+            "sw": "E-Sama inaomba ruhusa ya Google Drive \"drive.file\" pekee, inayoiruhusu kuona na kusimamia faili za nakala inazounda kwenye Drive yako tu — kamwe si faili zako nyingine. Ufikiaji huu unatumika tu kuhifadhi na kurejesha nakala zako unapoomba. Data hii haiuzwi, haitumiki kwa matangazo wala kufunza miundo ya AI, na Samandari haina ufikiaji wake.\n\nMatumizi na uhamishaji wa E-Sama wa taarifa zinazopokelewa kutoka API za Google yatafuata <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener noreferrer\">Sera ya Data ya Watumiaji ya Huduma za API za Google</a> (Google API Services User Data Policy), ikiwemo masharti ya Matumizi Machache (Limited Use)."
           }
         },
         {
