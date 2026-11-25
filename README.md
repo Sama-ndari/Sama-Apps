@@ -26,6 +26,16 @@ A simple static marketplace to discover and download Android apps built by indep
 
 Pure HTML, CSS, and vanilla JavaScript. No frameworks, no build step.
 
+## Static legal pages
+
+`apps/esama/privacy.html` and `apps/esama/terms.html` are generated, fully static
+pages (Google's OAuth review reads them without running JavaScript). After editing
+E-Sama's text in `assets/js/legal-full.js`, regenerate them:
+
+```bash
+node scripts/generate-static-legal.js esama
+```
+
 ## Author
 
 Built by [Samandari](https://www.samandari.dev/)
