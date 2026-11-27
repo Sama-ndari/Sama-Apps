@@ -127,7 +127,7 @@ const APPS = [
     category: "Business",
     // Off the store grid while unpublished on Play Store; its detail, guide and
     // legal pages stay reachable by direct link (needed for Google OAuth review).
-    unlisted: true,
+    unlisted: false,
     price: "license",
     hasGuide: true,
     version: "1.0.3",
